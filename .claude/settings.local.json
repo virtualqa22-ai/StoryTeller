@@ -6,7 +6,8 @@
       "Bash(git commit:*)",
       "Bash(gh repo create:*)",
       "WebSearch",
-      "Bash(npx @kayvan/markdown-tree-parser:*)"
+      "Bash(npx @kayvan/markdown-tree-parser:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File:*)"
     ]
   }
 }
