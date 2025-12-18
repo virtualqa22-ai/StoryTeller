@@ -36,7 +36,7 @@ workflow_status:
 
       - id: "research"
         name: "Research"
-        status: "optional"
+        status: "_bmad-output/analysis/research/"
         agent: "analyst"
         command: "/bmad:bmm:workflows:research"
         note: "Technical and competitive analysis"
