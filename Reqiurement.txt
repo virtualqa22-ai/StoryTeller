@@ -1,0 +1,110 @@
+# 📚 StoryTeller - AI Novel Development Assistant
+
+**StoryTeller** is a powerful desktop application for writing novels with AI assistance. It will use any AI platform API key for content generation. It helps you craft compelling stories from concept to completed manuscript.
+
+---
+
+## **User Journey**
+
+- Home page with 2 buttons: Create new & Open existing
+- First ask user for AI API key. It can be any OpenAI, Claude, Gemini, Deepseek, Yandex or any.
+If model is not reached or its limit is over, user can have an option to change key or add key for another model.
+- Now, ask user for New project or existing project.
+- If user select new project then, start the project setup wizard.
+- If user select existing project, show him list of projects to choose from and then load it.
+- For the new project setup,
+- Ask user for Genre & Subgenre (Multiselect), then Target Audience & Tone, then, Point of View & Style Reference, then Chapter Count & Word Count, then Story Framework, and then High-Level Plot Premise. Provide pre-defined dropdowns wherever possible.
+- Based on these details, start generating:
+- Supporting Characters & Subplots (First generate by AI then user edit)
+- Setting & Worldbuilding (First generate by AI then user edit)
+- Themes & Stakes (First generate by AI then user edit)
+- Dialogue & Scene Preference (First generate by AI then user edit)
+- References & Inspirations (First generate by AI then user edit)
+- Titles, Taglines & Blurbs (First generate by AI then user edit)
+- Author name or Pen name
+- Chapter Image Preferences (if need to include or not)
+- Show and ask user inputs whenever required. Save all these details separately and based on these we need to create a whole novel. Ask for confirmations on each step before moving forward.
+- Based on all of these details, user enters to main workspace of building actual novel, chapter-by-chapter. Every chapter must show word count.
+- Table of content needs to auto generated and maintained.
+- There must be a regenerate option if user doesn't like generated content and all content must be editable by user.
+- Need export functionality with PDF, EPUB and Word doc, with custom margins and other settings.
+
+---
+
+## 📝 **Onboarding Wizard**
+- Multi-step guided setup for your novel project
+- Genre and subgenre selection (Thriller, Romance, Fantasy, Sci-Fi, Mystery, Horror)
+- Target audience and tone configuration
+- Point of view selection (First Person, Third Person Limited, Third Person Omniscient, Multiple POV)
+- Story framework selection (3-Act, 5-Act, Hero's Journey, Snowflake Method)
+- Chapter length and word length per chapter configuration
+- Character creation (Protagonist & Antagonist)
+- World-building and premise definition
+- Author / Pen Name, Novel Title and Tagline creation
+- Language Selection from dropdown
+
+---
+
+## 🎨 **Dynamic Theming**
+- Genre-based color schemes that adapt to your story
+- Premium UI design with smooth animations
+- Dark mode optimized for long writing sessions
+
+---
+
+## 🤖 **AI-Powered Writing**
+- **Chapter Generation**: AI generates contextually relevant chapters
+- **Smart Prompts**: Incorporates genre, tone, POV, characters, and framework guidance
+- **Regeneration**: Try different approaches with one click
+- **Transition Suggestions**: Get 2 options for how your next chapter could begin
+
+---
+
+## 📤 **Professional Export**
+- **PDF & EPUB Export**: Print-ready manuscripts with custom formatting
+- **DOCX Export**: Word-compatible documents for further editing
+- **Table of Contents**: Automatically generated and maintained chapter lists
+- **Title Pages**: Professional cover pages with author info
+- **Page Numbering**: Automatic pagination (PDF)
+- **Custom Formatting**: Configurable page background, fonts, margins, and spacing
+
+---
+
+## ⌨️ **Keyboard Shortcuts**
+- `Ctrl+S` / `⌘+S` - Save Project
+- `Ctrl+N` / `⌘+N` - New Project
+- `Ctrl+E` / `⌘+E` - Export
+- `Ctrl+G` / `⌘+G` - Generate Chapter
+- `Ctrl+,` / `⌘+,` - Settings
+
+---
+
+## 💾 **Project Management**
+
+- Auto-save every 30 seconds
+- Local project storage (no cloud dependency)
+- Recent projects view
+- Project metadata tracking
+- Every chapter must fulfill word length requirement
+
+---
+
+## 🔒 Privacy & Data
+
+- All data stored locally on your computer
+- No cloud sync - your stories stay private
+- API key stored securely in userData directory
+- Projects saved to `~/Documents/StoryTeller/Projects/`
+- Custom file extensions for all type of settings and project details
+
+---
+
+## 🤝 Contributing
+
+This is a personal project, but suggestions and feedback are welcome!
+
+---
+
+## 📄 License
+
+MIT License - feel free to use for personal or commercial projects
