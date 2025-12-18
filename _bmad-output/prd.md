@@ -1,5 +1,5 @@
 ---
-stepsCompleted: [1, 2, 3]
+stepsCompleted: [1, 2, 3, 4]
 inputDocuments:
   - "D:\\Documents\\Bonsai\\StoryTeller\\_bmad-output\\analysis\\product-brief-StoryTeller-2025-12-18"
   - "D:\\Documents\\Bonsai\\StoryTeller\\_bmad-output\\analysis\\research\\market-ai-writing-tools-research-2025-12-18"
