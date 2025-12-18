@@ -1,0 +1,78 @@
+# AI Writing Tools Market & Competitive Landscape
+
+## Table of Contents
+
+- [AI Writing Tools Market & Competitive Landscape](#table-of-contents)
+  - [stepsCompleted: [1]
+inputDocuments: []
+workflowType: 'research'
+lastStep: 1
+research_type: 'market'
+research_topic: 'AI Writing Tools Market & Competitive Landscape'
+research_goals: 'Understand market size, growth, competition, customer segments, pricing models, and opportunities for StoryTeller'
+user_name: 'Karan'
+date: '2025-12-18'
+web_research_enabled: true
+source_verification: true](#stepscompleted-1-inputdocuments-workflowtype-research-laststep-1-researchtype-market-researchtopic-ai-writing-tools-market-competitive-landscape-researchgoals-understand-market-size-growth-competition-customer-segments-pricing-models-and-opportunities-for-storyteller-username-karan-date-2025-12-18-webresearchenabled-true-sourceverification-true)
+  - [Comprehensive Market Research Report](./comprehensive-market-research-report.md)
+  - [Executive Summary](./executive-summary.md)
+  - [Table of Contents](./table-of-contents.md)
+  - [1. Market Overview](./1-market-overview.md)
+    - [1.1 Market Definition](./1-market-overview.md#11-market-definition)
+    - [1.2 Market Drivers](./1-market-overview.md#12-market-drivers)
+  - [2. Market Size & Growth Projections](./2-market-size-growth-projections.md)
+    - [2.1 Current Market Size (2024-2025)](./2-market-size-growth-projections.md#21-current-market-size-2024-2025)
+    - [2.2 Market Forecasts (2025-2033)](./2-market-size-growth-projections.md#22-market-forecasts-2025-2033)
+    - [2.3 Geographic Distribution](./2-market-size-growth-projections.md#23-geographic-distribution)
+  - [3. Customer Segments & User Behavior](./3-customer-segments-user-behavior.md)
+    - [3.1 Primary User Segments](./3-customer-segments-user-behavior.md#31-primary-user-segments)
+      - [Segment 1: Content Marketers & Business Writers (Largest)](./3-customer-segments-user-behavior.md#segment-1-content-marketers-business-writers-largest)
+      - [Segment 2: Fiction Authors & Novelists](./3-customer-segments-user-behavior.md#segment-2-fiction-authors-novelists)
+      - [Segment 3: Self-Published Authors](./3-customer-segments-user-behavior.md#segment-3-self-published-authors)
+      - [Segment 4: Academic & Student Writers](./3-customer-segments-user-behavior.md#segment-4-academic-student-writers)
+    - [3.2 Adoption Statistics](./3-customer-segments-user-behavior.md#32-adoption-statistics)
+    - [3.3 User Pain Points](./3-customer-segments-user-behavior.md#33-user-pain-points)
+  - [4. Competitive Landscape Analysis](./4-competitive-landscape-analysis.md)
+    - [4.1 Market Structure](./4-competitive-landscape-analysis.md#41-market-structure)
+    - [4.2 Detailed Competitor Profiles](./4-competitive-landscape-analysis.md#42-detailed-competitor-profiles)
+      - [Jasper (General AI Writing Leader)](./4-competitive-landscape-analysis.md#jasper-general-ai-writing-leader)
+      - [Copy.ai (Mid-Market Alternative)](./4-competitive-landscape-analysis.md#copyai-mid-market-alternative)
+      - [Writesonic (Budget-Friendly Option)](./4-competitive-landscape-analysis.md#writesonic-budget-friendly-option)
+      - [Sudowrite (Creative Writing Leader)](./4-competitive-landscape-analysis.md#sudowrite-creative-writing-leader)
+      - [NovelAI (Fiction Specialist)](./4-competitive-landscape-analysis.md#novelai-fiction-specialist)
+      - [Scrivener (Traditional Market Leader)](./4-competitive-landscape-analysis.md#scrivener-traditional-market-leader)
+      - [Vellum (Premium Export Tool)](./4-competitive-landscape-analysis.md#vellum-premium-export-tool)
+    - [4.3 Competitive Matrix](./4-competitive-landscape-analysis.md#43-competitive-matrix)
+  - [5. Pricing & Monetization Models](./5-pricing-monetization-models.md)
+    - [5.1 Current Pricing Landscape](./5-pricing-monetization-models.md#51-current-pricing-landscape)
+    - [5.2 Revenue Models](./5-pricing-monetization-models.md#52-revenue-models)
+    - [5.3 Pricing Strategy Insights](./5-pricing-monetization-models.md#53-pricing-strategy-insights)
+  - [6. Technology Trends & Challenges](./6-technology-trends-challenges.md)
+    - [6.1 Long-Form AI Writing Challenges](./6-technology-trends-challenges.md#61-long-form-ai-writing-challenges)
+    - [6.2 AI Model Evolution](./6-technology-trends-challenges.md#62-ai-model-evolution)
+    - [6.3 Technology Opportunities](./6-technology-trends-challenges.md#63-technology-opportunities)
+  - [7. Self-Publishing Industry Context](./7-self-publishing-industry-context.md)
+    - [7.1 Self-Publishing Market Size](./7-self-publishing-industry-context.md#71-self-publishing-market-size)
+    - [7.2 Amazon KDP Dominance](./7-self-publishing-industry-context.md#72-amazon-kdp-dominance)
+    - [7.3 Author Economics](./7-self-publishing-industry-context.md#73-author-economics)
+  - [8. Investment & Funding Trends](./8-investment-funding-trends.md)
+    - [8.1 Overall AI Writing Investment](./8-investment-funding-trends.md#81-overall-ai-writing-investment)
+    - [8.2 2025 Investment Momentum](./8-investment-funding-trends.md#82-2025-investment-momentum)
+    - [8.3 Notable AI Writing Investments](./8-investment-funding-trends.md#83-notable-ai-writing-investments)
+  - [9. Market Gaps & Opportunities](./9-market-gaps-opportunities.md)
+    - [9.1 Identified Market Gaps](./9-market-gaps-opportunities.md#91-identified-market-gaps)
+    - [9.2 Competitive Positioning Opportunity](./9-market-gaps-opportunities.md#92-competitive-positioning-opportunity)
+    - [9.3 Market Entry Strategy](./9-market-gaps-opportunities.md#93-market-entry-strategy)
+  - [10. Strategic Recommendations](./10-strategic-recommendations.md)
+    - [10.1 Product Development Priorities](./10-strategic-recommendations.md#101-product-development-priorities)
+    - [10.2 Market Entry Tactics](./10-strategic-recommendations.md#102-market-entry-tactics)
+    - [10.3 Revenue Projections](./10-strategic-recommendations.md#103-revenue-projections)
+    - [10.4 Risk Mitigation](./10-strategic-recommendations.md#104-risk-mitigation)
+  - [Conclusion](./conclusion.md)
+  - [Sources](./sources.md)
+    - [Market Research Firms:](./sources.md#market-research-firms)
+    - [Industry Statistics & Analysis:](./sources.md#industry-statistics-analysis)
+    - [Competitor Analysis & Reviews:](./sources.md#competitor-analysis-reviews)
+    - [Technical Research:](./sources.md#technical-research)
+    - [Investment & Funding:](./sources.md#investment-funding)
+    - [Author Communities & Publishing:](./sources.md#author-communities-publishing)
