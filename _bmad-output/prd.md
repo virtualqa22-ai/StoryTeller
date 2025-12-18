@@ -4,10 +4,11 @@ inputDocuments:
   - "D:\\Documents\\Bonsai\\StoryTeller\\_bmad-output\\analysis\\research\\market-ai-writing-tools-research-2025-12-18"
   - "D:\\Documents\\Bonsai\\StoryTeller\\_bmad-output\\analysis\\research\\domain-self-publishing-ecosystem-research-2025-12-18"
   - "D:\\Documents\\Bonsai\\StoryTeller\\_bmad-output\\analysis\\research\\technical-implementation-technologies-research-2025-12-18"
+  - "D:\\Documents\\Bonsai\\StoryTeller\\_bmad-output\\analysis\\brainstorming-session-2025-12-17"
 documentCounts:
   briefs: 0
   research: 3
-  brainstorming: 0
+  brainstorming: 1
   projectDocs: 0
 workflowType: 'prd'
 lastStep: 0
