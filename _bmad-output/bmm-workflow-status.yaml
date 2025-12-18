@@ -43,10 +43,11 @@ workflow_status:
 
       - id: "product-brief"
         name: "Product Brief"
-        status: "optional"
+        status: "_bmad-output/analysis/product-brief-StoryTeller-2025-12-18.md"
         agent: "analyst"
         command: "/bmad:bmm:workflows:create-product-brief"
         note: "Strategic product planning - recommended for greenfield"
+        completed: "2025-12-18"
 
   # Phase 1: Planning
   - phase: 1
