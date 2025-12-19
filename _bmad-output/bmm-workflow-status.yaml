@@ -25,6 +25,13 @@ workflow_path: "_bmad/bmm/workflows/workflow-status/paths/method-greenfield.yaml
 # Project Documents
 project_documents:
   requirements: "Reqiurement.txt"
+  product_brief: "_bmad-output/analysis/product-brief-StoryTeller-2025-12-18/"
+  brainstorming: "_bmad-output/analysis/brainstorming-session-2025-12-17/"
+  research:
+    market: "_bmad-output/analysis/research/market-ai-writing-tools-research-2025-12-18/"
+    domain: "_bmad-output/analysis/research/domain-self-publishing-ecosystem-research-2025-12-18/"
+    technical: "_bmad-output/analysis/research/technical-implementation-technologies-research-2025-12-18/"
+  prd: "_bmad-output/prd/"
 
 workflow_status:
   # Phase 0: Discovery (Optional)
