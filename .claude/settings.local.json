@@ -7,7 +7,8 @@
       "Bash(gh repo create:*)",
       "WebSearch",
       "Bash(npx @kayvan/markdown-tree-parser:*)",
-      "Bash(powershell -ExecutionPolicy Bypass -File:*)"
+      "Bash(powershell -ExecutionPolicy Bypass -File:*)",
+      "Skill(bmad:core:workflows:party-mode)"
     ]
   }
 }
