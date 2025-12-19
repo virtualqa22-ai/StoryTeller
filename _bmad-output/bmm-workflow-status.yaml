@@ -22,6 +22,10 @@ selected_track: "bmad-method"
 field_type: "greenfield"
 workflow_path: "_bmad/bmm/workflows/workflow-status/paths/method-greenfield.yaml"
 
+# Project Documents
+project_documents:
+  requirements: "Reqiurement.txt"
+
 workflow_status:
   # Phase 0: Discovery (Optional)
   - phase: 0
