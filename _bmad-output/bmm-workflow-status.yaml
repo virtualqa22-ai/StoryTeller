@@ -59,11 +59,28 @@ workflow_status:
     workflows:
       - id: "prd"
         name: "Product Requirements Document"
-        status: "_bmad-output/prd.md"
+        status: "_bmad-output/prd/"
         agent: "pm"
         command: "/bmad:bmm:workflows:create-prd"
-        note: "Complete product requirements with FRs and NFRs"
+        note: "Complete product requirements with FRs and NFRs (sharded into 10 sections + index)"
         completed: "2025-12-19"
+        files:
+          - "_bmad-output/prd/index.md"
+          - "_bmad-output/prd/executive-summary.md"
+          - "_bmad-output/prd/project-classification.md"
+          - "_bmad-output/prd/success-criteria.md"
+          - "_bmad-output/prd/product-scope.md"
+          - "_bmad-output/prd/user-journeys.md"
+          - "_bmad-output/prd/innovation-novel-patterns.md"
+          - "_bmad-output/prd/desktop-application-specific-requirements.md"
+          - "_bmad-output/prd/project-scoping-phased-development.md"
+          - "_bmad-output/prd/functional-requirements.md"
+          - "_bmad-output/prd/non-functional-requirements.md"
+        metrics:
+          functional_requirements: 222
+          non_functional_requirements: 88
+          user_journeys: 3
+          total_sections: 10
 
       - id: "create-ux-design"
         name: "UX Design"
