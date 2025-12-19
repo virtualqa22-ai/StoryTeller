@@ -59,10 +59,11 @@ workflow_status:
     workflows:
       - id: "prd"
         name: "Product Requirements Document"
-        status: "required"
+        status: "_bmad-output/prd.md"
         agent: "pm"
         command: "/bmad:bmm:workflows:create-prd"
         note: "Complete product requirements with FRs and NFRs"
+        completed: "2025-12-19"
 
       - id: "create-ux-design"
         name: "UX Design"
