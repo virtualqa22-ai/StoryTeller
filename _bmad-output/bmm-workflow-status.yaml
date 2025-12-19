@@ -40,7 +40,7 @@ workflow_status:
     workflows:
       - id: "brainstorm-project"
         name: "Brainstorming"
-        status: "_bmad-output/analysis/brainstorming-session-2025-12-17.md"
+        status: "_bmad-output/analysis/brainstorming-session-2025-12-17/"
         agent: "analyst"
         command: "/bmad:bmm:workflows:brainstorming"
         note: "Creative exploration and ideation for project"
@@ -54,7 +54,7 @@ workflow_status:
 
       - id: "product-brief"
         name: "Product Brief"
-        status: "_bmad-output/analysis/product-brief-StoryTeller-2025-12-18.md"
+        status: "_bmad-output/analysis/product-brief-StoryTeller-2025-12-18/"
         agent: "analyst"
         command: "/bmad:bmm:workflows:create-product-brief"
         note: "Strategic product planning - recommended for greenfield"
