@@ -1,0 +1,24 @@
+# Story Bible Technology - Validation & Intelligence
+
+- FR25: System validates AI-generated content against Story Bible rules before generation begins
+- FR26: System detects potential contradictions in real-time during AI generation
+- FR27: System validates generated content after generation for character consistency, plot continuity, world-building adherence, and emotional arc progression
+- FR28: System reports detected contradictions to users with specific source references from Story Bible
+- FR29: System detects recurring patterns in user's writing style across multiple chapters
+- FR30: Users can review AI-suggested style rules derived from detected patterns
+- FR31: Users can confirm or reject AI-suggested style rules with one action
+- FR32: System understands story framework structure and tracks current chapter position in narrative arc
+- FR33: System adjusts tone, pacing suggestions, and plot progression guidance based on story position
+- FR135: System prevents Story Bible editing during active AI generation to avoid conflicts
+- FR148: Users can customize AI validation rules (enable/disable specific contradiction checks)
+- FR158: System displays contradiction reports in dedicated validation panel with source Story Bible entry references
+- FR159: System limits real-time contradiction alerts to critical issues (user can view full report separately)
+- FR164: System allows users to configure validation intensity (fast mode with pre/post only, or comprehensive mode with all three layers)
+- FR171: System shows users which Story Bible entries are included in context assembly for transparency
+- FR172: Users can manually select specific Story Bible entries to include/exclude from AI generation context
+- FR177: System notifies users when Story Bible edits are blocked due to active AI generation with estimated completion time
+- FR178: System handles empty Story Bible gracefully by generating without validation (first-time user scenario)
+- FR179: System notifies users when Story Bible context assembly finds insufficient relevant entries
+- FR181: System uses category-aware context assembly (always includes certain categories, searches others)
+- FR221: System treats Story Bible as source of truth and highlights existing manuscript contradictions against Story Bible
+- FR222: Users can choose to update Story Bible or manuscript when contradictions detected between them

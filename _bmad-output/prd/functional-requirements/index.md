@@ -1,0 +1,28 @@
+# Functional Requirements
+
+## Table of Contents
+
+- [Functional Requirements](#table-of-contents)
+  - [Project Setup & Configuration](./project-setup-configuration.md)
+  - [AI-Powered Story Development](./ai-powered-story-development.md)
+  - [Story Bible Technology - Core Storage & Management](./story-bible-technology-core-storage-management.md)
+  - [Story Bible Technology - Validation & Intelligence](./story-bible-technology-validation-intelligence.md)
+  - [Story Bible Technology - Onboarding & Enhancement](./story-bible-technology-onboarding-enhancement.md)
+  - [Writing Workspace - Editing & Content Creation](./writing-workspace-editing-content-creation.md)
+  - [Writing Workspace - Chapter Management & Progress](./writing-workspace-chapter-management-progress.md)
+  - [Writing Workspace - Data Management](./writing-workspace-data-management.md)
+  - [Organization & Character Management](./organization-character-management.md)
+  - [Multi-AI Provider Support](./multi-ai-provider-support.md)
+  - [Professional Export - Core Capabilities](./professional-export-core-capabilities.md)
+  - [Professional Export - Quality & Standards](./professional-export-quality-standards.md)
+  - [Data Management & Storage](./data-management-storage.md)
+  - [Cross-Platform Desktop Application](./cross-platform-desktop-application.md)
+  - [Auto-Update & Distribution](./auto-update-distribution.md)
+  - [Offline Capability](./offline-capability.md)
+  - [User Experience & Interface](./user-experience-interface.md)
+  - [Accessibility & Internationalization](./accessibility-internationalization.md)
+  - [Installation & First-Run](./installation-first-run.md)
+  - [Beta Program & Quality Management](./beta-program-quality-management.md)
+  - [Performance & Optimization](./performance-optimization.md)
+  - [System Diagnostics & Error Handling](./system-diagnostics-error-handling.md)
+  - [Productivity & Motivation](./productivity-motivation.md)
