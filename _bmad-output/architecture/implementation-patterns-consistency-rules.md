@@ -1284,7 +1284,7 @@ export async function saveEntity(entity: Entity): Promise<Entity> {
 }
 
 // src/lib/stores/storyBible.svelte.ts
-import { $state } from 'svelte';
+// Note: $state is a compiler directive, NOT an import
 import { saveEntity } from '$lib/api/storyBible';
 
 export class StoryBibleState {
