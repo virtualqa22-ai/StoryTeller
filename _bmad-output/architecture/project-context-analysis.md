@@ -390,7 +390,9 @@ Through collaborative analysis with the architecture team, several critical gaps
 10. StyleProfileService (literary users)
 11. Keyboard shortcuts (power users)
 
-**Total Timeline: 9 months to beta-ready product**
+**Initial Timeline Estimate: 9 months to beta-ready product**
+
+> **Note:** This was the initial estimate. After detailed architectural analysis including Rust learning curve, custom Svelte components, ONNX integration, and comprehensive testing infrastructure, the **authoritative timeline is 12 months** as documented in `core-architectural-decisions.md`.
 
 **Risk of Skipping UX Layer:**
 - Launch in 8 months
