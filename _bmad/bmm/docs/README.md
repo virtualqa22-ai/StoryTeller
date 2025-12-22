@@ -51,7 +51,7 @@ Understanding how BMM adapts to your needs:
 
 Complete guide to BMM's AI agent team:
 
-- **[Agents Guide](./agents-guide.md)** - Comprehensive agent reference (45 min read)
+- **[Agents Guide](./agents-guide/index.md)** - Comprehensive agent reference (45 min read)
   - 12 specialized BMM agents + BMad Master
   - Agent roles, workflows, and when to use them
   - Agent customization system
