@@ -20,7 +20,7 @@ inputDocuments:
   - "_bmad-output/analysis/research/domain-self-publishing-ecosystem-research-2025-12-18/comprehensive-domain-research-report.md"
   - "_bmad-output/analysis/research/technical-implementation-technologies-research-2025-12-18/comprehensive-technical-research-report.md"
 workflowType: 'architecture'
-lastStep: 2
+lastStep: 3
 project_name: 'StoryTeller'
 user_name: 'Karan'
 date: '2025-12-22'
