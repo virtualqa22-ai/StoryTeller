@@ -8,8 +8,8 @@
 
 **Documentation:**
 
-- **[Test Architect Guide](./test-architecture.md)** - Comprehensive testing strategy
-- [BMM Module README](../README.md) - Complete module and workflow reference
+- **[Test Architect Guide](../test-architecture/index.md)** - Comprehensive testing strategy
+- [BMM Module README](../../README.md) - Complete module and workflow reference
 
 ---
 
