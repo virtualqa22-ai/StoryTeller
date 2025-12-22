@@ -1,5 +1,5 @@
 ---
-stepsCompleted: [1, 2]
+stepsCompleted: [1, 2, 3]
 inputDocuments:
   - "_bmad-output/prd/executive-summary.md"
   - "_bmad-output/prd/project-classification.md"
