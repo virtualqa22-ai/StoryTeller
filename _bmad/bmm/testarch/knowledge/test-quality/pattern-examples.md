@@ -1,16 +1,6 @@
-# Test Quality Definition of Done
+# Pattern Examples
 
-## Principle
-
-Tests must be deterministic, isolated, explicit, focused, and fast. Every test should execute in under 1.5 minutes, contain fewer than 300 lines, avoid hard waits and conditionals, keep assertions visible in test bodies, and clean up after itself for parallel execution.
-
-## Rationale
-
-Quality tests provide reliable signal about application health. Flaky tests erode confidence and waste engineering time. Tests that use hard waits (`waitForTimeout(3000)`) are non-deterministic and slow. Tests with hidden assertions or conditional logic become unmaintainable. Large tests (>300 lines) are hard to understand and debug. Slow tests (>1.5 min) block CI pipelines. Self-cleaning tests prevent state pollution in parallel runs.
-
-## Pattern Examples
-
-### Example 1: Deterministic Test Pattern
+## Example 1: Deterministic Test Pattern
 
 **Context**: When writing tests, eliminate all sources of non-determinism: hard waits, conditionals controlling flow, try-catch for flow control, and random data without seeds.
 
@@ -97,7 +87,7 @@ describe('Dashboard', () => {
 - Use factory functions with controlled data, not `Math.random()`
 - Network-first pattern prevents race conditions
 
-### Example 2: Isolated Test with Cleanup
+## Example 2: Isolated Test with Cleanup
 
 **Context**: When tests create data, they must clean up after themselves to prevent state pollution in parallel runs. Use fixture auto-cleanup or explicit teardown.
 
@@ -215,7 +205,7 @@ describe('Admin User Management', () => {
 - Cypress: Use `afterEach()` with explicit cleanup
 - Never hardcode IDs or emails - always generate unique values
 
-### Example 3: Explicit Assertions in Tests
+## Example 3: Explicit Assertions in Tests
 
 **Context**: When validating test results, keep assertions visible in test bodies. Never hide assertions in helper functions - this obscures test intent and makes failures harder to diagnose.
 
@@ -333,7 +323,7 @@ test.describe('User creation validation', () => {
 - Explicit assertions make failures actionable: "Expected X, got Y"
 - Hidden assertions produce vague failures: "Helper function failed"
 
-### Example 4: Test Length Limits
+## Example 4: Test Length Limits
 
 **Context**: When tests grow beyond 300 lines, they become hard to understand, debug, and maintain. Refactor long tests by extracting setup helpers, splitting scenarios, or using fixtures.
 
@@ -462,7 +452,7 @@ test('admin can update notification preferences', async ({ adminPage, seedUser }
 - Failures are easier to diagnose: "Permission assignment failed" vs "Complete journey failed"
 - Tests can run in parallel (isolated concerns)
 
-### Example 5: Execution Time Optimization
+## Example 5: Execution Time Optimization
 
 **Context**: When tests take longer than 1.5 minutes, they slow CI pipelines and feedback loops. Optimize by using API setup instead of UI navigation, parallelizing independent operations, and avoiding unnecessary waits.
 
@@ -638,27 +628,3 @@ test('admin action', async ({ page }) => {
 - Replace hard waits with deterministic waits (`waitForResponse`)
 - Reuse auth sessions via `storageState` (Playwright) or `setCookie` (Cypress)
 - Skip unnecessary flows (email verification, multi-step signups)
-
-## Integration Points
-
-- **Used in workflows**: `*atdd` (test generation quality), `*automate` (test expansion quality), `*test-review` (quality validation)
-- **Related fragments**:
-  - `network-first.md` - Deterministic waiting strategies
-  - `data-factories.md` - Isolated, parallel-safe data patterns
-  - `fixture-architecture.md` - Setup extraction and cleanup
-  - `test-levels-framework.md` - Choosing appropriate test granularity for speed
-
-## Core Quality Checklist
-
-Every test must pass these criteria:
-
-- [ ] **No Hard Waits** - Use `waitForResponse`, `waitForLoadState`, or element state (not `waitForTimeout`)
-- [ ] **No Conditionals** - Tests execute the same path every time (no if/else, try/catch for flow control)
-- [ ] **< 300 Lines** - Keep tests focused; split large tests or extract setup to fixtures
-- [ ] **< 1.5 Minutes** - Optimize with API setup, parallel operations, and shared auth
-- [ ] **Self-Cleaning** - Use fixtures with auto-cleanup or explicit `afterEach()` teardown
-- [ ] **Explicit Assertions** - Keep `expect()` calls in test bodies, not hidden in helpers
-- [ ] **Unique Data** - Use `faker` for dynamic data; never hardcode IDs or emails
-- [ ] **Parallel-Safe** - Tests don't share state; run successfully with `--workers=4`
-
-_Source: Murat quality checklist, Definition of Done requirements (lines 370-381, 406-422)._
