@@ -71,7 +71,7 @@ Complete guide to BMM's AI agent team:
 
 Comprehensive guide for brownfield development:
 
-- **[Brownfield Development Guide](./brownfield-guide.md)** - Complete guide for existing codebases (53 min read)
+- **[Brownfield Development Guide](./brownfield-guide/index.md)** - Complete guide for existing codebases (53 min read)
   - Documentation phase strategies
   - Track selection for brownfield
   - Integration with existing patterns
@@ -86,7 +86,7 @@ Essential reference materials:
 
 - **[Glossary](./glossary.md)** - Key terminology and concepts
 - **[FAQ](./faq.md)** - Frequently asked questions across all topics
-- **[Enterprise Agentic Development](./enterprise-agentic-development.md)** - Team collaboration strategies
+- **[Enterprise Agentic Development](./enterprise-agentic-development/index.md)** - Team collaboration strategies
 
 ---
 
@@ -103,7 +103,7 @@ Essential reference materials:
 → Or use [Quick Flow Solo Dev](./quick-flow-solo-dev.md) directly
 
 **Work with existing codebase (brownfield)**
-→ Read [Brownfield Development Guide](./brownfield-guide.md)
+→ Read [Brownfield Development Guide](./brownfield-guide/index.md)
 → Pay special attention to documentation requirements for brownfield projects
 
 **Understand planning tracks and methodology**
@@ -139,7 +139,7 @@ Comprehensive documentation for all BMM workflows organized by phase:
   - Complete story lifecycle
   - One-story-at-a-time discipline
 
-- **[Testing & QA Workflows](./test-architecture.md)** - Comprehensive quality assurance (1,420 lines)
+- **[Testing & QA Workflows](./test-architecture/index.md)** - Comprehensive quality assurance (1,420 lines)
   - Test strategy, automation, quality gates
   - TEA agent and test healing
   - BMad-integrated vs standalone modes
