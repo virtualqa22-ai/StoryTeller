@@ -803,7 +803,7 @@ await listen<EntityCreatedPayload>('story-bible:entity-created', (event) => {
 
 ```typescript
 // ✅ CORRECT: Immutable pattern
-import { $state, $derived } from 'svelte';
+// Note: $state and $derived are compiler directives, NOT imports
 
 export class StoryBibleState {
   entities = $state<Entity[]>([]);
