@@ -13,8 +13,8 @@ date: system-generated
 
 # Workflow components
 installed_path: "{project-root}/_bmad/bmm/workflows/testarch/automate"
-instructions: "{installed_path}/instructions.md"
-validation: "{installed_path}/checklist.md"
+instructions: "{installed_path}/instructions/index.md"
+validation: "{installed_path}/checklist/index.md"
 template: false
 
 # Variables and inputs
