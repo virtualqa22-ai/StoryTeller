@@ -1,16 +1,6 @@
-# Selective and Targeted Test Execution
+# Pattern Examples
 
-## Principle
-
-Run only the tests you need, when you need them. Use tags/grep to slice suites by risk priority (not directory structure), filter by spec patterns or git diff to focus on impacted areas, and combine priority metadata (P0-P3) with change detection to optimize pre-commit vs. CI execution. Document the selection strategy clearly so teams understand when full regression is mandatory.
-
-## Rationale
-
-Running the entire test suite on every commit wastes time and resources. Smart test selection provides fast feedback (smoke tests in minutes, full regression in hours) while maintaining confidence. The "32+ ways of selective testing" philosophy balances speed with coverage: quick loops for developers, comprehensive validation before deployment. Poorly documented selection leads to confusion about when tests run and why.
-
-## Pattern Examples
-
-### Example 1: Tag-Based Execution with Priority Levels
+## Example 1: Tag-Based Execution with Priority Levels
 
 **Context**: Organize tests by risk priority and execution stage using grep/tag patterns.
 
@@ -150,7 +140,7 @@ npx cypress run --env grepTags="@p0 @p1"     # OR logic
 
 ---
 
-### Example 2: Spec Filter Pattern (File-Based Selection)
+## Example 2: Spec Filter Pattern (File-Based Selection)
 
 **Context**: Run tests by file path pattern or directory for targeted execution.
 
@@ -297,7 +287,7 @@ try {
 
 ---
 
-### Example 3: Diff-Based Test Selection (Changed Files Only)
+## Example 3: Diff-Based Test Selection (Changed Files Only)
 
 **Context**: Run only tests affected by code changes for maximum speed.
 
@@ -479,7 +469,7 @@ jobs:
 
 ---
 
-### Example 4: Promotion Rules (Pre-Commit → CI → Staging → Production)
+## Example 4: Promotion Rules (Pre-Commit → CI → Staging → Production)
 
 **Context**: Progressive test execution strategy across deployment stages.
 
@@ -663,7 +653,7 @@ jobs:
 ````markdown
 # Test Selection Strategy
 
-## Test Promotion Stages
+# Test Promotion Stages
 
 | Stage      | Tests Run           | Time Budget | Blocks Deploy | Failure Action |
 | ---------- | ------------------- | ----------- | ------------- | -------------- |
@@ -673,7 +663,7 @@ jobs:
 | Staging    | E2E smoke           | 15 min      | ✅ Yes        | Rollback       |
 | Production | Critical smoke only | 5 min       | ❌ No         | Alert team     |
 
-## When Full Regression Runs
+# When Full Regression Runs
 
 Full regression suite (`npm run test:regression`) runs in these scenarios:
 
@@ -688,7 +678,7 @@ Full regression does NOT run on:
 - ❌ Pre-commit hooks (too slow)
 - ❌ Production deployments (deploy-blocking)
 
-## Override Scenarios
+# Override Scenarios
 
 Skip tests (emergency only):
 
@@ -709,7 +699,7 @@ gh pr merge --admin     # Force merge (requires admin)
 
 ---
 
-## Test Selection Strategy Checklist
+# Test Selection Strategy Checklist
 
 Before implementing selective testing, verify:
 
@@ -722,7 +712,7 @@ Before implementing selective testing, verify:
 - [ ] **Emergency overrides**: Skip mechanisms documented (--no-verify, admin merge)
 - [ ] **Metrics tracked**: Monitor test execution time and selection accuracy
 
-## Integration Points
+# Integration Points
 
 - Used in workflows: `*ci` (CI/CD setup), `*automate` (test generation with tags)
 - Related fragments: `ci-burn-in.md`, `test-priorities-matrix.md`, `test-quality.md`
