@@ -416,7 +416,7 @@ Always run `document-project` before planning brownfield projects. AI agents nee
 - [Phase 4: Implementation Workflows](./workflows-implementation.md)
 - [Scale Adaptive System](./scale-adaptive-system.md) - Understanding the three tracks
 - [Quick Spec Flow](./quick-spec-flow.md) - Quick Flow track details
-- [Agents Guide](./agents-guide.md) - Complete agent reference
+- [Agents Guide](./agents-guide/index.md) - Complete agent reference
 
 ---
 
