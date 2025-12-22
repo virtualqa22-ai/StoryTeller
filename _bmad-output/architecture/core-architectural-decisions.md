@@ -663,11 +663,12 @@ function storyBiblePlugin() {
 **Global State Stores:**
 ```typescript
 // src/lib/stores/editor.svelte.ts
-import { $state, $derived } from 'svelte';
+// Note: $state and $derived are Svelte 5 compiler directives, NOT imports
+// They are used directly without importing
 
 export class EditorState {
   content = $state('');
-  wordCount = $derived(() => this.content.split(/\s+/).length);
+  wordCount = $derived(this.content.split(/\s+/).length);
   chapterTitle = $state('Untitled Chapter');
   isDirty = $state(false);
   lastSaved = $state<Date | null>(null);
