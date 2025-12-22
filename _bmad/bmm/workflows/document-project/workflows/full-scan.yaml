@@ -18,7 +18,7 @@ documentation_requirements_csv: "{project-root}/_bmad/bmm/workflows/document-pro
 # Module path and component files
 installed_path: "{project-root}/_bmad/bmm/workflows/document-project/workflows"
 template: false # Action workflow
-instructions: "{installed_path}/full-scan-instructions.md"
+instructions: "{installed_path}/full-scan-instructions/index.md"
 validation: "{project-root}/_bmad/bmm/workflows/document-project/checklist.md"
 
 # Runtime inputs (passed from parent workflow)
