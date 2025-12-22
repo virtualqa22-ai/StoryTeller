@@ -144,7 +144,7 @@ agent:
       - 'Patient safety over feature velocity'
 ```
 
-See [Agents Guide](./agents-guide.md#agent-customization) for details.
+See [Agents Guide](./agents-guide/agent-customization.md) for details.
 
 ---
 
