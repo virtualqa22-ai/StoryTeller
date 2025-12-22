@@ -591,7 +591,7 @@ If your issue isn't covered here:
    - [FAQ](./faq.md) - Common questions
    - [Glossary](./glossary.md) - Terminology
    - [Quick Start](./quick-start.md) - Basic usage
-   - [Brownfield Guide](./brownfield-guide.md) - Existing codebases
+   - [Brownfield Guide](./brownfield-guide/index.md) - Existing codebases
    - [Scale Adaptive System](./scale-adaptive-system.md) - Understanding levels
 
 2. **Community support**:

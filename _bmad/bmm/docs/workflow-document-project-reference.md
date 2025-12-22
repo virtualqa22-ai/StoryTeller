@@ -484,6 +484,6 @@ Optimized JSON (no pretty-printing):
 
 **Related Documentation:**
 
-- [Brownfield Development Guide](./brownfield-guide.md)
+- [Brownfield Development Guide](./brownfield-guide/index.md)
 - [Implementation Workflows](./workflows-implementation.md)
 - [Scale Adaptive System](./scale-adaptive-system.md)
