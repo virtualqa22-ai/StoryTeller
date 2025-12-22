@@ -467,7 +467,7 @@ Trust your expertise - BMM supports your decisions.
 
 **For comprehensive coverage of enterprise team collaboration, work distribution strategies, git submodule setup, and velocity expectations, see:**
 
-👉 **[Enterprise Agentic Development Guide](./enterprise-agentic-development.md)**
+👉 **[Enterprise Agentic Development Guide](./enterprise-agentic-development/index.md)**
 
 ### Q: What is party mode and when should I use it?
 
@@ -535,7 +535,7 @@ Please include:
 - [Quick Start Guide](./quick-start.md) - Get started with BMM
 - [Glossary](./glossary.md) - Terminology reference
 - [Scale Adaptive System](./scale-adaptive-system.md) - Understanding levels
-- [Brownfield Guide](./brownfield-guide.md) - Existing codebase workflows
+- [Brownfield Guide](./brownfield-guide/index.md) - Existing codebase workflows
 
 ---
 
