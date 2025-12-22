@@ -32,6 +32,7 @@ project_documents:
     domain: "_bmad-output/analysis/research/domain-self-publishing-ecosystem-research-2025-12-18/"
     technical: "_bmad-output/analysis/research/technical-implementation-technologies-research-2025-12-18/"
   prd: "_bmad-output/prd/"
+  ux_design: "_bmad-output/ux-design-specification/"
 
 workflow_status:
   # Phase 0: Discovery (Optional)
@@ -91,10 +92,32 @@ workflow_status:
 
       - id: "create-ux-design"
         name: "UX Design"
-        status: "conditional"
+        status: "_bmad-output/ux-design-specification/"
         agent: "ux-designer"
         command: "/bmad:bmm:workflows:create-ux-design"
         note: "Required for UI - determined after PRD"
+        completed: "2025-12-22"
+        files:
+          - "_bmad-output/ux-design-specification/index.md"
+          - "_bmad-output/ux-design-specification/executive-summary.md"
+          - "_bmad-output/ux-design-specification/core-user-experience.md"
+          - "_bmad-output/ux-design-specification/desired-emotional-response.md"
+          - "_bmad-output/ux-design-specification/ux-pattern-analysis-inspiration.md"
+          - "_bmad-output/ux-design-specification/design-system-foundation.md"
+          - "_bmad-output/ux-design-specification/defining-core-experience.md"
+          - "_bmad-output/ux-design-specification/visual-design-foundation.md"
+          - "_bmad-output/ux-design-specification/design-directions-visual-language.md"
+          - "_bmad-output/ux-design-specification/key-user-journeys.md"
+          - "_bmad-output/ux-design-specification/component-strategy.md"
+          - "_bmad-output/ux-design-specification/ux-patterns-micro-interactions.md"
+          - "_bmad-output/ux-design-specification/responsive-design-accessibility.md"
+          - "_bmad-output/ux-design-specification/implementation-roadmap-handoff.md"
+          - "_bmad-output/ux-design-specification/conclusion.md"
+        metrics:
+          total_sections: 14
+          design_system: "Fluent UI 2"
+          personas: 3
+          user_journeys: 5
 
   # Phase 2: Solutioning
   - phase: 2
