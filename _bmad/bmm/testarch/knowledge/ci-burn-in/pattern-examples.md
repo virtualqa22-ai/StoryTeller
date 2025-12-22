@@ -1,16 +1,6 @@
-# CI Pipeline and Burn-In Strategy
+# Pattern Examples
 
-## Principle
-
-CI pipelines must execute tests reliably, quickly, and provide clear feedback. Burn-in testing (running changed tests multiple times) flushes out flakiness before merge. Stage jobs strategically: install/cache once, run changed specs first for fast feedback, then shard full suites with fail-fast disabled to preserve evidence.
-
-## Rationale
-
-CI is the quality gate for production. A poorly configured pipeline either wastes developer time (slow feedback, false positives) or ships broken code (false negatives, insufficient coverage). Burn-in testing ensures reliability by stress-testing changed code, while parallel execution and intelligent test selection optimize speed without sacrificing thoroughness.
-
-## Pattern Examples
-
-### Example 1: GitHub Actions Workflow with Parallel Execution
+## Example 1: GitHub Actions Workflow with Parallel Execution
 
 **Context**: Production-ready CI/CD pipeline for E2E tests with caching, parallelization, and burn-in testing.
 
@@ -215,7 +205,7 @@ jobs:
 
 ---
 
-### Example 2: Burn-In Loop Pattern (Standalone Script)
+## Example 2: Burn-In Loop Pattern (Standalone Script)
 
 **Context**: Reusable bash script for burn-in testing changed specs locally or in CI.
 
@@ -329,7 +319,7 @@ exit 0
 
 ---
 
-### Example 3: Shard Orchestration with Result Aggregation
+## Example 3: Shard Orchestration with Result Aggregation
 
 **Context**: Advanced sharding strategy for large test suites with intelligent result merging.
 
@@ -524,7 +514,7 @@ main().catch((error) => {
 
 ---
 
-### Example 4: Selective Test Execution (Changed Files + Tags)
+## Example 4: Selective Test Execution (Changed Files + Tags)
 
 **Context**: Optimize CI by running only relevant tests based on file changes and tags.
 
@@ -652,24 +642,3 @@ jobs:
 - **Component mapping**: UI changes run related component tests
 
 ---
-
-## CI Configuration Checklist
-
-Before deploying your CI pipeline, verify:
-
-- [ ] **Caching strategy**: node_modules, npm cache, browser binaries cached
-- [ ] **Timeout budgets**: Each job has reasonable timeout (10-30 min)
-- [ ] **Artifact retention**: 30 days for reports, 7 days for failure artifacts
-- [ ] **Parallelization**: Matrix strategy uses fail-fast: false
-- [ ] **Burn-in enabled**: Changed specs run 5-10x before merge
-- [ ] **wait-on app startup**: CI waits for app (wait-on: '<http://localhost:3000>')
-- [ ] **Secrets documented**: README lists required secrets (API keys, tokens)
-- [ ] **Local parity**: CI scripts runnable locally (npm run test:ci)
-
-## Integration Points
-
-- Used in workflows: `*ci` (CI/CD pipeline setup)
-- Related fragments: `selective-testing.md`, `playwright-config.md`, `test-quality.md`
-- CI tools: GitHub Actions, GitLab CI, CircleCI, Jenkins
-
-_Source: Murat CI/CD strategy blog, Playwright/Cypress workflow examples, SEON production pipelines_
