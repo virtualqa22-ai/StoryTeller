@@ -267,7 +267,7 @@
 ### Knowledge Base References
 
 - `risk-governance.md` - Risk classification framework
-- `probability-impact.md` - Risk scoring methodology
+- `probability-impact/index.md` - Risk scoring methodology
 - `test-levels-framework.md` - Test level selection
 - `test-priorities-matrix.md` - P0-P3 prioritization
 

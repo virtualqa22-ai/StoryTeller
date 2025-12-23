@@ -11,7 +11,7 @@
 ## Healing Knowledge Fragments Loaded (If Healing Enabled)
 
 - [ ] `test-healing-patterns.md` loaded (common failure patterns and fixes)
-- [ ] `selector-resilience.md` loaded (selector refactoring guide)
+- [ ] `selector-resilience/index.md` loaded (selector refactoring guide)
 - [ ] `timing-debugging.md` loaded (race condition fixes)
 
 ## Test Execution and Validation

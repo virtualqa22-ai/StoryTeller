@@ -138,7 +138,7 @@
 ### Knowledge Base Integration
 
 - [ ] risk-governance.md consulted
-- [ ] probability-impact.md applied
+- [ ] probability-impact/index.md applied
 - [ ] test-levels-framework.md referenced
 - [ ] test-priorities-matrix.md used
 - [ ] Additional fragments loaded as needed

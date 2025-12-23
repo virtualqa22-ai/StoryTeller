@@ -45,7 +45,7 @@
 
    Consult `tea-index.csv` to load healing patterns:
    - `test-healing-patterns.md` - Common failure patterns and fixes
-   - `selector-resilience.md` - Selector debugging and refactoring
+   - `selector-resilience/index.md` - Selector debugging and refactoring
    - `timing-debugging.md` - Race condition identification and fixes
 
    **B. Identify Failure Pattern**
@@ -55,7 +55,7 @@
    **Stale Selector Failure:**
    - Error contains: "locator resolved to 0 elements", "element not found", "unable to find element"
    - Extract selector from error message
-   - Apply selector healing (knowledge from `selector-resilience.md`):
+   - Apply selector healing (knowledge from `selector-resilience/index.md`):
      - If CSS class → Replace with `page.getByTestId()`
      - If nth() → Replace with `filter({ hasText })`
      - If ID → Replace with data-testid
@@ -110,7 +110,7 @@
    - Parse error message and stack trace
    - Match against failure patterns from knowledge base
    - Apply fixes programmatically:
-     - Selector fixes: Use suggestions from `selector-resilience.md`
+     - Selector fixes: Use suggestions from `selector-resilience/index.md`
      - Timing fixes: Apply patterns from `timing-debugging.md`
      - Data fixes: Use patterns from `test-healing-patterns.md`
 
@@ -188,7 +188,7 @@
    ### Knowledge Base References
 
    - `test-healing-patterns.md` - Common failure patterns
-   - `selector-resilience.md` - Selector refactoring guide
+   - `selector-resilience/index.md` - Selector refactoring guide
    - `timing-debugging.md` - Race condition prevention
    ```
 

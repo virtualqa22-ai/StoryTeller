@@ -36,7 +36,7 @@ After completing this workflow, provide a summary:
 
 - Burn-in loop pattern (ci-burn-in.md)
 - Selective testing strategy (selective-testing.md)
-- Artifact collection (visual-debugging.md)
+- Artifact collection (visual-debugging/index.md)
 - Test quality criteria (test-quality.md)
 ```
 

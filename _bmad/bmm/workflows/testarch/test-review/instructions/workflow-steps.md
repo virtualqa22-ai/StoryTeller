@@ -15,7 +15,7 @@
    - `test-levels-framework.md` - E2E vs API vs Component vs Unit appropriateness with decision matrix (467 lines, 4 examples)
    - `selective-testing.md` - Duplicate coverage detection with tag-based, spec filter, diff-based selection (727 lines, 4 examples)
    - `test-healing-patterns.md` - Common failure patterns: stale selectors, race conditions, dynamic data, network errors, hard waits (648 lines, 5 examples)
-   - `selector-resilience.md` - Selector best practices (data-testid > ARIA > text > CSS hierarchy, anti-patterns, 541 lines, 4 examples)
+   - `selector-resilience/index.md` - Selector best practices (data-testid > ARIA > text > CSS hierarchy, anti-patterns, 541 lines, 4 examples)
    - `timing-debugging.md` - Race condition prevention and async debugging techniques (370 lines, 3 examples)
 
    **If `config.tea_use_playwright_utils: true` (All Utilities):**

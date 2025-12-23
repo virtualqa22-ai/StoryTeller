@@ -20,7 +20,7 @@
 ## Knowledge Base Loading
 
 - [ ] `risk-governance.md` loaded successfully
-- [ ] `probability-impact.md` loaded successfully
+- [ ] `probability-impact/index.md` loaded successfully
 - [ ] `test-quality.md` loaded successfully
 - [ ] `test-priorities.md` loaded successfully
 - [ ] `ci-burn-in.md` loaded (if burn-in results available)

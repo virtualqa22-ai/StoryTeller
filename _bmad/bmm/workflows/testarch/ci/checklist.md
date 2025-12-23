@@ -126,7 +126,7 @@
 
 - [ ] Burn-in pattern matches `ci-burn-in.md`
 - [ ] Selective testing matches `selective-testing.md`
-- [ ] Artifact collection matches `visual-debugging.md`
+- [ ] Artifact collection matches `visual-debugging/index.md`
 - [ ] Test quality matches `test-quality.md`
 
 ### Security Checks

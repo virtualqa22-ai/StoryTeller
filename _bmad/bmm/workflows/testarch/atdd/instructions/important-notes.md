@@ -114,7 +114,7 @@ test('should display user info', async ({ page }) => {
 - `network-first.md` - Intercept before navigate, HAR capture, deterministic waiting (489 lines, 5 examples)
 - `test-quality.md` - Deterministic tests, cleanup, explicit assertions, length/time limits (658 lines, 5 examples)
 - `test-healing-patterns.md` - Common failure patterns: stale selectors, race conditions, dynamic data, network errors, hard waits (648 lines, 5 examples)
-- `selector-resilience.md` - Selector hierarchy (data-testid > ARIA > text > CSS), dynamic patterns, anti-patterns (541 lines, 4 examples)
+- `selector-resilience/index.md` - Selector hierarchy (data-testid > ARIA > text > CSS), dynamic patterns, anti-patterns (541 lines, 4 examples)
 - `timing-debugging.md` - Race condition prevention, deterministic waiting, async debugging (370 lines, 3 examples)
 
 **Reference for Test Level Selection:**
