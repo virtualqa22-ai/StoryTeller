@@ -125,10 +125,22 @@ workflow_status:
     workflows:
       - id: "create-architecture"
         name: "Architecture"
-        status: "required"
+        status: "_bmad-output/architecture/"
         agent: "architect"
         command: "/bmad:bmm:workflows:create-architecture"
         note: "System architecture and technical design"
+        completed: "2025-12-22"
+        files:
+          - "_bmad-output/architecture/index.md"
+          - "_bmad-output/architecture/project-context-analysis.md"
+          - "_bmad-output/architecture/starter-template-evaluation.md"
+          - "_bmad-output/architecture/core-architectural-decisions.md"
+          - "_bmad-output/architecture/implementation-patterns-consistency-rules.md"
+          - "_bmad-output/architecture/extended-architectural-decisions.md"
+        metrics:
+          decisions_made: "High"
+          patterns_defined: "Yes"
+          stack: "Tauri + Svelte + Rust + SQLite"
 
       - id: "create-epics-and-stories"
         name: "Epics & Stories"
