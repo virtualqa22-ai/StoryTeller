@@ -234,9 +234,9 @@ Use analysis workflows to align stakeholders before committing to detailed plann
 ## Related Documentation
 
 - [Phase 2: Planning Workflows](./workflows-planning.md) - Next phase
-- [Phase 3: Solutioning Workflows](./workflows-solutioning.md)
+- [Phase 3: Solutioning Workflows](./workflows-solutioning/index.md)
 - [Phase 4: Implementation Workflows](./workflows-implementation.md)
-- [Scale Adaptive System](./scale-adaptive-system.md) - Understanding project complexity
+- [Scale Adaptive System](./scale-adaptive-system/index.md) - Understanding project complexity
 - [Agents Guide](./agents-guide/index.md) - Complete agent reference
 
 ---

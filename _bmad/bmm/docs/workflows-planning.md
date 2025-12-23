@@ -303,7 +303,7 @@ Planning outputs feed into Solutioning:
 - **BMad Method:** Optional Phase 3 (simple), Required Phase 3 (complex)
 - **Enterprise:** Required Phase 3 (architecture + extended planning)
 
-See: [workflows-solutioning.md](./workflows-solutioning.md)
+See: [workflows-solutioning/index.md](./workflows-solutioning/index.md)
 
 ---
 
@@ -412,10 +412,10 @@ Always run `document-project` before planning brownfield projects. AI agents nee
 ## Related Documentation
 
 - [Phase 1: Analysis Workflows](./workflows-analysis.md) - Optional discovery phase
-- [Phase 3: Solutioning Workflows](./workflows-solutioning.md) - Next phase
+- [Phase 3: Solutioning Workflows](./workflows-solutioning/index.md) - Next phase
 - [Phase 4: Implementation Workflows](./workflows-implementation.md)
-- [Scale Adaptive System](./scale-adaptive-system.md) - Understanding the three tracks
-- [Quick Spec Flow](./quick-spec-flow.md) - Quick Flow track details
+- [Scale Adaptive System](./scale-adaptive-system/index.md) - Understanding the three tracks
+- [Quick Spec Flow](./quick-spec-flow/index.md) - Quick Flow track details
 - [Agents Guide](./agents-guide/index.md) - Complete agent reference
 
 ---

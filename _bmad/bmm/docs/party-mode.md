@@ -217,7 +217,7 @@ Make sure you ran `npx bmad-method install` after creating customization files.
 
 - [Agents Guide](./agents-guide/index.md) - Complete agent reference
 - [Quick Start Guide](./quick-start.md) - Getting started with BMM
-- [FAQ](./faq.md) - Common questions
+- [FAQ](./faq/index.md) - Common questions
 
 ---
 

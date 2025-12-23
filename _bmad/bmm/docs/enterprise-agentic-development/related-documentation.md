@@ -1,7 +1,7 @@
 # Related Documentation
 
-- [FAQ](../faq.md) - Common questions
-- [Scale Adaptive System](../scale-adaptive-system.md) - Project levels explained
+- [FAQ](../faq/index.md) - Common questions
+- [Scale Adaptive System](../scale-adaptive-system/index.md) - Project levels explained
 - [Quick Start Guide](../quick-start.md) - Getting started
 - [Workflow Documentation](../README.md#-workflow-guides) - Complete workflow reference
 - [Agents Guide](../agents-guide/index.md) - Understanding BMad agents

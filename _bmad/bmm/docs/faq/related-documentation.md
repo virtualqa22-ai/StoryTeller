@@ -2,7 +2,7 @@
 
 - [Quick Start Guide](./quick-start.md) - Get started with BMM
 - [Glossary](./glossary.md) - Terminology reference
-- [Scale Adaptive System](./scale-adaptive-system.md) - Understanding levels
+- [Scale Adaptive System](./scale-adaptive-system/index.md) - Understanding levels
 - [Brownfield Guide](./brownfield-guide/index.md) - Existing codebase workflows
 
 ---

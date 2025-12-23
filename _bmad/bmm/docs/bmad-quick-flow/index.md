@@ -31,4 +31,4 @@
     - [Common Issues](./troubleshooting-quick-flow.md#common-issues)
     - [Emergency Procedures](./troubleshooting-quick-flow.md#emergency-procedures)
   - [Related Documentation](./related-documentation.md)
-  - [FAQ](./faq.md)
+  - [FAQ](./faq/index.md)

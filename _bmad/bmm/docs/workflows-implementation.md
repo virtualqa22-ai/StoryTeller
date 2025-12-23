@@ -191,7 +191,7 @@ See: [document-project reference](./workflow-document-project-reference.md)
 
 - [Phase 1: Analysis Workflows](./workflows-analysis.md)
 - [Phase 2: Planning Workflows](./workflows-planning.md)
-- [Phase 3: Solutioning Workflows](./workflows-solutioning.md)
+- [Phase 3: Solutioning Workflows](./workflows-solutioning/index.md)
 
 ## Troubleshooting
 

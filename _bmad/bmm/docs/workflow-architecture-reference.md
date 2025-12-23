@@ -361,6 +361,6 @@ Projects using the old `architecture` workflow should:
 
 **Related Documentation:**
 
-- [Solutioning Workflows](./workflows-solutioning.md)
+- [Solutioning Workflows](./workflows-solutioning/index.md)
 - [Planning Workflows](./workflows-planning.md)
-- [Scale Adaptive System](./scale-adaptive-system.md)
+- [Scale Adaptive System](./scale-adaptive-system/index.md)

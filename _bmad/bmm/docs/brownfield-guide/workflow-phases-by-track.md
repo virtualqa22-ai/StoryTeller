@@ -32,7 +32,7 @@ See the [Workflows section in BMM README](../README.md) for details.
 - Plans integration points
 - Epics+Stories created AFTER architecture phase
 
-**Brownfield-specific:** See [Scale Adaptive System](./scale-adaptive-system.md) for complete workflow paths by track.
+**Brownfield-specific:** See [Scale Adaptive System](./scale-adaptive-system/index.md) for complete workflow paths by track.
 
 ## Phase 3: Solutioning (BMad Method/Enterprise Only)
 

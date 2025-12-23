@@ -38,4 +38,4 @@
     - [❌ Skipping Gate Check](./common-anti-patterns.md#skipping-gate-check)
     - [✅ Correct Approach](./common-anti-patterns.md#correct-approach)
   - [Related Documentation](./related-documentation.md)
-  - [Troubleshooting](./troubleshooting.md)
+  - [Troubleshooting](./troubleshooting/index.md)

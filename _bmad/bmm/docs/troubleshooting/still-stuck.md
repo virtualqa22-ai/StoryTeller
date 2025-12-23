@@ -5,11 +5,11 @@
 If your issue isn't covered here:
 
 1. **Check other documentation**:
-   - [FAQ](./faq.md) - Common questions
+   - [FAQ](./faq/index.md) - Common questions
    - [Glossary](./glossary.md) - Terminology
    - [Quick Start](./quick-start.md) - Basic usage
    - [Brownfield Guide](./brownfield-guide/index.md) - Existing codebases
-   - [Scale Adaptive System](./scale-adaptive-system.md) - Understanding levels
+   - [Scale Adaptive System](./scale-adaptive-system/index.md) - Understanding levels
 
 2. **Community support**:
    - [Discord](https://discord.gg/gk8jAdXWmj) - #general-dev, #bugs-issues

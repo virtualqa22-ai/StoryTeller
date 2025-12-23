@@ -12,8 +12,8 @@ Core orchestration system for AI-driven agile development, providing comprehensi
 
 - **[Quick Start Guide](./docs/quick-start.md)** - New to BMM? Start here (15 min)
 - **[Agents Guide](./docs/agents-guide.md)** - Meet your 12 specialized AI agents (45 min)
-- **[Scale Adaptive System](./docs/scale-adaptive-system.md)** - How BMM adapts to project size (42 min)
-- **[FAQ](./docs/faq.md)** - Quick answers to common questions
+- **[Scale Adaptive System](./docs/scale-adaptive-system/index.md)** - How BMM adapts to project size (42 min)
+- **[FAQ](./docs/faq/index.md)** - Quick answers to common questions
 - **[Glossary](./docs/glossary.md)** - Key terminology reference
 
 ---
@@ -89,7 +89,7 @@ BMM automatically adjusts to project complexity (Levels 0-4):
 - **Level 2:** PRD with optional architecture
 - **Level 3-4:** Full PRD + comprehensive architecture
 
-👉 **[Scale Adaptive System](./docs/scale-adaptive-system.md)** - Complete level breakdown
+👉 **[Scale Adaptive System](./docs/scale-adaptive-system/index.md)** - Complete level breakdown
 
 ### Story-Centric Implementation
 
@@ -110,9 +110,9 @@ Use party mode to engage all 19+ agents (from BMM, CIS, BMB, custom modules) in 
 ## 📖 Additional Resources
 
 - **[Brownfield Guide](./docs/brownfield-guide.md)** - Working with existing codebases
-- **[Quick Spec Flow](./docs/quick-spec-flow.md)** - Fast-track for Level 0-1 projects
+- **[Quick Spec Flow](./docs/quick-spec-flow/index.md)** - Fast-track for Level 0-1 projects
 - **[Enterprise Agentic Development](./docs/enterprise-agentic-development.md)** - Team collaboration patterns
-- **[Troubleshooting](./docs/troubleshooting.md)** - Common issues and solutions
+- **[Troubleshooting](./docs/troubleshooting/index.md)** - Common issues and solutions
 - **[IDE Setup Guides](../../../docs/ide-info/)** - Configure Claude Code, Cursor, Windsurf, etc.
 
 ---

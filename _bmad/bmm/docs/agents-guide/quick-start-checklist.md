@@ -3,7 +3,7 @@
 **First Time with BMM:**
 
 - [ ] Read [Quick Start Guide](./quick-start.md)
-- [ ] Understand [Scale Adaptive System](./scale-adaptive-system.md)
+- [ ] Understand [Scale Adaptive System](./scale-adaptive-system/index.md)
 - [ ] Load an agent in your IDE
 - [ ] Run `*workflow-status`
 - [ ] Follow recommended workflow

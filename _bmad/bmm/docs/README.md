@@ -26,13 +26,13 @@ Complete guides for the BMad Method Module (BMM) - AI-powered agile development 
 
 Understanding how BMM adapts to your needs:
 
-- **[Scale Adaptive System](./scale-adaptive-system.md)** - How BMM adapts to project size and complexity (42 min read)
+- **[Scale Adaptive System](./scale-adaptive-system/index.md)** - How BMM adapts to project size and complexity (42 min read)
   - Three planning tracks (Quick Flow, BMad Method, Enterprise Method)
   - Automatic track recommendation
   - Documentation requirements per track
   - Planning workflow routing
 
-- **[BMAD Quick Flow](./bmad-quick-flow.md)** - Fast-track development workflow (32 min read)
+- **[BMAD Quick Flow](./bmad-quick-flow/index.md)** - Fast-track development workflow (32 min read)
   - 3-step process: spec → dev → optional review
   - Perfect for bug fixes and small features
   - Rapid prototyping with production quality
@@ -85,7 +85,7 @@ Comprehensive guide for brownfield development:
 Essential reference materials:
 
 - **[Glossary](./glossary.md)** - Key terminology and concepts
-- **[FAQ](./faq.md)** - Frequently asked questions across all topics
+- **[FAQ](./faq/index.md)** - Frequently asked questions across all topics
 - **[Enterprise Agentic Development](./enterprise-agentic-development/index.md)** - Team collaboration strategies
 
 ---
@@ -96,10 +96,10 @@ Essential reference materials:
 
 **Build something new (greenfield)**
 → Start with [Quick Start Guide](./quick-start.md)
-→ Then review [Scale Adaptive System](./scale-adaptive-system.md) to understand tracks
+→ Then review [Scale Adaptive System](./scale-adaptive-system/index.md) to understand tracks
 
 **Fix a bug or add small feature**
-→ Go to [BMAD Quick Flow](./bmad-quick-flow.md) for rapid development
+→ Go to [BMAD Quick Flow](./bmad-quick-flow/index.md) for rapid development
 → Or use [Quick Flow Solo Dev](./quick-flow-solo-dev.md) directly
 
 **Work with existing codebase (brownfield)**
@@ -107,10 +107,10 @@ Essential reference materials:
 → Pay special attention to documentation requirements for brownfield projects
 
 **Understand planning tracks and methodology**
-→ See [Scale Adaptive System](./scale-adaptive-system.md)
+→ See [Scale Adaptive System](./scale-adaptive-system/index.md)
 
 **Find specific commands or answers**
-→ Check [FAQ](./faq.md)
+→ Check [FAQ](./faq/index.md)
 
 ---
 
@@ -128,7 +128,7 @@ Comprehensive documentation for all BMM workflows organized by phase:
   - Track-based planning approach (Quick Flow, BMad Method, Enterprise Method)
   - Which planning workflow to use
 
-- **[Phase 3: Solutioning Workflows](./workflows-solutioning.md)** - Architecture and validation (638 lines)
+- **[Phase 3: Solutioning Workflows](./workflows-solutioning/index.md)** - Architecture and validation (638 lines)
   - architecture, create-epics-and-stories, implementation-readiness
   - V6: Epics created AFTER architecture for better quality
   - Required for BMad Method and Enterprise Method tracks

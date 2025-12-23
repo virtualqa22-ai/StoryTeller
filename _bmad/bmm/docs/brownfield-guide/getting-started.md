@@ -2,7 +2,7 @@
 
 ## Understanding Planning Tracks
 
-For complete track details, see [Scale Adaptive System](./scale-adaptive-system.md).
+For complete track details, see [Scale Adaptive System](./scale-adaptive-system/index.md).
 
 **Brownfield tracks at a glance:**
 

@@ -300,7 +300,7 @@ Quick Spec Flow feature that automatically detects existing code style, naming c
 ## Related Documentation
 
 - [Quick Start Guide](./quick-start.md) - Learn BMM basics
-- [Scale Adaptive System](./scale-adaptive-system.md) - Deep dive on tracks and complexity
+- [Scale Adaptive System](./scale-adaptive-system/index.md) - Deep dive on tracks and complexity
 - [Brownfield Guide](./brownfield-guide/index.md) - Working with existing codebases
-- [Quick Spec Flow](./quick-spec-flow.md) - Fast-track for Quick Flow track
-- [FAQ](./faq.md) - Common questions
+- [Quick Spec Flow](./quick-spec-flow/index.md) - Fast-track for Quick Flow track
+- [FAQ](./faq/index.md) - Common questions
