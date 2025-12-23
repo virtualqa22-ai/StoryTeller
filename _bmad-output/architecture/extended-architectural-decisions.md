@@ -151,18 +151,23 @@ A 100K-word novel is ~130K tokens. Smart context management is required.
 
 ### Architectural Decisions
 
+**Decision: Pinned Context vs. Rolling Window**
+- **Pinned Context (Static):** Critical Story Bible facts (Names, defining traits, core plot points). NEVER evicted.
+- **Rolling Context (Dynamic):** Narrative text (previous chapters). Evicted as "sliding window" to fit token budget.
+- **Rationale:** Ensures consistencies like character names/eyes never "roll out" of memory.
+
 **Decision: Provider recommendation when context is too large**
 - App suggests switching providers when Story Bible exceeds provider limits
 - Example: "Your Story Bible is too large for Yandex. Consider using Claude or Gemini for better results."
 
 **Decision: No manual entity selection**
-- Context prioritization is fully automatic
+- Context prioritization is fully automatic with Pinned override
 - Keeps UI simple, no "power user" complexity
 
 **Decision: "Show what AI sees" debug feature**
 - Available during beta for transparency
-- Helps users understand context window usage
-- Can be hidden in production release
+- Visualizes Pinned vs Rolling tokens
+
 
 ### Component Structure
 
@@ -255,6 +260,10 @@ For Yandex (8K window):
 ProseMirror is selected as the editor, but we need a plugin architecture for Story Bible integration, validation, and performance with large documents.
 
 ### Architectural Decisions
+
+**Decision: Optimistic UI for AI Operations**
+- **Requirement:** Editor MUST remain responsive (60 FPS) even when AI Rate Limiter is throttling.
+- **Implementation:** UI shows "Thinking..." state immediately; AI request is queued in Rust background thread. Main thread never blocked by IPC or Rate Limiting sleep.
 
 **Decision: Keyboard shortcut for Story Bible suggestions (Ctrl+Space)**
 - Suggestions do NOT appear automatically while typing

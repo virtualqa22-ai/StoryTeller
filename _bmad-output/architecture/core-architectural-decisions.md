@@ -704,15 +704,47 @@ export const editorState = new EditorState();
 - If runes prove insufficient (unlikely), consider Zustand or Pinia
 - Defer decision until Sprint 3-4 (YAGNI principle)
 
+
+## Export Architecture
+
+### Strategy: Split Pipeline (Hybrid)
+
+**Decision:** Bundle lightweight exporter for Drafts, use optional Sidecar for Professional PDF
+
+**Rationale:**
+- **Zero-Friction Drafts:** Users can export Markdown/HTML immediately without downloads.
+- **Professional Quality:** Puppeteer sidecar ensures pixel-perfect layout but is an optional download.
+- **Download Size:** Keeps initial install small (~15MB), avoids forcing 150MB+ download on all users.
+
+**Draft Exporter (Bundled):**
+- **Formats:** Markdown, HTML, Plain Text
+- **Engine:** Pure Rust implementation (lightweight)
+- **Uses:** Backup, sharing chunks, web publishing
+
+**Professional Exporter (Optional Sidecar):**
+- **Formats:** Print-Ready PDF, EPUB3, DOCX
+- **Engine:** Puppeteer (Chrome Headless) + docx.js via Node.js sidecar
+- **Trigger:** On first "Pro Export", prompt user: "Download Export Module? (120MB)"
+- **Persistence:** stored in `{app_data}/bin/`
+
 ## Testing Architecture
 
-### Hybrid Testing Strategy
 
-**Decision:** Three-layer testing approach
+#### Hybrid Testing Strategy
+
+**Decision:** Four-layer testing approach inclusive of AI logic
 
 **Layer 1: Rust Unit Tests (Target: 90%+ coverage)**
 
-**Approach:** Test business logic separately from Tauri commands
+**Approach:** Test business logic separately from Tauri commands.
+**Critical:** Mock Vector Store responses to ensure deterministic tests.
+
+```rust
+// Mocking Qdrant for unit tests
+pub struct MockVectorStore {
+    // ...
+}
+```
 
 ```rust
 // src-tauri/src/story_bible/validation.rs
@@ -798,6 +830,17 @@ test('displays validation results', async () => {
 
 ```typescript
 // tests/e2e/story-bible-validation.spec.ts
+
+**Layer 4: AI Behavior & Fact Retention Tests**
+
+**Decision:** Verify "Pinned Context" effectiveness
+
+**Approach:**
+- **Fact Injection:** Feed specific facts into Story Bible.
+- **Distraction:** Generate 50k words of unrelated text.
+- **Recall Test:** Ask specific questions about injected facts.
+- **Pass Criteria:** AI must retrieve pinned facts 100% of the time, regardless of narrative "rolling window".
+
 import { test, expect } from '@playwright/test';
 import { _electron as electron } from 'playwright';
 
@@ -1034,6 +1077,15 @@ jobs:
     steps:
       - name: Run E2E tests
         run: pnpm test:e2e
+
+      - name: Enforce Serde Renames
+        run: |
+          # Grep for public structs without proper serde rename attributes
+          if grep -r "pub struct" src-tauri/src | grep -v "#\[serde(rename_all"; then
+            echo "ERROR: All public structs must have #[serde(rename_all = ...)] attribute"
+            exit 1
+          fi
+
 ```
 
 **Release Pipeline:**

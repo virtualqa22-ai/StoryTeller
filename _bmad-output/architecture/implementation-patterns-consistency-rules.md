@@ -579,6 +579,9 @@ async fn get_entity(id: i64) -> Result<Entity, String> { }  // String error!
 
 **serde with camelCase for Frontend Compatibility:**
 
+**RULE:** ALL Rust structs that are serialized to JSON (for API responses or Events) **MUST** use `#[serde(rename_all = "camelCase")]` or explicit per-field renames.
+**Enforcement:** CI Pipeline will fail if this is missing on public structs.
+
 ```rust
 // ✅ CORRECT
 use serde::{Serialize, Deserialize};
