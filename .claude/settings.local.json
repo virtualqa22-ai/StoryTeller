@@ -14,7 +14,12 @@
       "Bash(Select-Object FullName)",
       "Bash(Format-Table -AutoSize)",
       "Bash(find:*)",
-      "Bash(comm:*)"
+      "Bash(comm:*)",
+      "Bash(cat:*)",
+      "Bash(while read fr)",
+      "Bash(do grep -q \"$fr\" /tmp/coverage_frs.txt)",
+      "Bash(echo:*)",
+      "Bash(done)"
     ]
   }
 }
