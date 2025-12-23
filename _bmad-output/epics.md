@@ -1,5 +1,5 @@
 ---
-stepsCompleted: []
+stepsCompleted: [1]
 inputDocuments:
   - "D:\\Documents\\Bonsai\\StoryTeller\\Reqiurement.txt"
   - "D:\\Documents\\Bonsai\\StoryTeller\\_bmad-output\\prd\\index.md"
