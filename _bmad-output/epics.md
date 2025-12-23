@@ -1,5 +1,5 @@
 ---
-stepsCompleted: [1, 2]
+stepsCompleted: [1, 2, 3]
 inputDocuments:
   - "D:\\Documents\\Bonsai\\StoryTeller\\Reqiurement.txt"
   - "D:\\Documents\\Bonsai\\StoryTeller\\_bmad-output\\prd\\index.md"
@@ -3826,6 +3826,375 @@ So that I can share a preview with beta readers or for marketing purposes.
 **Then** the file size is significantly smaller (only includes selected chapters)
 **And** the sample provides a representative preview of the full novel's quality
 
+
+
 ---
 
-(Continue with remaining Epics 9-12...)
+## Epic 9: Productivity & Motivation Features
+
+Authors stay motivated and track their writing journey with milestone achievements, chapter objectives, productivity metrics, and exportable progress reports.
+
+### Story 9.1: Design Productivity Tracking Database Schema [Tier 1]
+
+As a development team,
+I want a database schema for tracking writing sessions and productivity metrics,
+So that authors can monitor their progress and stay motivated.
+
+**Acceptance Criteria:**
+
+**Given** the SQLite database is configured
+**When** the team creates migration `V9__create_productivity_schema.sql`
+**Then** the migration defines a `writing_sessions` table with fields: id (PRIMARY KEY), project_id (INTEGER, FOREIGN KEY), chapter_id (INTEGER, FOREIGN KEY, nullable), start_time (TIMESTAMP), end_time (TIMESTAMP), words_written (INTEGER), session_duration_seconds (INTEGER), created_at (TIMESTAMP)
+**And** a `milestones` table is defined: id (PRIMARY KEY), project_id (INTEGER, FOREIGN KEY), milestone_type (TEXT: 'first_chapter', '10k_words', '50k_words', 'chapter_complete', 'project_complete'), milestone_value (INTEGER), achieved_at (TIMESTAMP), is_celebrated (BOOLEAN DEFAULT 0)
+**And** a `chapter_objectives` table is defined: id (PRIMARY KEY), chapter_id (INTEGER, FOREIGN KEY), objective_text (TEXT), is_completed (BOOLEAN DEFAULT 0), completed_at (TIMESTAMP)
+
+### Story 9.2: Implement Writing Session Tracking [Tier 1]
+
+As an author,
+I want the application to automatically track my writing sessions,
+So that I can see how much time and effort I'm putting into my novel.
+
+**Acceptance Criteria:**
+
+**Given** the author opens a chapter in the editor
+**When** the author starts typing
+**Then** a writing session is automatically started with start_time, chapter_id, and initial_word_count recorded
+**And** the session tracks total words written and duration
+
+**Given** a writing session is active
+**When** the author stops writing for 30 minutes
+**Then** the session is automatically ended with end_time and final metrics saved
+
+### Story 9.3: Implement Productivity Dashboard [Tier 1]
+
+As an author,
+I want a dashboard showing my writing progress and productivity metrics,
+So that I can stay motivated and track my goals.
+
+**Acceptance Criteria:**
+
+**Given** the author has written content across multiple sessions
+**When** the author opens the Productivity Dashboard
+**Then** the dashboard displays: Total project word count vs. target, Current writing streak (consecutive days), Words written today/week/month, Average words per session, Total time spent writing, Chapter completion rate, Milestone achievements (badges)
+**And** visual elements include progress bars, charts, and badges
+
+**Given** the author achieves a milestone
+**When** the milestone is reached (e.g., 10,000 words)
+**Then** a celebration animation is displayed with confetti
+**And** a toast notification congratulates the author
+**And** the milestone is recorded and displayed on the dashboard
+
+### Story 9.4: Implement Chapter Objectives [Tier 2]
+
+As an author,
+I want to define objectives for each chapter,
+So that I can track specific goals beyond word count.
+
+**Acceptance Criteria:**
+
+**Given** the author is viewing a chapter
+**When** the author right-clicks the chapter
+**Then** a "Set Chapter Objectives" option is available
+**And** objectives can be added as a checklist
+**And** objectives can be marked complete with checkboxes
+
+**Given** all objectives for a chapter are completed
+**When** the last objective is checked off
+**Then** a celebration animation is displayed
+**And** the chapter shows a completion badge
+
+### Story 9.5: Implement Productivity Reports Export [Tier 2]
+
+As an author,
+I want to export my productivity data as a report,
+So that I can share progress with accountability partners.
+
+**Acceptance Criteria:**
+
+**Given** the author is viewing the Productivity Dashboard
+**When** an "Export Report" button is clicked
+**Then** report options are displayed: Report period (7 days, 30 days, 90 days, all time), Format (PDF, CSV, JSON), Include charts, Include session details
+**And** the report is generated and saved
+
+---
+
+## Epic 10: Cross-Platform Desktop Application & Auto-Update
+
+Authors can install and use StoryTeller seamlessly across Windows, macOS, and Linux, with automatic background updates and easy rollback if needed.
+
+### Story 10.1: Create Platform-Specific Installers [Tier 1]
+
+As a development team,
+I want platform-specific installers for Windows, macOS, and Linux,
+So that users can install StoryTeller like any native application.
+
+**Acceptance Criteria:**
+
+**Given** the Tauri application is built for release
+**When** the build process runs for Windows
+**Then** an MSI installer is generated with desktop shortcut, start menu entry, file associations, and uninstaller
+
+**Given** the build process runs for macOS
+**When** the macOS bundler is used
+**Then** a DMG file is generated with universal binary (Intel and Apple Silicon), code signing, and notarization
+
+**Given** the build process runs for Linux
+**When** the Linux bundlers are used
+**Then** .deb, .rpm, and .AppImage packages are generated
+
+### Story 10.2: Implement File Type Association [Tier 1]
+
+As an author,
+I want .storyteller files to open directly in StoryTeller when double-clicked,
+So that I can access my projects quickly from the file explorer.
+
+**Acceptance Criteria:**
+
+**Given** StoryTeller is installed
+**When** installation completes
+**Then** the .storyteller extension is registered with the OS
+**And** double-clicking a .storyteller file launches StoryTeller and opens the project
+
+### Story 10.3: Implement Auto-Update System with Background Downloads [Tier 1]
+
+As an author,
+I want StoryTeller to automatically check for and download updates in the background,
+So that I always have the latest features without manual effort.
+
+**Acceptance Criteria:**
+
+**Given** StoryTeller launches
+**When** the application starts
+**Then** an update check is performed in the background
+**And** if an update is available, it downloads automatically without interrupting work
+**And** the user is notified when the update is ready to install
+
+### Story 10.4: Implement Update Installation and Rollback [Tier 1]
+
+As an author,
+I want the ability to rollback to the previous version if an update causes issues,
+So that I can continue working if something goes wrong.
+
+**Acceptance Criteria:**
+
+**Given** an update is being installed
+**When** the installation begins
+**Then** the current version is backed up
+**And** the new version is installed
+**And** a rollback option is available in Settings if issues occur
+
+### Story 10.5: Implement Cross-Platform UI Consistency [Tier 1]
+
+As an author,
+I want StoryTeller to look and feel native on each platform,
+So that the application follows platform conventions while maintaining consistency.
+
+**Acceptance Criteria:**
+
+**Given** StoryTeller runs on Windows
+**When** the application is displayed
+**Then** the UI follows Windows Fluent Design principles
+
+**Given** StoryTeller runs on macOS
+**When** the application is displayed
+**Then** the UI follows macOS Human Interface Guidelines
+
+**Given** StoryTeller runs on Linux
+**When** the application is displayed
+**Then** the UI adapts to the system theme
+
+### Story 10.6: Implement Delta Updates [Tier 2]
+
+As an author,
+I want updates to download only changed files (delta updates),
+So that updates are faster and use less bandwidth.
+
+**Acceptance Criteria:**
+
+**Given** an update is available
+**When** the update system calculates the delta
+**Then** only changed files are included in the download (60%+ size reduction)
+**And** the delta is applied to the existing installation
+
+---
+
+## Epic 11: Accessibility & Internationalization
+
+Authors with disabilities or who speak different languages can use StoryTeller effectively with screen reader support, full keyboard navigation, WCAG 2.1 AA compliance, and multi-language UI.
+
+### Story 11.1: Implement Full Keyboard Navigation [Tier 1]
+
+As an author with motor impairments,
+I want to navigate and use all features using only the keyboard,
+So that I can write without requiring a mouse.
+
+**Acceptance Criteria:**
+
+**Given** the application is open
+**When** the author presses Tab
+**Then** focus moves to the next interactive element in logical order with visible 2px blue outline
+**And** all features are accessible via keyboard shortcuts
+
+### Story 11.2: Implement ARIA Labels and Screen Reader Support [Tier 1]
+
+As an author who is visually impaired,
+I want screen reader compatibility,
+So that I can use StoryTeller with assistive technology.
+
+**Acceptance Criteria:**
+
+**Given** the application UI is rendered
+**When** the HTML is generated
+**Then** all interactive elements have proper ARIA labels
+**And** screen readers can announce all content and interactions
+
+### Story 11.3: Implement WCAG 2.1 AA Contrast Requirements [Tier 1]
+
+As an author with low vision,
+I want sufficient color contrast,
+So that I can read and use the application comfortably.
+
+**Acceptance Criteria:**
+
+**Given** the application UI is designed
+**When** colors are chosen
+**Then** text-to-background contrast ratios meet WCAG 2.1 AA standards (4.5:1 for normal text, 3:1 for large text)
+**And** color is not the only indicator for status or information
+
+### Story 11.4: Implement Multi-Language UI Support (i18n) [Tier 1]
+
+As an author who speaks a non-English language,
+I want the StoryTeller UI in my preferred language,
+So that I can use the application comfortably.
+
+**Acceptance Criteria:**
+
+**Given** StoryTeller launches
+**When** the application detects the system language
+**Then** the UI is displayed in that language (if supported)
+**And** the user can change the UI language in Settings
+
+### Story 11.5: Implement Accessible Touch Targets [Tier 1]
+
+As an author using a touchscreen,
+I want interactive elements to be large enough to tap easily,
+So that I can use the application without precision issues.
+
+**Acceptance Criteria:**
+
+**Given** the UI is designed
+**When** interactive elements are created
+**Then** all touch targets are minimum 44x44 pixels with 8px spacing
+
+### Story 11.6: Implement High Contrast Mode [Tier 2]
+
+As an author with low vision,
+I want a high contrast mode,
+So that I can see the UI clearly without eye strain.
+
+**Acceptance Criteria:**
+
+**Given** the user enables high contrast mode in Settings
+**When** the UI is displayed
+**Then** text and backgrounds use maximum contrast (white on black or vice versa)
+**And** decorative elements are removed for clarity
+
+---
+
+## Epic 12: Beta Program & Telemetry Infrastructure
+
+Product team can collect opt-in anonymous feedback, track quality metrics, validate data loss prevention, and improve the product based on real beta user usage across all platforms.
+
+### Story 12.1: Design Telemetry Database Schema [Tier 1]
+
+As a development team,
+I want a database schema for telemetry events and user feedback,
+So that we can collect and analyze beta user data effectively.
+
+**Acceptance Criteria:**
+
+**Given** the SQLite database is configured
+**When** the team creates migration `V10__create_telemetry_schema.sql`
+**Then** tables are defined for telemetry_events, user_feedback, and telemetry_consent
+**And** no PII is stored in telemetry data
+
+### Story 12.2: Implement Opt-In Consent Dialog [Tier 1]
+
+As an author,
+I want clear control over whether StoryTeller collects anonymous usage data,
+So that I can make an informed decision about privacy.
+
+**Acceptance Criteria:**
+
+**Given** StoryTeller launches for the first time
+**When** the first-run experience begins
+**Then** a telemetry consent dialog is displayed with clear explanation of what data is collected
+**And** the user can opt-in or opt-out
+**And** the preference is respected permanently
+
+### Story 12.3: Implement Sentry Integration for Crash Reporting [Tier 1]
+
+As a development team,
+I want crash reports sent to Sentry,
+So that we can diagnose and fix critical issues quickly.
+
+**Acceptance Criteria:**
+
+**Given** StoryTeller is built for beta
+**When** an unhandled error occurs
+**Then** the error report is sent to Sentry with stack trace, app version, platform, and anonymous user_id
+**And** the report excludes all sensitive data (manuscript content, API keys, PII)
+
+### Story 12.4: Implement In-App Feedback Mechanism [Tier 1]
+
+As an author,
+I want an easy way to provide feedback or report issues,
+So that I can contribute to improving StoryTeller.
+
+**Acceptance Criteria:**
+
+**Given** the user wants to provide feedback
+**When** the user clicks the "Feedback" button
+**Then** a feedback form is displayed with fields for type (bug, feature, general), subject, description, rating, and optional contact email
+**And** submitted feedback is stored and optionally uploaded (if telemetry enabled)
+
+### Story 12.5: Implement Diagnostic Logging with Privacy Safeguards [Tier 1]
+
+As a development team,
+I want comprehensive diagnostic logs for troubleshooting,
+So that we can diagnose issues while respecting privacy.
+
+**Acceptance Criteria:**
+
+**Given** the application is running
+**When** operations occur
+**Then** diagnostic events are logged to rotating log files (max 10MB each, 5 files retained)
+**And** logs automatically scrub API keys, manuscript content, and PII
+**And** users can view, export, or clear logs in Settings
+
+### Story 12.6: Track Beta Program Metrics [Tier 2]
+
+As a development team,
+I want to track beta program success metrics,
+So that we can measure product quality and readiness for launch.
+
+**Acceptance Criteria:**
+
+**Given** beta users are using StoryTeller
+**When** telemetry data is collected
+**Then** metrics are tracked: Total user-hours (target: 3,000+), Crash rate (target: <1 per 100 hours), Validation accuracy (FN <5%, FP <10%), Export success rate (target: >95%), Platform distribution (40% Windows, 40% macOS, 20% Linux)
+**And** a beta dashboard displays progress toward quality gates
+
+### Story 12.7: Implement Demo Mode [Tier 2]
+
+As a developer or tester,
+I want a demo mode with simulated AI responses,
+So that I can test features without API costs.
+
+**Acceptance Criteria:**
+
+**Given** demo mode is enabled in Settings
+**When** AI generation is triggered
+**Then** simulated responses are returned (placeholder text, template characters)
+**And** no actual API calls are made
+**And** demo mode is clearly indicated in the UI
