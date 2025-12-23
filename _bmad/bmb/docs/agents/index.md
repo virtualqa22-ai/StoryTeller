@@ -13,7 +13,7 @@ Comprehensive guides for each agent type (choose based on use case):
 
 ## Agent Design Patterns
 
-- [Agent Menu Patterns](./agent-menu-patterns.md) - Menu handlers, triggers, prompts, organization
+- [Agent Menu Patterns](./agent-menu-patterns/index.md) - Menu handlers, triggers, prompts, organization
 - [Agent Compilation](./agent-compilation.md) - What compiler auto-injects (AVOID DUPLICATION)
 
 ## Reference Examples
