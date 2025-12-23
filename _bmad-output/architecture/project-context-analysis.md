@@ -392,7 +392,7 @@ Through collaborative analysis with the architecture team, several critical gaps
 
 **Initial Timeline Estimate: 9 months to beta-ready product**
 
-> **Note:** This was the initial estimate. After detailed architectural analysis including Rust learning curve, custom Svelte components, ONNX integration, and comprehensive testing infrastructure, the **authoritative timeline is 12 months** as documented in `core-architectural-decisions.md`.
+> **Note:** This was the initial estimate. After detailed architectural analysis including Rust learning curve, custom Svelte components, ONNX integration, and comprehensive testing infrastructure, the **authoritative timeline is 12 months** as documented in `core-architectural-decisions/index.md`.
 
 **Risk of Skipping UX Layer:**
 - Launch in 8 months
