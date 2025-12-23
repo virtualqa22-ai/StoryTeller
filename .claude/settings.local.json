@@ -12,7 +12,8 @@
       "Bash(rm:*)",
       "Bash(Get-ChildItem -Path \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" -Filter \"*.md\" -File)",
       "Bash(Select-Object FullName)",
-      "Bash(Format-Table -AutoSize)"
+      "Bash(Format-Table -AutoSize)",
+      "Bash(find:*)"
     ]
   }
 }
