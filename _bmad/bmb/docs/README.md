@@ -39,7 +39,7 @@ Specialized tools and workflows for creating, customizing, and extending BMad co
 
 - **[Agent Index](./agents/index.md)** - Complete agent architecture guide
 - **[Agent Types Guide](./agents/understanding-agent-types.md)** - Simple vs Expert vs Module agents
-- **[Menu Patterns](./agents/agent-menu-patterns.md)** - YAML menu design and handler types
+- **[Menu Patterns](./agents/agent-menu-patterns/index.md)** - YAML menu design and handler types
 - **[Agent Compilation](./agents/agent-compilation.md)** - Auto-injection rules and compilation process
 
 ### 📋 Workflow Documentation

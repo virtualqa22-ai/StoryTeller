@@ -11,7 +11,7 @@ nextStepFile: '{workflow_path}/steps/step-04-commands.md'
 workflowFile: '{workflow_path}/workflow.md'
 agentPlan: '{bmb_creations_output_folder}/agent-plan-{agent_name}.md'
 communicationPresets: '{workflow_path}/data/communication-presets.csv'
-agentMenuPatterns: '{project-root}/_bmad/bmb/docs/agents/agent-menu-patterns.md'
+agentMenuPatterns: '{project-root}/_bmad/bmb/docs/agents/agent-menu-patterns/index.md'
 
 # Template References
 personaTemplate: '{workflow_path}/templates/agent-persona.md'
