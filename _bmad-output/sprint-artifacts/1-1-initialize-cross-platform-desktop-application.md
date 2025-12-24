@@ -36,10 +36,10 @@ So that I can launch the application and begin my novel-writing journey.
 
 ## Tasks / Subtasks
 
-- [ ] Task 0: Verify Development Environment
-  - [ ] Verify Rust installed (v1.75+ Stable): `rustc --version`
-  - [ ] Verify Cargo installed: `cargo --version`
-  - [ ] Verify Node.js (v20+ LTS) and pnpm installed: `node --version`, `pnpm --version`
+- [x] Task 0: Verify Development Environment
+  - [x] Verify Rust installed (v1.75+ Stable): `rustc --version`
+  - [x] Verify Cargo installed: `cargo --version`
+  - [x] Verify Node.js (v20+ LTS) and pnpm installed: `node --version`, `pnpm --version`
 
 - [ ] Task 1: Initialize Tauri 2.0 project with Svelte 5 + TypeScript template (AC: 3)
   - [ ] Run `pnpm create tauri-app storyteller --template svelte`
