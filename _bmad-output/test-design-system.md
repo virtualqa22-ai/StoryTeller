@@ -313,6 +313,59 @@ Scenario 5: Qdrant collection corruption (manual file edit)
 - P1 tests: Windows 11 + macOS ARM only
 - P2 tests: Manual QA sampling
 
+---
+
+### 🔴 **Cross-Platform Test Coverage Policy (CRITICAL - Sprint 0)**
+
+**Development Environment Mandate:**
+- Team MUST have access to all 3 platforms for local testing
+- Rotating "platform champion" weekly (each dev tests on non-primary OS)
+- Pre-PR checklist: "Did you manually test on Windows/Linux?" (honor system)
+- Code review: Reviewer asks "Was this tested on all platforms?"
+
+**CI Test Coverage by Platform (ENFORCED):**
+
+| Test Priority | Windows | macOS (ARM) | macOS (Intel) | Linux |
+|---------------|---------|-------------|---------------|-------|
+| P0 Tests      | 100%    | 100%        | 50% (sampling) | 100%  |
+| P1 Tests      | 100%    | 100%        | 0% (skip)     | 50%   |
+| P2 Tests      | 50%     | 50%         | 0% (skip)     | 0%    |
+| Nightly Full  | 100%    | 100%        | 100%          | 100%  |
+
+**Platform-Specific Test Suites (NEW):**
+
+**Windows-specific tests:**
+- Backslash path handling in export pipeline
+- Windows Defender interaction (file scanning delays)
+- NTFS permissions and file locking
+- Windows keychain (Credential Manager) integration
+- Process spawning (Puppeteer sidecar on Windows)
+
+**macOS-specific tests:**
+- Gatekeeper and notarization workflows
+- Keychain access dialogs and permissions
+- Universal Binary validation (Intel + ARM)
+- App sandbox restrictions
+- File system case-sensitivity handling
+
+**Linux-specific tests:**
+- Wayland vs X11 compatibility
+- Multiple desktop environments (GNOME, KDE, i3)
+- libsecret integration (keychain alternative)
+- Package formats (AppImage, deb, rpm)
+- Font rendering differences
+
+**Platform Rotation Policy (MANDATORY):**
+- Each epic MUST have at least 1 story manually tested on each platform before merge
+- Beta blockers: Windows AND macOS AND Linux manual validation required
+- CI failures on any platform block merge (no "it works on my Mac" excuses)
+
+**Enforcement:**
+- PR template includes platform testing checklist
+- CI dashboard shows platform-specific pass rates
+- Monthly platform coverage report to team
+- Quarterly platform-specific bug review (identify patterns)
+
 ### Manual QA (5% - Beta Program)
 
 **Scope:** UX validation, edge cases, cross-platform feel
