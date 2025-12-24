@@ -1,0 +1,185 @@
+# generated: 2025-12-24
+# project: StoryTeller
+# project_key: storyteller
+# tracking_system: file-system
+# story_location: _bmad-output/sprint-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2025-12-24
+project: StoryTeller
+project_key: storyteller
+tracking_system: file-system
+story_location: _bmad-output/sprint-artifacts
+
+development_status:
+  epic-1: in-progress
+  1-1-initialize-cross-platform-desktop-application: in-progress
+  1-2-build-welcome-home-screen: backlog
+  1-3-setup-tailwind-css-design-system: backlog
+  1-4-configure-testing-infrastructure: backlog
+  1-5-build-core-svelte-component-library: backlog
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-0-configure-sqlite-database-with-migrations: backlog
+  2-1-design-and-implement-database-schema-for-projects: backlog
+  2-2-build-home-screen-with-recent-projects-list: backlog
+  2-3-build-wizard-step-1-basic-project-information: backlog
+  2-4-build-wizard-step-2-genre-and-audience: backlog
+  2-5-build-wizard-step-3-story-structure: backlog
+  2-6-build-wizard-step-4-plot-premise: backlog
+  2-7-build-wizard-step-5-ai-provider-configuration: backlog
+  2-8-build-wizard-step-6-review-and-create: backlog
+  2-9-implement-language-selection: backlog
+  2-10-add-welcome-screen-with-optional-demo-project: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-design-ai-provider-database-schema: backlog
+  3-2-implement-os-keychain-integration-for-secure-credential-storage: backlog
+  3-3-build-ai-provider-configuration-ui: backlog
+  3-4-implement-ai-provider-abstraction-layer: backlog
+  3-5-implement-rate-limiting-and-quota-management: backlog
+  3-6-implement-automatic-failover-to-alternate-providers: backlog
+  3-7-implement-api-key-rotation-and-revocation: backlog
+  3-8-implement-clear-error-messages-and-user-guidance: backlog
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-design-story-bible-database-schema: backlog
+  4-2-build-story-bible-navigation-ui: backlog
+  4-3-implement-create-story-bible-entry: backlog
+  4-4-implement-edit-story-bible-entry: backlog
+  4-5-implement-view-story-bible-entry-details: backlog
+  4-6-implement-search-and-filter-story-bible: backlog
+  4-7-implement-plot-thread-tracking: backlog
+  4-8-implement-character-relationship-linking: backlog
+  4-9-implement-auto-extract-story-bible-suggestions: backlog
+  4-10-implement-story-bible-integrity-validation: backlog
+  4-11-implement-story-bible-undo-redo: backlog
+  epic-4-retrospective: optional
+
+  epic-5: backlog
+  5-1-design-chapters-database-schema: backlog
+  5-2-build-main-workspace-layout: backlog
+  5-3-implement-chapter-management-create-rename-delete-reorder: backlog
+  5-4-integrate-prosemirror-rich-text-editor: backlog
+  5-5-implement-word-count-tracking: backlog
+  5-6-implement-auto-save-every-30-seconds: backlog
+  5-7-implement-manual-save-ctrl-s-cmd-s: backlog
+  5-8-implement-undo-redo-in-editor: backlog
+  5-9-implement-crash-recovery: backlog
+  5-10-implement-table-of-contents-auto-generation: backlog
+  5-11-implement-offline-mode-support: backlog
+  5-12-implement-save-status-indicator: backlog
+  5-13-implement-chapter-snapshots: backlog
+  5-14-implement-chapter-comparison-diff-view: backlog
+  5-15-implement-focus-mode: backlog
+  epic-5-retrospective: optional
+
+  epic-6: backlog
+  6-1-design-ai-generation-database-schema: backlog
+  6-2-implement-story-bible-context-assembly: backlog
+  6-3-create-ai-prompt-templates: backlog
+  6-4-implement-chapter-generation-with-streaming: backlog
+  6-5-implement-generate-characters-settings-themes: backlog
+  6-6-implement-style-profile-detection: backlog
+  6-7-implement-style-matching-in-ai-generation: backlog
+  6-8-implement-generation-preview-before-insertion: backlog
+  6-9-implement-show-context-used-in-generation: backlog
+  6-10-implement-context-pruning-for-token-limits: backlog
+  6-11-implement-warn-before-overwriting-user-edits: backlog
+  6-12-implement-regeneration-with-user-guidance: backlog
+  6-13-track-user-feedback-on-generated-content: backlog
+  epic-6-retrospective: optional
+
+  epic-7: backlog
+  7-1-design-validation-database-schema: backlog
+  7-2-implement-pre-generation-validation: backlog
+  7-3-implement-post-generation-validation: backlog
+  7-4-implement-contradiction-report-generation: backlog
+  7-5-implement-prevent-story-bible-editing-during-generation: backlog
+  7-6-implement-validation-intensity-configuration: backlog
+  7-7-implement-guided-story-bible-setup-tutorial: backlog
+  7-8-implement-genre-specific-story-bible-templates: backlog
+  7-9-implement-contradiction-detection-statistics-tracking: backlog
+  7-10-implement-real-time-validation-during-generation: backlog
+  epic-7-retrospective: optional
+
+  epic-8: backlog
+  8-1-design-export-metadata-schema: backlog
+  8-2-implement-puppeteer-sidecar-for-pdf-export: backlog
+  8-3-implement-pdf-export-with-custom-settings: backlog
+  8-4-implement-kdp-and-ingramspark-validation: backlog
+  8-5-implement-epub3-export: backlog
+  8-6-implement-docx-export: backlog
+  8-7-implement-export-preview: backlog
+  8-8-implement-export-readiness-validation: backlog
+  8-9-implement-custom-export-settings-presets: backlog
+  8-10-implement-export-failure-handling-and-recovery: backlog
+  8-11-implement-sample-chapter-export: backlog
+  epic-8-retrospective: optional
+
+  epic-9: backlog
+  9-1-design-productivity-tracking-database-schema: backlog
+  9-2-implement-writing-session-tracking: backlog
+  9-3-implement-productivity-dashboard: backlog
+  9-4-implement-chapter-objectives: backlog
+  9-5-implement-productivity-reports-export: backlog
+  epic-9-retrospective: optional
+
+  epic-10: backlog
+  10-1-create-platform-specific-installers: backlog
+  10-2-implement-file-type-association: backlog
+  10-3-implement-auto-update-system-with-background-downloads: backlog
+  10-4-implement-update-installation-and-rollback: backlog
+  10-5-implement-cross-platform-ui-consistency: backlog
+  10-6-implement-delta-updates: backlog
+  epic-10-retrospective: optional
+
+  epic-11: backlog
+  11-1-implement-full-keyboard-navigation: backlog
+  11-2-implement-aria-labels-and-screen-reader-support: backlog
+  11-3-implement-wcag-2-1-aa-contrast-requirements: backlog
+  11-4-implement-multi-language-ui-support-i18n: backlog
+  11-5-implement-accessible-touch-targets: backlog
+  11-6-implement-high-contrast-mode: backlog
+  epic-11-retrospective: optional
+
+  epic-12: backlog
+  12-1-design-telemetry-database-schema: backlog
+  12-2-implement-opt-in-consent-dialog: backlog
+  12-3-implement-sentry-integration-for-crash-reporting: backlog
+  12-4-implement-in-app-feedback-mechanism: backlog
+  12-5-implement-diagnostic-logging-with-privacy-safeguards: backlog
+  12-6-track-beta-program-metrics: backlog
+  12-7-implement-demo-mode: backlog
+  epic-12-retrospective: optional
