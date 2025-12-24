@@ -172,10 +172,20 @@ workflow_status:
 
       - id: "test-design"
         name: "Test Design"
-        status: "recommended"
+        status: "_bmad-output/test-design-system.md"
         agent: "tea"
         command: "/bmad:bmm:workflows:testarch-test-design"
         note: "System-level testability review"
+        completed: "2025-12-24"
+        files:
+          - "_bmad-output/test-design-system.md"
+        metrics:
+          testability_assessment: "PASS WITH CRITICAL ENHANCEMENTS REQUIRED"
+          asr_count: 11
+          high_priority_asrs: 7
+          test_levels: "50% Unit / 30% Integration / 15% E2E / 5% Manual"
+          sprint_0_stories: 7
+          critical_enhancements: 5
 
       - id: "validate-architecture"
         name: "Validate Architecture"
