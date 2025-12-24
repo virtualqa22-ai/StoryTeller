@@ -144,10 +144,31 @@ workflow_status:
 
       - id: "create-epics-and-stories"
         name: "Epics & Stories"
-        status: "required"
+        status: "_bmad-output/epics/"
         agent: "pm"
         command: "/bmad:bmm:workflows:create-epics-and-stories"
         note: "Break down PRD into implementable work items"
+        completed: "2025-12-24"
+        files:
+          - "_bmad-output/epics/index.md"
+          - "_bmad-output/epics/epic-list.md"
+          - "_bmad-output/epics/overview.md"
+          - "_bmad-output/epics/requirements-inventory.md"
+          - "_bmad-output/epics/epic-1-foundation-project-initialization-starter-template.md"
+          - "_bmad-output/epics/epic-2-project-setup-configuration-wizard.md"
+          - "_bmad-output/epics/epic-3-multi-ai-provider-integration.md"
+          - "_bmad-output/epics/epic-4-story-bible-core-storage-management.md"
+          - "_bmad-output/epics/epic-5-rich-text-editor-writing-workspace.md"
+          - "_bmad-output/epics/epic-6-ai-powered-story-development-generation.md"
+          - "_bmad-output/epics/epic-7-story-bible-intelligence-validation-contradiction-detection.md"
+          - "_bmad-output/epics/epic-8-professional-export-pipeline.md"
+          - "_bmad-output/epics/epic-9-productivity-motivation-features.md"
+          - "_bmad-output/epics/epic-10-cross-platform-desktop-application-auto-update.md"
+          - "_bmad-output/epics/epic-11-accessibility-internationalization.md"
+          - "_bmad-output/epics/epic-12-beta-program-telemetry-infrastructure.md"
+        metrics:
+          total_epics: 12
+          requirements_mapped: "Yes"
 
       - id: "test-design"
         name: "Test Design"
