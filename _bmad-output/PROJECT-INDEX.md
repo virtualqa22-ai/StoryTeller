@@ -225,25 +225,30 @@
 - `enforcement-guidelines.md` - Enforcement
 
 ### Test Design (System-Level)
-**Directory:** `_bmad-output/`
-**File:** `test-design-system.md`
-**Metrics:** 11 ASRs (7 High-Priority), 50% Unit / 30% Integration / 15% E2E / 5% Manual QA
+**Directory:** `_bmad-output/test-design-system/`
+**Metrics:** 11 ASRs (7 High-Priority), 50% Unit / 30% Integration / 15% E2E / 5% Manual QA, 12 Sharded Sections
 
-#### Test Design Document
-- `test-design-system.md` - Complete system-level testability review
-  - Testability Assessment: PASS WITH CRITICAL ENHANCEMENTS REQUIRED
-  - Controllability, Observability, Reliability analysis
-  - 11 Architecturally Significant Requirements (ASRs)
-  - Test Levels Strategy (50/30/15/5 split)
-  - NFR Testing Approach (Security, Performance, Reliability, Maintainability)
-  - 5 Critical Enhancements via Pre-mortem Analysis:
-    1. Test Reliability Framework
-    2. ASR-011: Dual-Database Transaction Safety
-    3. Cross-Platform Test Coverage Policy
-    4. Performance Stress Test Suite (6 fixtures: 1K-200K words)
-    5. Sprint 0 Completion Gate (Non-Negotiable)
-  - 4 Testability Concerns with mitigations
-  - Sprint 0 recommendations (7 stories, ~20 days effort)
+#### Test Design Document (Sharded)
+- `index.md` - Table of contents for all test design sections
+- `executive-summary.md` - Assessment summary, key findings, critical recommendations
+- `testability-assessment.md` - Controllability, Observability, Reliability analysis + Test Reliability Framework
+- `architecturally-significant-requirements-asrs.md` - 11 ASRs including ASR-011 (Dual-Database Transaction Safety)
+- `test-levels-strategy.md` - 50% Unit / 30% Integration / 15% E2E / 5% Manual + Cross-Platform Policy + Performance Stress Suite
+- `nfr-testing-approach.md` - Security, Performance, Reliability, Maintainability testing strategies
+- `test-environment-requirements.md` - Local, CI/CD, and Beta test environment specifications
+- `testability-concerns.md` - 4 concerns with mitigations (Qdrant, Cross-platform, ProseMirror, AI providers)
+- `recommendations-for-sprint-0-epic-1.md` - Sprint 0 Completion Gate (Non-Negotiable), 7 stories, ~20 days effort
+- `quality-gate-criteria-for-implementation-readiness.md` - Gate criteria for Phase 3 → Phase 4 transition
+- `final-recommendation.md` - Gate decision, effort estimates, timeline impact
+- `approval.md` - Sign-off section for PM, Tech Lead, QA Lead
+- `appendix.md` - Related documents, testing tools, dependencies
+
+**5 Critical Enhancements via Pre-mortem Analysis:**
+1. Test Reliability Framework (deterministic waits, flaky test quarantine)
+2. ASR-011: Dual-Database Transaction Safety (SQLite + Qdrant coordination)
+3. Cross-Platform Test Coverage Policy (100% P0 on all platforms, rotation policy)
+4. Performance Stress Test Suite (6 fixtures: 1K-200K words, degradation criteria)
+5. Sprint 0 Completion Gate (Non-Negotiable, 25+ checkboxes, PM+TL sign-off)
 
 ### Epics & Stories
 **Directory:** `_bmad-output/epics/`
