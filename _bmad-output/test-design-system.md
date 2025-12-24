@@ -117,6 +117,36 @@
 
 ---
 
+### 🔴 **Test Reliability Framework (CRITICAL - Sprint 0)**
+
+**Flaky Test Prevention:**
+- **Deterministic waits:** No `sleep()`, use explicit waits for conditions (e.g., `waitFor(element).toBeVisible()`)
+- **Test isolation:** Each test gets clean DB + Qdrant instance (documented pattern in test helpers)
+- **Retry policy:** Max 3 retries for E2E only, zero retries for unit/integration tests
+- **Flaky test quarantine:** >2 flakes in 10 runs = automatic quarantine, must fix before merge
+- **CI variance tolerance:** Performance assertions use ranges (2.5s-3.5s), not exact values (3.0s)
+
+**Test Execution Time Budget:**
+- Unit tests: <5min (fail build if exceeded)
+- Integration tests: <15min (fail build if exceeded)
+- E2E tests: <30min (fail build if exceeded)
+- **Violation policy:** Any test taking >2x expected time is automatically quarantined
+
+**Test Health Metrics (CI Dashboard):**
+- Pass rate by test suite (target: >98% for unit, >95% for E2E)
+- Average execution time per suite (track drift over time)
+- Flaky test count (target: <5% of total suite)
+- Test coverage trend (prevent coverage regression)
+
+**Implementation Tasks (Sprint 0):**
+1. Create test helper utilities for deterministic waits
+2. Document test isolation patterns (DB cleanup, Qdrant instance creation)
+3. Configure CI to fail on time budget violations
+4. Setup test health dashboard (GitHub Actions + custom reporting)
+5. Establish flaky test triage process (weekly review)
+
+---
+
 ## Architecturally Significant Requirements (ASRs)
 
 ### High-Priority ASRs (Score ≥6)
