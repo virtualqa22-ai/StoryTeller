@@ -21,7 +21,8 @@
       "Bash(echo:*)",
       "Bash(done)",
       "Bash(ls \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad\\\\bmm\\\\workflows\\\\3-solutioning\\\\create-epics-and-stories\\\\steps\"\" | grep \"step- \")",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(dir:*)"
     ]
   }
 }
