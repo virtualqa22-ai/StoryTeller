@@ -172,13 +172,25 @@ workflow_status:
 
       - id: "test-design"
         name: "Test Design"
-        status: "_bmad-output/test-design-system.md"
+        status: "_bmad-output/test-design-system/"
         agent: "tea"
         command: "/bmad:bmm:workflows:testarch-test-design"
-        note: "System-level testability review"
+        note: "System-level testability review (sharded)"
         completed: "2025-12-24"
         files:
-          - "_bmad-output/test-design-system.md"
+          - "_bmad-output/test-design-system/index.md"
+          - "_bmad-output/test-design-system/executive-summary.md"
+          - "_bmad-output/test-design-system/testability-assessment.md"
+          - "_bmad-output/test-design-system/architecturally-significant-requirements-asrs.md"
+          - "_bmad-output/test-design-system/test-levels-strategy.md"
+          - "_bmad-output/test-design-system/nfr-testing-approach.md"
+          - "_bmad-output/test-design-system/test-environment-requirements.md"
+          - "_bmad-output/test-design-system/testability-concerns.md"
+          - "_bmad-output/test-design-system/recommendations-for-sprint-0-epic-1.md"
+          - "_bmad-output/test-design-system/quality-gate-criteria-for-implementation-readiness.md"
+          - "_bmad-output/test-design-system/final-recommendation.md"
+          - "_bmad-output/test-design-system/approval.md"
+          - "_bmad-output/test-design-system/appendix.md"
         metrics:
           testability_assessment: "PASS WITH CRITICAL ENHANCEMENTS REQUIRED"
           asr_count: 11
@@ -186,6 +198,7 @@ workflow_status:
           test_levels: "50% Unit / 30% Integration / 15% E2E / 5% Manual"
           sprint_0_stories: 7
           critical_enhancements: 5
+          sharded_sections: 12
 
       - id: "validate-architecture"
         name: "Validate Architecture"
