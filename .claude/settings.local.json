@@ -19,7 +19,8 @@
       "Bash(while read fr)",
       "Bash(do grep -q \"$fr\" /tmp/coverage_frs.txt)",
       "Bash(echo:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(ls \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad\\\\bmm\\\\workflows\\\\3-solutioning\\\\create-epics-and-stories\\\\steps\"\" | grep \"step- \")"
     ]
   }
 }
