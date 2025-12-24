@@ -41,7 +41,7 @@ story_location: _bmad-output/sprint-artifacts
 
 development_status:
   epic-1: in-progress
-  1-1-initialize-cross-platform-desktop-application: in-progress
+  1-1-initialize-cross-platform-desktop-application: review
   1-2-build-welcome-home-screen: backlog
   1-3-setup-tailwind-css-design-system: backlog
   1-4-configure-testing-infrastructure: backlog
