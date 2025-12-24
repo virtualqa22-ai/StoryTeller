@@ -1,22 +1,27 @@
 # Epic List
 
-### Epic 1: Foundation - Project Initialization & Starter Template
-Development team has a working Tauri 2.0 + Svelte 5 + TypeScript + Rust project scaffold with core architecture components ready for feature development.
+### Epic 1: Installable Desktop Application
+Authors can install StoryTeller on their computer (Windows, macOS, or Linux) and launch a functional desktop application with a welcoming home screen.
 
-**FRs covered:** Architecture Requirements #1-3, #8-9 (Starter Template, Technology Stack, UI Components, Migrations, Testing)
+**FRs covered:** FR95-FR101, FR126, Architecture Requirements #1-3, #8-9 (Starter Template, Technology Stack, Basic UI, Testing)
+
+**User Value:**
+- Authors can install and launch StoryTeller on their desktop
+- Welcoming home screen introduces the application
+- Foundation for all feature development
 
 **Critical Notes:**
-- **MUST BE FIRST:** Cannot implement any other epic without this foundation
+- **MUST BE FIRST:** Establishes working application foundation
 - Initialize with: `pnpm create tauri-app storyteller --template svelte-ts`
-- Setup includes: SQLite + rusqlite, Qdrant embedded, ProseMirror, Tailwind CSS, Vitest, Playwright
-- Build 15-20 custom Svelte components with Fluent Design Language
-- Configure refinery for database migrations
-- Setup testing infrastructure
+- Creates installable desktop app with minimal but functional UI
+- Builds 15-20 custom Svelte components with Fluent Design Language
+- SQLite setup moved to Epic 2 (just-in-time when projects need persistence)
+- Qdrant setup moved to Epic 4/6 (just-in-time when Story Bible needs semantic search)
 
 ### Epic 2: Project Setup & Configuration Wizard
 Authors can create new novel projects through a guided onboarding wizard, configuring genre, story framework, and all initial parameters. They can also open existing projects from a recent list.
 
-**FRs covered:** FR1-FR2, FR5-FR13, FR59, FR126-FR132, FR138
+**FRs covered:** FR1-FR2, FR5-FR13, FR59, FR126-FR132, FR138, FR223-FR225 (Mode Selection)
 
 **User Value:**
 - First-time users can get started in <5 minutes (NFR-U1, NFR-U2)
@@ -25,9 +30,9 @@ Authors can create new novel projects through a guided onboarding wizard, config
 - Can skip API setup and add later
 
 ### Epic 3: Multi-AI Provider Integration
-Authors can securely connect to multiple AI providers (OpenAI, Claude, Gemini, Deepseek, Yandex, custom), switch between them when needed, and have their API keys stored securely in OS credential storage.
+Authors can securely connect to multiple AI providers (OpenAI, Claude, Gemini, Deepseek, Yandex, custom), switch between them when needed, and have their API keys stored securely in OS credential storage. Clear offline indicators show when AI features are unavailable.
 
-**FRs covered:** FR3-FR4, FR60-FR68, FR192, NFR-S2-S3, NFR-S6, NFR-S13-S14, NFR-S17-S18, Architecture Req #7
+**FRs covered:** FR3-FR4, FR60-FR68, FR112-FR115 (Offline Indicators), FR192, NFR-S2-S3, NFR-S6, NFR-S13-S14, NFR-S17-S18, Architecture Req #7
 
 **User Value:**
 - Never locked into single AI provider
@@ -36,9 +41,9 @@ Authors can securely connect to multiple AI providers (OpenAI, Claude, Gemini, D
 - Clear error messages for troubleshooting
 
 ### Epic 4: Story Bible - Core Storage & Management
-Authors can create and manage their Story Bible—a persistent knowledge base of characters, settings, world rules, themes, and plot threads—organizing everything in one place with categories and favorites.
+Authors can create and manage their Story Bible—a persistent knowledge base of characters, settings, world rules, themes, and plot threads—organizing everything in one place with categories and favorites. They can also apply Story Bible changes retroactively to previous chapters.
 
-**FRs covered:** FR22, FR34-FR37, FR53-FR59, FR156-FR157, FR165, FR169, FR180-FR183, FR187-FR188, FR194, FR197
+**FRs covered:** FR22, FR34-FR37, FR53-FR59, FR147 (Retroactive Application), FR156-FR157, FR165, FR169, FR180-FR183, FR187-FR188, FR194, FR197
 
 **User Value:**
 - Centralized story knowledge management
@@ -48,9 +53,9 @@ Authors can create and manage their Story Bible—a persistent knowledge base of
 - Foundation for AI consistency features
 
 ### Epic 5: Rich Text Editor & Writing Workspace
-Authors can write and edit novel chapters in a professional rich text editor with auto-save, undo/redo, word count tracking, table of contents generation, and offline capability.
+Authors can write and edit novel chapters in a professional rich text editor with auto-save, undo/redo, word count tracking, chapter objectives, table of contents generation, and offline capability.
 
-**FRs covered:** FR38, FR42-FR52, FR83-FR94, FR109-FR110, FR116-FR125, FR141-FR146, FR153-FR155, FR195-FR196, FR206-FR207, FR210-FR211, FR218-FR219, Architecture Req #2, UX Req #13-19
+**FRs covered:** FR38, FR42-FR52, FR83-FR94, FR109-FR110, FR116-FR125, FR141-FR146, FR153-FR155, FR186 (Batched Auto-Save), FR195-FR196, FR201 (Chapter Objectives), FR206-FR207, FR210-FR211, FR218-FR219, Architecture Req #2, UX Req #13-19
 
 **User Value:**
 - Professional writing environment
@@ -87,9 +92,9 @@ Authors receive real-time validation that AI-generated content is consistent wit
 - Interactive tutorial demonstrates value
 
 ### Epic 8: Professional Export Pipeline
-Authors can export publication-ready novels in PDF (Amazon KDP/IngramSpark compliant), EPUB (EPUB3 standard), and DOCX (Word-compatible) formats with custom formatting, meeting professional publishing standards.
+Authors can export publication-ready novels in PDF (Amazon KDP/IngramSpark compliant), EPUB (EPUB3 standard), and DOCX (Word-compatible) formats with custom formatting, optional Story Bible metadata, meeting professional publishing standards.
 
-**FRs covered:** FR69-FR82, FR111, FR190-FR193, FR209, FR212-FR214, NFR-C4-C7, NFR-C19-C20, Architecture Req #4
+**FRs covered:** FR69-FR82, FR111, FR166 (Story Bible Metadata), FR190-FR193, FR209, FR212-FR214, NFR-C4-C7, NFR-C19-C20, Architecture Req #4
 
 **User Value:**
 - Vellum-quality PDF typography

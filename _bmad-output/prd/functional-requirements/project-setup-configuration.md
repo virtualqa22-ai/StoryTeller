@@ -1,6 +1,6 @@
 # Project Setup & Configuration
 
-- FR1: Users can create new novel projects through a guided setup wizard
+- FR1: Users can create new novel projects through a guided setup wizard with conversational copy, encouragement, and progress framing (per UX spec: "Building your story foundation" not "Step 3 of 5")
 - FR2: Users can open existing projects from a recent projects list
 - FR3: Users can configure AI provider API keys (OpenAI, Claude, Gemini, Deepseek, Yandex, or custom providers)
 - FR4: Users can switch or add API keys when current provider reaches limits or is unavailable

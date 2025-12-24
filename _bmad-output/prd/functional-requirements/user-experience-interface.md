@@ -10,3 +10,6 @@
 - FR123: System provides contextual tooltips for first-time users on key features
 - FR124: System provides help button access to documentation throughout interface
 - FR125: System provides smooth transitions between views at 60 frames per second
+- FR223: Users can select UI complexity mode (Guided/Balanced/Advanced) during onboarding or in settings
+- FR224: System adjusts UI density, feature visibility, and help content based on selected mode to serve different user personas (Sarah/James/Elena)
+- FR225: Users can switch between UI complexity modes at any time without losing data or project state

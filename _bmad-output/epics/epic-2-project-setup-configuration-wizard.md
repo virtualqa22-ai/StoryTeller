@@ -2,6 +2,36 @@
 
 Authors can create new novel projects through a guided onboarding wizard, configuring genre, story framework, and all initial parameters. They can also open existing projects from a recent list.
 
+### Story 2.0: Configure SQLite Database with Migrations [Tier 1]
+
+As a development team,
+I want SQLite configured with rusqlite and refinery migration framework,
+So that we can persist project data reliably with version-controlled schema changes.
+
+**Acceptance Criteria:**
+
+**Given** the Tauri application is initialized
+**When** the team adds `rusqlite` (with bundled feature) and `refinery` to `src-tauri/Cargo.toml`
+**Then** dependencies compile successfully
+**And** SQLite database file path is configured as `{app_data}/storyteller.db`
+
+**Given** the refinery migration framework is added
+**When** the team creates the migrations directory at `src-tauri/migrations/`
+**Then** the directory structure follows the pattern: `V{number}__{description}.sql`
+**And** migration V1__init_schema.sql exists but contains only framework setup (no tables yet)
+**And** migrations run automatically on app startup via Rust code
+**And** migrations are idempotent (can run multiple times safely)
+
+**Given** the migration system is configured
+**When** the app starts for the first time
+**Then** the SQLite database is created at the correct path
+**And** migrations run successfully
+**And** migration status is logged to console
+**And** migration errors are caught and logged with clear messages
+**And** the app continues running even if migrations fail (graceful degradation)
+
+**NOTE:** This story sets up the migration framework only. Story 2.1 will create the first real table (projects) when needed.
+
 ### Story 2.1: Design and Implement Database Schema for Projects [Tier 1]
 
 As a development team,
