@@ -44,8 +44,8 @@ development_status:
   1-1-initialize-cross-platform-desktop-application: done
   1-2-build-welcome-home-screen: done
   1-3-setup-tailwind-css-design-system: done
-  1-4-configure-testing-infrastructure: in-progress
-  1-5-build-core-svelte-component-library: backlog
+  1-4-configure-testing-infrastructure: done
+  1-5-build-core-svelte-component-library: ready-for-dev
   epic-1-retrospective: optional
 
   epic-2: backlog

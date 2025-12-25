@@ -10,7 +10,7 @@ export default defineConfig(async () => ({
   // Vitest configuration
   test: {
     globals: true,
-    environment: 'happy-dom',
+    environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,ts}'],
     setupFiles: [],
     coverage: {
@@ -35,10 +35,10 @@ export default defineConfig(async () => ({
     host: host || false,
     hmr: host
       ? {
-          protocol: "ws",
-          host,
-          port: 1421,
-        }
+        protocol: "ws",
+        host,
+        port: 1421,
+      }
       : undefined,
     watch: {
       // 3. tell Vite to ignore watching `src-tauri`
