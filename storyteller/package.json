@@ -9,6 +9,8 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "vitest",
+    "test:e2e": "playwright test",
     "tauri": "tauri"
   },
   "license": "MIT",
@@ -17,13 +19,25 @@
     "@tauri-apps/plugin-opener": "^2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
     "@sveltejs/adapter-static": "^3.0.6",
     "@sveltejs/kit": "^2.9.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tauri-apps/cli": "^2",
+    "@testing-library/svelte": "^5.3.0",
+    "@vitest/ui": "^4.0.16",
+    "autoprefixer": "^10.4.23",
+    "happy-dom": "^20.0.11",
+    "jsdom": "^27.3.0",
+    "postcss": "^8.5.6",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
+    "tailwindcss": "^4.1.18",
     "typescript": "~5.6.2",
     "vite": "^6.0.3",
-    "@tauri-apps/cli": "^2"
+    "vitest": "^4.0.16"
   }
 }

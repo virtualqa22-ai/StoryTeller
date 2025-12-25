@@ -21,18 +21,18 @@
   }
 </script>
 
-<main class="home-container">
+<main class="max-w-6xl mx-auto py-6 px-4 md:py-12 md:px-6 font-fluent text-gray-800 bg-neutral-bg min-h-screen flex flex-col gap-8">
   <!-- Hero Section -->
-  <section class="hero">
-    <h1 class="welcome-title">
+  <section class="text-center py-6">
+    <h1 class="text-xl md:text-fluent-title font-semibold text-gray-800 mb-4">
       Welcome to StoryTeller - Your AI-Powered Novel Writing Companion
     </h1>
-    <p class="hero-description">
+    <p class="text-fluent-subtitle text-gray-600 mb-6 max-w-2xl mx-auto">
       Write, organize, and publish your novel with AI assistance that maintains
       perfect consistency across 80,000+ words
     </p>
     <!-- Hero image with fallback -->
-    <div class="hero-image-placeholder">
+    <div class="flex justify-center mt-4">
       <svg
         width="200"
         height="150"
@@ -52,37 +52,37 @@
   </section>
 
   <!-- Primary Actions -->
-  <section class="actions">
-    <button class="btn-primary" onclick={handleCreateProject} type="button">
+  <section class="flex flex-col md:flex-row justify-center items-center gap-4 flex-wrap">
+    <button class="font-fluent text-fluent-body font-medium border-0 rounded-fluent-md px-4 py-3 cursor-pointer transition-all duration-200 bg-brand-primary text-white hover:bg-brand-hover active:bg-brand-pressed focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2" onclick={handleCreateProject} type="button">
       Create New Project
     </button>
-    <button class="btn-secondary" onclick={handleOpenProject} type="button">
+    <button class="font-fluent text-fluent-body font-medium rounded-fluent-md px-4 py-3 cursor-pointer transition-all duration-200 bg-neutral-bg text-gray-800 border border-neutral-stroke hover:bg-gray-100 hover:border-gray-400 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2" onclick={handleOpenProject} type="button">
       Open Existing Project
     </button>
   </section>
 
   <!-- Placeholder Messages -->
   {#if showCreateMessage || showOpenMessage}
-    <div class="message-container">
+    <div class="text-center py-3">
       {#if showCreateMessage}
-        <p class="message">Project wizard coming soon in Epic 2!</p>
+        <p class="inline-block bg-yellow-50 text-gray-800 px-4 py-2 rounded-fluent-md text-fluent-body border border-warning">Project wizard coming soon in Epic 2!</p>
       {/if}
       {#if showOpenMessage}
-        <p class="message">Project opening coming soon in Epic 2!</p>
+        <p class="inline-block bg-yellow-50 text-gray-800 px-4 py-2 rounded-fluent-md text-fluent-body border border-warning">Project opening coming soon in Epic 2!</p>
       {/if}
     </div>
   {/if}
 
   <!-- Empty State & Features -->
-  <section class="features">
-    <p class="empty-state">No projects yet - let's create your first novel!</p>
-    <div class="feature-list">
-      <div class="feature-item">✓ AI-Powered Writing</div>
-      <div class="feature-item">✓ Story Bible Memory</div>
-      <div class="feature-item">✓ Professional Export</div>
+  <section class="text-center py-6">
+    <p class="text-fluent-subtitle text-gray-600 mb-6 font-medium">No projects yet - let's create your first novel!</p>
+    <div class="flex justify-center gap-6 flex-wrap mb-8">
+      <div class="text-fluent-body text-success font-medium">✓ AI-Powered Writing</div>
+      <div class="text-fluent-body text-success font-medium">✓ Story Bible Memory</div>
+      <div class="text-fluent-body text-success font-medium">✓ Professional Export</div>
     </div>
-    <div class="what-is">
-      <strong>What is StoryTeller?</strong><br />
+    <div class="max-w-2xl mx-auto py-6 px-6 bg-white rounded-fluent-lg border border-neutral-stroke text-left text-fluent-body text-gray-800">
+      <strong class="text-base text-gray-800">What is StoryTeller?</strong><br />
       StoryTeller is your intelligent companion for novel writing. It helps you write,
       organize, and maintain consistency across your entire novel using AI-powered Story
       Bible memory. Perfect for authors working on 80,000+ word manuscripts who need to
@@ -90,220 +90,3 @@
     </div>
   </section>
 </main>
-
-<style>
-  :global(:root) {
-    --font-fluent: 'Segoe UI', system-ui, sans-serif;
-  }
-
-  .home-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 48px 24px;
-    font-family: var(--font-fluent);
-    color: #323130;
-    background-color: #faf9f8;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  /* Hero Section */
-  .hero {
-    text-align: center;
-    padding: 24px 0;
-  }
-
-  .welcome-title {
-    font-size: 28px;
-    line-height: 36px;
-    font-weight: 600;
-    color: #323130;
-    margin: 0 0 16px 0;
-  }
-
-  .hero-description {
-    font-size: 18px;
-    line-height: 24px;
-    color: #605e5c;
-    margin: 0 0 24px 0;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-image-placeholder {
-    display: flex;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  /* Primary Actions */
-  .actions {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    font-family: var(--font-fluent);
-    font-size: 14px;
-    font-weight: 500;
-    border: none;
-    border-radius: 4px;
-    padding: 12px 16px;
-    cursor: pointer;
-    transition: all 200ms ease;
-  }
-
-  .btn-primary {
-    background-color: #0078d4;
-    color: white;
-  }
-
-  .btn-primary:hover {
-    background-color: #106ebe;
-  }
-
-  .btn-primary:active {
-    background-color: #005a9e;
-  }
-
-  .btn-primary:focus {
-    outline: 2px solid #0078d4;
-    outline-offset: 2px;
-  }
-
-  .btn-secondary {
-    background-color: #faf9f8;
-    color: #323130;
-    border: 1px solid #e1dfdd;
-  }
-
-  .btn-secondary:hover {
-    background-color: #f3f2f1;
-    border-color: #c8c6c4;
-  }
-
-  .btn-secondary:active {
-    background-color: #edebe9;
-  }
-
-  .btn-secondary:focus {
-    outline: 2px solid #0078d4;
-    outline-offset: 2px;
-  }
-
-  /* Message Container */
-  .message-container {
-    text-align: center;
-    padding: 12px 0;
-  }
-
-  .message {
-    display: inline-block;
-    background-color: #fff4ce;
-    color: #323130;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 14px;
-    border: 1px solid #f7630c;
-    animation: fadeIn 200ms ease-in;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Features Section */
-  .features {
-    text-align: center;
-    padding: 24px 0;
-  }
-
-  .empty-state {
-    font-size: 18px;
-    line-height: 24px;
-    color: #605e5c;
-    margin: 0 0 24px 0;
-    font-weight: 500;
-  }
-
-  .feature-list {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 32px;
-  }
-
-  .feature-item {
-    font-size: 14px;
-    line-height: 20px;
-    color: #107c10;
-    font-weight: 500;
-  }
-
-  .what-is {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 24px;
-    background-color: white;
-    border-radius: 6px;
-    border: 1px solid #e1dfdd;
-    text-align: left;
-    font-size: 14px;
-    line-height: 20px;
-    color: #323130;
-  }
-
-  .what-is strong {
-    font-size: 16px;
-    color: #323130;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .home-container {
-      padding: 24px 16px;
-      gap: 24px;
-    }
-
-    .welcome-title {
-      font-size: 24px;
-      line-height: 32px;
-    }
-
-    .hero-description {
-      font-size: 16px;
-      line-height: 22px;
-    }
-
-    .actions {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      width: 100%;
-      max-width: 300px;
-    }
-
-    .feature-list {
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-  }
-</style>

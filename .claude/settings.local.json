@@ -32,7 +32,19 @@
       "Bash(git log:*)",
       "Bash(git reset:*)",
       "Bash(pnpm install:*)",
-      "Bash(pnpm run build:*)"
+      "Bash(pnpm run build:*)",
+      "Bash(pnpm add:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(pnpm exec tailwindcss:*)",
+      "Bash(pnpm build:*)",
+      "Bash(Get-ChildItem .svelte-kitoutputclient_appimmutableassets*.css)",
+      "Bash(Format-Table Name, Length -AutoSize)",
+      "Bash(ls:*)",
+      "Bash(pnpm list:*)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm exec playwright:*)",
+      "Bash(pnpm tauri build:*)",
+      "Bash(pnpm test:e2e)"
     ]
   }
 }

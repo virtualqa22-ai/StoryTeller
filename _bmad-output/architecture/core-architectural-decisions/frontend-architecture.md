@@ -4,7 +4,10 @@
 
 **Decision:** Use Tailwind CSS for custom Fluent design components
 
-**Version:** Tailwind CSS 3.4+
+**Version:** Tailwind CSS 4.x (CSS-first configuration)
+
+**⚠️ IMPLEMENTATION NOTE (Story 1.3):**
+Originally specified as Tailwind v3.4+ with JavaScript config, but **implemented with Tailwind v4.1.18** which uses CSS-first configuration via `@theme` directive. This was an implementation decision made during Story 1.3 that deviates from the original architecture plan.
 
 **Rationale:**
 - Rapid component development (2-3 weeks vs 4-5 weeks vanilla CSS)
@@ -12,64 +15,75 @@
 - Excellent Svelte + Vite integration
 - JIT compiler = small bundle (~50KB after purge)
 - Utility-first approach matches component-based architecture
+- v4 CSS-first config provides better ergonomics and co-location with styles
 
 **Installation:**
 ```bash
 pnpm add -D tailwindcss postcss autoprefixer
-pnpm add @tailwindcss/forms @tailwindcss/typography
-npx tailwindcss init -p
+pnpm add -D @tailwindcss/forms @tailwindcss/typography @tailwindcss/postcss
+```
+
+**PostCSS Configuration:**
+```js
+// postcss.config.js
+export default {
+  plugins: {
+    '@tailwindcss/postcss': {},
+    autoprefixer: {},
+  },
+}
 ```
 
 **Fluent Design Token Configuration:**
-```js
-// tailwind.config.js
-export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          primary: '#0078d4',
-          hover: '#106ebe',
-          pressed: '#005a9e',
-        },
-        neutral: {
-          bg: '#faf9f8',
-          stroke: '#e1dfdd',
-        },
-        success: '#107c10',
-        warning: '#f7630c',
-        danger: '#d13438',
-      },
-      borderRadius: {
-        'fluent-sm': '2px',
-        'fluent-md': '4px',
-        'fluent-lg': '6px',
-      },
-      spacing: {
-        'fluent-xs': '4px',
-        'fluent-sm': '8px',
-        'fluent-md': '12px',
-        'fluent-lg': '16px',
-        'fluent-xl': '24px',
-      },
-      fontFamily: {
-        'fluent': ['Segoe UI', 'system-ui', 'sans-serif'],
-      },
-      fontSize: {
-        'fluent-caption': ['12px', '16px'],
-        'fluent-body': ['14px', '20px'],
-        'fluent-subtitle': ['18px', '24px'],
-        'fluent-title': ['28px', '36px'],
-      },
-    },
-  },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-  ],
+```css
+/* src/app.css */
+@import "tailwindcss";
+
+@theme {
+  /* Fluent Design Colors */
+  --color-brand-primary: #0078d4;
+  --color-brand-hover: #106ebe;
+  --color-brand-pressed: #005a9e;
+  --color-neutral-bg: #faf9f8;
+  --color-neutral-stroke: #e1dfdd;
+  --color-success: #107c10;
+  --color-warning: #f7630c;
+  --color-danger: #d13438;
+
+  /* Fluent Design Spacing (4px base unit) */
+  --spacing-fluent-xs: 4px;
+  --spacing-fluent-sm: 8px;
+  --spacing-fluent-md: 12px;
+  --spacing-fluent-lg: 16px;
+  --spacing-fluent-xl: 24px;
+
+  /* Fluent Design Border Radius */
+  --radius-fluent-sm: 2px;
+  --radius-fluent-md: 4px;
+  --radius-fluent-lg: 6px;
+
+  /* Fluent Design Typography */
+  --font-family-fluent: Segoe UI, system-ui, sans-serif;
+  --font-size-fluent-caption: 12px;
+  --line-height-fluent-caption: 16px;
+  --font-size-fluent-body: 14px;
+  --line-height-fluent-body: 20px;
+  --font-size-fluent-subtitle: 18px;
+  --line-height-fluent-subtitle: 24px;
+  --font-size-fluent-title: 28px;
+  --line-height-fluent-title: 36px;
+
+  /* Fluent Design Elevation Shadows */
+  --shadow-fluent-2: 0 0.3px 0.9px rgba(0, 0, 0, 0.1), 0 1.6px 3.6px rgba(0, 0, 0, 0.13);
+  --shadow-fluent-4: 0 0.6px 1.8px rgba(0, 0, 0, 0.1), 0 3.2px 7.2px rgba(0, 0, 0, 0.13);
+  --shadow-fluent-8: 0 1.2px 3.6px rgba(0, 0, 0, 0.1), 0 6.4px 14.4px rgba(0, 0, 0, 0.13);
+  --shadow-fluent-16: 0 2.4px 7.2px rgba(0, 0, 0, 0.1), 0 12.8px 28.8px rgba(0, 0, 0, 0.13);
+  --shadow-fluent-64: 0 9.6px 28.8px rgba(0, 0, 0, 0.1), 0 51.2px 115.2px rgba(0, 0, 0, 0.13);
 }
 ```
+
+**Plugin Registration (Tailwind v4):**
+Plugins are loaded automatically when installed in v4. No explicit registration needed in config.
 
 **Component Example:**
 ```svelte
