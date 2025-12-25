@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
-import { _electron as electron } from 'playwright';
+import { test, expect, _electron as electron } from '@playwright/test';
+import type { Page, ElectronApplication } from '@playwright/test';
 import * as path from 'path';
 
 // Cross-platform binary path helper
@@ -10,8 +10,8 @@ function getTauriBinaryPath(): string {
     return path.join('src-tauri', 'target', 'debug', binaryName);
 }
 
-let app;
-let page;
+let app: ElectronApplication;
+let page: Page;
 
 test.beforeEach(async () => {
     // Launch Tauri app via Electron with cross-platform path

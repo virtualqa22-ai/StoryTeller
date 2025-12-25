@@ -69,3 +69,11 @@ yarn-debug.log*
 lerna-debug.log*
 
 nul
+
+# Project Specific
+/.svelte-kit
+/package
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+src-tauri/target
