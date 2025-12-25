@@ -20,13 +20,19 @@
       "Bash(do grep -q \"$fr\" /tmp/coverage_frs.txt)",
       "Bash(echo:*)",
       "Bash(done)",
-      "Bash(ls \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad\\\\bmm\\\\workflows\\\\3-solutioning\\\\create-epics-and-stories\\\\steps\"\" | grep \"step- \")",
+      "Bash(ls \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad\\\\bmm\\\\workflows\\\\3-solutioning\\\\create-epics-and-stories\\\\steps\" | grep \"step- \")",
       "Bash(test:*)",
       "Bash(dir:*)",
       "Bash(if [ -d \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad-output\\\\sprint-artifacts\" ])",
       "Bash(then echo \"Directory exists\")",
       "Bash(else mkdir -p \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad-output\\\\sprint-artifacts\")",
-      "Bash(fi:*)"
+      "Bash(fi:*)",
+      "Skill(bmad:bmm:workflows:create-story)",
+      "Bash(pnpm check:*)",
+      "Bash(git log:*)",
+      "Bash(git reset:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run build:*)"
     ]
   }
 }
