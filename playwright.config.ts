@@ -6,24 +6,30 @@ export default defineConfig({
   expect: {
     timeout: 5000
   },
-  fullyParallel: false, // Tauri apps can't run multiple instances
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: 1, // One worker for Tauri
+  workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
 
   use: {
+    baseURL: 'http://localhost:1420',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
 
+  // Auto-start dev server before running tests
+  webServer: {
+    command: 'pnpm dev',
+    url: 'http://localhost:1420',
+    reuseExistingServer: !process.env.CI,
+    timeout: 120000,
+  },
+
   projects: [
     {
-      name: 'tauri',
-      testMatch: '**/*.spec.ts',
-      use: {
-        // Tauri-specific config will be in test files
-      },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
 });

@@ -265,3 +265,57 @@ export const editorState = new EditorState();
 - If runes prove insufficient (unlikely), consider Zustand or Pinia
 - Defer decision until Sprint 3-4 (YAGNI principle)
 
+## Version Compatibility Matrix
+
+Exact tested versions from Epic 1 implementation:
+
+| Package | Spec | Notes |
+|---------|------|-------|
+| Tauri | ^2 | Uses @tauri-apps/api ^2, @tauri-apps/cli ^2 |
+| Svelte | ^5.0.0 | Svelte 5 with runes ($state, $derived, $effect) |
+| SvelteKit | ^2.9.0 | With adapter-static |
+| Tailwind CSS | ^4.1.18 | CSS-first config via @theme directive (NOT JS config) |
+| bits-ui | 1.0.0-next.98 | Uses child snippets, NOT Indicator components |
+| Vitest | ^4.0.16 | With @testing-library/svelte |
+| Playwright | ^1.57.0 | Web-layer testing only (NOT Electron API) |
+| TypeScript | ~5.6.2 | Strict mode enabled |
+| Vite | ^6.0.3 | With @sveltejs/vite-plugin-svelte |
+
+### bits-ui 1.0.0 API Patterns
+
+**Old Pattern (bits-ui 0.x) - DO NOT USE:**
+```svelte
+<Checkbox.Root>
+  <Checkbox.Indicator>
+    <Check />
+  </Checkbox.Indicator>
+</Checkbox.Root>
+```
+
+**Current Pattern (bits-ui 1.0.0-next.98):**
+```svelte
+<Checkbox.Root>
+  {#snippet children({ checked })}
+    {#if checked}
+      <Check />
+    {/if}
+  {/snippet}
+</Checkbox.Root>
+```
+
+### Tailwind v4 Configuration
+
+Tailwind v4 uses CSS-first configuration via the `@theme` directive. **There is no tailwind.config.js file.**
+
+Configuration is defined in `src/app.css`:
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #0078d4;
+  /* ... other tokens */
+}
+```
+
+See the Styling System section above for complete token definitions.
+

@@ -39,6 +39,7 @@ desktop.ini
 # IDE and Editor
 .vscode/
 .idea/
+.claude/
 *.swp
 *.swo
 *~
@@ -62,6 +63,8 @@ temp/
 # Testing
 coverage/
 .nyc_output/
+playwright-report/
+test-results/
 
 # Debug
 npm-debug.log*

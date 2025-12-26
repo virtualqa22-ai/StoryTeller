@@ -97,10 +97,87 @@ test('displays validation results', async () => {
 
 **Layer 3: E2E Tests for Critical Paths (Target: 20-30 scenarios)**
 
-**Tool:** Playwright with Tauri
+**Tool:** Playwright (web-layer testing)
+
+> **CRITICAL: Tauri ≠ Electron**
+>
+> Tauri uses the OS native WebView (Edge WebView2 on Windows, WebKitGTK on Linux), NOT Chromium/Electron runtime. Playwright's `_electron` API will NOT work with Tauri apps.
+
+### Approach: Playwright Web-Layer Testing
+
+For UI testing, run Playwright against the SvelteKit dev server:
+
+1. Configure `webServer` in playwright.config.ts to auto-start dev server
+2. Set `baseURL` to `http://localhost:1420`
+3. Write standard Playwright tests using `page.goto('/')`
+
+This approach:
+- Tests all UI components and interactions
+- Runs fast (no app binary needed)
+- Works in CI environments
+- Sufficient for Epic 1-5 (UI-focused features)
 
 ```typescript
-// tests/e2e/story-bible-validation.spec.ts
+// playwright.config.ts
+import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests/e2e',
+  timeout: 30000,
+  expect: { timeout: 5000 },
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
+  reporter: 'html',
+
+  use: {
+    baseURL: 'http://localhost:1420',
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+  },
+
+  // Auto-start dev server before running tests
+  webServer: {
+    command: 'pnpm dev',
+    url: 'http://localhost:1420',
+    reuseExistingServer: !process.env.CI,
+    timeout: 120000,
+  },
+
+  projects: [
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+  ],
+});
+```
+
+```typescript
+// tests/e2e/home.spec.ts
+import { test, expect } from '@playwright/test';
+
+test.describe('Home Screen', () => {
+  test('displays welcome message', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('text=Welcome to StoryTeller')).toBeVisible();
+  });
+
+  test('Create New Project button is clickable', async ({ page }) => {
+    await page.goto('/');
+    const createButton = page.getByRole('button', { name: /Create New Project/i });
+    await expect(createButton).toBeVisible();
+    await createButton.click();
+    await expect(page.locator('text=Project wizard coming soon')).toBeVisible();
+  });
+});
+```
+
+### When to Use WebDriver (Future: Epic 3+)
+
+For testing Tauri-specific features (file system, native dialogs, Rust commands):
+- Install: `cargo install tauri-driver`
+- Use WebdriverIO or Selenium
+- Windows: Download matching Edge Driver version
+- Reference: https://v2.tauri.app/develop/tests/webdriver/
 
 **Layer 4: AI Behavior & Fact Retention Tests**
 
@@ -111,52 +188,6 @@ test('displays validation results', async () => {
 - **Distraction:** Generate 50k words of unrelated text.
 - **Recall Test:** Ask specific questions about injected facts.
 - **Pass Criteria:** AI must retrieve pinned facts 100% of the time, regardless of narrative "rolling window".
-
-import { test, expect } from '@playwright/test';
-import { _electron as electron } from 'playwright';
-
-test.beforeEach(async () => {
-  // Launch Tauri app
-  app = await electron.launch({
-    args: ['path/to/tauri/app']
-  });
-  page = await app.firstWindow();
-});
-
-test('end-to-end validation workflow', async () => {
-  // Create entity
-  await page.click('text=Add Character');
-  await page.fill('[name="character-name"]', 'Sarah Chen');
-  await page.fill('[name="character-role"]', 'Detective');
-  await page.click('button:has-text("Save")');
-  await expect(page.locator('.entity-list')).toContainText('Sarah Chen');
-
-  // Write text with contradiction
-  await page.fill('.editor', 'Sara walked into the room.');
-  await page.click('button:has-text("Validate")');
-
-  // Check validation warning
-  await expect(page.locator('.warning-badge')).toBeVisible();
-  await expect(page.locator('.contradiction-message'))
-    .toContainText('Character name mismatch');
-});
-
-test('meets Sarah persona activation time requirement', async () => {
-  const startTime = Date.now();
-
-  // Onboarding flow
-  await page.click('text=Get Started');
-  await page.fill('[name="story-pitch"]', 'A detective story in Paris');
-  await page.click('text=Generate Story Bible');
-  await page.waitForSelector('.generation-complete');
-  await page.click('text=Start Writing');
-
-  const duration = Date.now() - startTime;
-
-  // NFR48: <5 minutes time-to-first-chapter
-  expect(duration).toBeLessThan(5 * 60 * 1000);
-});
-```
 
 **Critical Test Scenarios (E2E Priority):**
 

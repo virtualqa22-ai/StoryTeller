@@ -44,7 +44,17 @@
       "Bash(pnpm test:*)",
       "Bash(pnpm exec playwright:*)",
       "Bash(pnpm tauri build:*)",
-      "Bash(pnpm test:e2e)"
+      "Bash(pnpm test:e2e)",
+      "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" status --porcelain)",
+      "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" diff --name-only)",
+      "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" diff --cached --name-only)",
+      "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" diff tests/e2e/launch.spec.ts)",
+      "Bash(pnpm -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" check)",
+      "Bash(pnpm -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" test)",
+      "Bash(pnpm -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" test:e2e)",
+      "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" log --oneline -10)",
+      "Bash(cargo build:*)",
+      "Bash(cargo test:*)"
     ]
   }
 }
