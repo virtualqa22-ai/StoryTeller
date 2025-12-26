@@ -45,7 +45,7 @@ development_status:
   1-2-build-welcome-home-screen: done
   1-3-setup-tailwind-css-design-system: done
   1-4-configure-testing-infrastructure: done
-  1-5-build-core-svelte-component-library: ready-for-dev
+  1-5-build-core-svelte-component-library: done
   epic-1-retrospective: optional
 
   epic-2: backlog
