@@ -2,7 +2,7 @@
 
 **Validation Date:** 2025-12-19
 **Validation Team:** BMAD Multi-Agent Team (PM, Architect, Developer, UX Designer, Analyst, Test Architect, Problem Solver, Innovation Strategist, Storyteller)
-**Original Spec:** `_bmad-output/ux-design-specification.md`
+**Original Spec:** `_bmad-output/planning/ux-design/`
 
 ---
 

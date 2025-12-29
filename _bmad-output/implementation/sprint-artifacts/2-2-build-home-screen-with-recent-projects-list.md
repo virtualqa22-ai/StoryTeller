@@ -569,15 +569,15 @@ test.describe('Home Screen', () => {
 
 ### 📚 References
 
-- **Epic 2 Story Details:** [Source: _bmad-output/epics/epic-2-project-setup-configuration-wizard.md#story-2-2]
+- **Epic 2 Story Details:** [Source: _bmad-output/planning/epics/epic-2-project-setup-configuration-wizard.md#story-2-2]
 - **Database Schema:** [Source: src-tauri/migrations/V2__create_projects_schema.sql]
 - **Rust Project Model:** [Source: src-tauri/src/db/models/project.rs]
 - **Tauri Commands:** [Source: src-tauri/src/db/commands/project_commands.rs]
 - **Frontend Architecture:** [Source: _bmad-output/architecture/core-architectural-decisions/frontend-architecture.md]
-- **UX Design Patterns:** [Source: _bmad-output/ux-design-specification/ux-patterns-micro-interactions.md]
+- **UX Design Patterns:** [Source: _bmad-output/planning/ux-design/ux-patterns-micro-interactions.md]
 - **Fluent Design Tokens:** [Source: src/app.css]
 - **Existing UI Components:** [Source: src/lib/components/ui/]
-- **Previous Story (2.1):** [Source: _bmad-output/sprint-artifacts/2-1-design-and-implement-database-schema-for-projects.md]
+- **Previous Story (2.1):** [Source: _bmad-output/implementation/sprint-artifacts/2-1-design-and-implement-database-schema-for-projects.md]
 
 ### 🚀 Library Versions & Latest Info
 

@@ -212,7 +212,7 @@ Gemini 2.0 Flash
 - `storyteller/src-tauri/icons/icon.ico`
 - `storyteller/src/routes/+page.svelte`
 - `storyteller/tsconfig.json`
-- `_bmad-output/sprint-artifacts/sprint-status.yaml`
+- `_bmad-output/implementation/sprint-artifacts/sprint-status.yaml`
 
 ### Senior Developer Review (AI) - Post-Fix Update
 

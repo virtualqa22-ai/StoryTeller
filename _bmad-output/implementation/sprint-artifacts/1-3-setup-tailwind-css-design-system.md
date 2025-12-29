@@ -460,7 +460,7 @@ Look for the file size in KB. It should be under 50KB after Tailwind's purge pro
 ### 📚 Reference Documentation
 
 **Epic Context:**
-- Source: `_bmad-output/epics/epic-1-foundation-project-initialization-starter-template.md`
+- Source: `_bmad-output/planning/epics/epic-1-foundation-project-initialization-starter-template.md`
 - Story 1.3 adds Tailwind CSS styling system to replace scoped CSS
 - Previous: Story 1.2 created home screen with scoped CSS (will be migrated)
 - Next: Story 1.4 adds testing infrastructure (Vitest + Playwright)

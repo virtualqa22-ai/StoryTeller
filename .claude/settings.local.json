@@ -59,7 +59,9 @@
       "Bash(tree:*)",
       "Bash(paste:*)",
       "Bash(grep:*)",
-      "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" log --oneline -5)"
+      "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" log --oneline -5)",
+      "Bash(Get-ChildItem -Path \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" -Directory -Name)",
+      "Bash(Select-Object -First 20)"
     ]
   }
 }

@@ -340,7 +340,7 @@ function handleCreateProject() {
 ### 📚 Reference Documentation
 
 **Epic Context:**
-- Source: `_bmad-output/epics/epic-1-foundation-project-initialization-starter-template.md`
+- Source: `_bmad-output/planning/epics/epic-1-foundation-project-initialization-starter-template.md`
 - Epic 1 establishes the foundational desktop application
 - Story 1.2 creates the first user-facing screen
 - Next: Story 1.3 adds Tailwind CSS styling system

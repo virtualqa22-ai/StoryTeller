@@ -668,7 +668,7 @@ Implement PDF and DOCX export for projects using pandoc.
 - [Rust Book](https://doc.rust-lang.org/book/)
 
 ### Key Files
-- `_bmad-output/project-context.md` - **Implementation rules for AI agents**
+- `_bmad-output/documentation/project-docs/project-context.md` - **Implementation rules for AI agents**
 - `README.md` - Project overview
 - `AUTO-COMMIT-README.md` - Auto-commit script documentation
 

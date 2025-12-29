@@ -669,9 +669,9 @@ From architecture document, initial E2E tests should cover:
 ### 📚 References (For Additional Context)
 
 For comprehensive architecture details, previous story learnings, and additional examples, refer to:
-- Epic: `_bmad-output/epics/epic-1-foundation-project-initialization-starter-template.md`
+- Epic: `_bmad-output/planning/epics/epic-1-foundation-project-initialization-starter-template.md`
 - Testing Architecture: `_bmad-output/architecture/core-architectural-decisions/testing-architecture.md` (lines 61-208)
-- Previous Stories: `_bmad-output/sprint-artifacts/1-1*.md`, `1-2*.md`, `1-3*.md`
+- Previous Stories: `_bmad-output/implementation/sprint-artifacts/1-1*.md`, `1-2*.md`, `1-3*.md`
 
 ## Dev Agent Record
 

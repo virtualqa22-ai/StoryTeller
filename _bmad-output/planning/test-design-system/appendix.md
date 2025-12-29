@@ -3,10 +3,10 @@
 ## Related Documents
 
 - Architecture: `_bmad-output/architecture/index.md`
-- PRD: `_bmad-output/prd/index.md`
-- NFRs: `_bmad-output/prd/non-functional-requirements.md`
-- Epics: `_bmad-output/epics/epic-list.md`
-- Workflow Status: `_bmad-output/bmm-workflow-status.yaml`
+- PRD: `_bmad-output/planning/prd/index.md`
+- NFRs: `_bmad-output/planning/prd/non-functional-requirements.md`
+- Epics: `_bmad-output/planning/epics/epic-list.md`
+- Workflow Status: `_bmad-output/implementation/bmm-workflow-status.yaml`
 
 ## Testing Tools & Dependencies
 

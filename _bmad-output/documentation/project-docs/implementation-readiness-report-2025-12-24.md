@@ -6,7 +6,7 @@ overallStatus: "NEEDS WORK - Critical issues require resolution before implement
 documentsInventory:
   prd:
     type: sharded
-    location: "_bmad-output/prd/"
+    location: "_bmad-output/planning/prd/"
     indexFile: "index.md"
     fileCount: 35
   architecture:
@@ -16,12 +16,12 @@ documentsInventory:
     fileCount: 31
   epics:
     type: individual_files
-    location: "_bmad-output/epics/"
+    location: "_bmad-output/planning/epics/"
     indexFile: "epic-list.md"
     fileCount: 14
   ux:
     type: sharded
-    location: "_bmad-output/ux-design-specification/"
+    location: "_bmad-output/planning/ux-design/"
     indexFile: "index.md"
     fileCount: 15
 ---
@@ -39,7 +39,7 @@ All required project documents have been successfully located:
 
 #### PRD Documents
 **Sharded Documents:**
-- Folder: `_bmad-output/prd/`
+- Folder: `_bmad-output/planning/prd/`
   - index.md (main PRD index)
   - executive-summary.md
   - product-scope.md
@@ -68,7 +68,7 @@ All required project documents have been successfully located:
 
 #### Epics & Stories Documents
 **Individual Files:**
-- Folder: `_bmad-output/epics/`
+- Folder: `_bmad-output/planning/epics/`
   - epic-list.md (main epic index)
   - epic-1-foundation-project-initialization-starter-template.md
   - epic-2-project-setup-configuration-wizard.md
@@ -87,7 +87,7 @@ All required project documents have been successfully located:
 
 #### UX Design Documents
 **Sharded Documents:**
-- Folder: `_bmad-output/ux-design-specification/`
+- Folder: `_bmad-output/planning/ux-design/`
   - index.md (main UX index)
   - executive-summary.md
   - defining-core-experience.md
@@ -536,7 +536,7 @@ The following FRs from the PRD are **NOT explicitly claimed** in any epic:
 
 ### UX Document Status
 
-✅ **FOUND:** Comprehensive UX Design Specification exists at `_bmad-output/ux-design-specification/`
+✅ **FOUND:** Comprehensive UX Design Specification exists at `_bmad-output/planning/ux-design/`
 - **Structure:** 15 markdown files with index
 - **Completeness:** Executive summary, core user experience, design principles, visual design, user journeys, component strategy, accessibility, implementation roadmap
 

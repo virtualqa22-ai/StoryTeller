@@ -11,7 +11,7 @@
 | Document | Path | Status |
 |----------|------|--------|
 | Requirements | `Reqiurement.txt` | Original requirements |
-| Workflow Status | `_bmad-output/bmm-workflow-status.yaml` | Current workflow tracking |
+| Workflow Status | `_bmad-output/implementation/bmm-workflow-status.yaml` | Current workflow tracking |
 | Auto-Commit Info | `AUTO-COMMIT-README.md` | Git automation info |
 
 ---
@@ -111,7 +111,7 @@
 ## 📊 Phase 1: Planning - COMPLETED
 
 ### Product Requirements Document (PRD)
-**Directory:** `_bmad-output/prd/`
+**Directory:** `_bmad-output/planning/prd/`
 **Metrics:** 222 Functional Requirements, 88 Non-Functional Requirements, 3 User Journeys
 
 #### Core PRD Files
@@ -127,7 +127,7 @@
 - `non-functional-requirements.md` - NFRs (88 requirements)
 
 #### Functional Requirements (Detailed)
-**Directory:** `_bmad-output/prd/functional-requirements/`
+**Directory:** `_bmad-output/planning/prd/functional-requirements/`
 - `index.md` - FR index
 - `additional-requirements.md` - **NEW** - Additional FRs from implementation readiness (FR112-FR115, FR147, FR166, FR186, FR201, FR223-FR225)
 - `installation-first-run.md` - Installation & first run
@@ -155,7 +155,7 @@
 - `user-experience-interface.md` - UX/UI
 
 ### UX Design Specification
-**Directory:** `_bmad-output/ux-design-specification/`
+**Directory:** `_bmad-output/planning/ux-design/`
 **Metrics:** 14 Sections, Design System: Fluent UI 2, 3 Personas, 5 User Journeys
 
 - `index.md` - Main index
@@ -226,7 +226,7 @@
 - `enforcement-guidelines.md` - Enforcement
 
 ### Test Design (System-Level)
-**Directory:** `_bmad-output/test-design-system/`
+**Directory:** `_bmad-output/planning/test-design-system/`
 **Metrics:** 11 ASRs (7 High-Priority), 50% Unit / 30% Integration / 15% E2E / 5% Manual QA, 12 Sharded Sections
 
 #### Test Design Document (Sharded)
@@ -252,7 +252,7 @@
 5. Sprint 0 Completion Gate (Non-Negotiable, 25+ checkboxes, PM+TL sign-off)
 
 ### Epics & Stories
-**Directory:** `_bmad-output/epics/`
+**Directory:** `_bmad-output/planning/epics/`
 **Metrics:** 12 Epics, Requirements Mapped: Yes
 
 #### Epic Overview Files
@@ -280,11 +280,11 @@
 ## ✅ Phase 3: Validation (Optional)
 
 ### User Research & Validation
-**Directory:** `_bmad-output/storyteller-validation/`
+**Directory:** `_bmad-output/documentation/storyteller-validation/`
 - `00-executive-summary.md` - Validation executive summary
 
 #### User Research Plan
-**Directory:** `_bmad-output/storyteller-validation/01-user-research-plan/`
+**Directory:** `_bmad-output/documentation/storyteller-validation/01-user-research-plan/`
 - `index.md` - Research plan index
 - `research-objectives.md` - Research objectives
 - `hypotheses-to-test.md` - Hypotheses
@@ -303,7 +303,7 @@
 ## ✅ Implementation Readiness - COMPLETED
 
 ### Implementation Readiness Assessment
-**Directory:** `_bmad-output/`
+**Directory:** `_bmad-output/documentation/project-docs/`
 **Status:** ✅ COMPLETE - All Critical Issues Resolved
 **Date Completed:** 2025-12-24
 
@@ -352,8 +352,6 @@ StoryTeller/
 ├── Reqiurement.txt                          # Original requirements
 ├── AUTO-COMMIT-README.md                    # Git automation info
 ├── _bmad-output/
-│   ├── PROJECT-INDEX.md                     # This file
-│   ├── bmm-workflow-status.yaml             # Workflow tracking
 │   ├── analysis/                            # Phase 0: Discovery
 │   │   ├── brainstorming-session-2025-12-17/
 │   │   ├── product-brief-StoryTeller-2025-12-18/
@@ -361,16 +359,28 @@ StoryTeller/
 │   │       ├── market-ai-writing-tools-research-2025-12-18/
 │   │       ├── domain-self-publishing-ecosystem-research-2025-12-18/
 │   │       └── technical-implementation-technologies-research-2025-12-18/
-│   ├── prd/                                 # Phase 1: PRD
-│   │   └── functional-requirements/
-│   ├── ux-design-specification/             # Phase 1: UX Design
 │   ├── architecture/                        # Phase 2: Architecture
 │   │   ├── core-architectural-decisions/
 │   │   ├── extended-architectural-decisions/
 │   │   └── implementation-patterns-consistency-rules/
-│   ├── epics/                               # Phase 2: Epics & Stories
-│   └── storyteller-validation/              # Phase 3: Validation (Optional)
-│       └── 01-user-research-plan/
+│   ├── planning/                            # Phase 2-3: Planning & Solutioning
+│   │   ├── prd/                             # Product Requirements
+│   │   │   └── functional-requirements/
+│   │   ├── ux-design/                       # UX Design Specification
+│   │   ├── epics/                           # Epics & Stories
+│   │   └── test-design-system/              # Test Design
+│   ├── implementation/                      # Phase 4: Implementation
+│   │   ├── bmm-workflow-status.yaml         # Workflow tracking
+│   │   ├── sprint-artifacts/                # Sprint tracking & stories
+│   │   ├── stories/                         # User stories
+│   │   ├── test-plans/                      # Test execution plans
+│   │   └── code-artifacts/                  # Implementation artifacts
+│   └── documentation/                       # Project documentation
+│       ├── project-docs/                    # All project docs (including PROJECT-INDEX.md)
+│       ├── storyteller-validation/          # Validation (Optional)
+│       │   └── 01-user-research-plan/
+│       ├── api-docs/                        # API documentation
+│       └── technical-guides/                # Technical guides
 └── _bmad/                                   # BMAD framework files
 ```
 
@@ -384,7 +394,7 @@ StoryTeller/
 - Check **Quick Reference** table for primary documents
 
 ### For Workflow Management
-- Review **Workflow Status**: `_bmad-output/bmm-workflow-status.yaml`
+- Review **Workflow Status**: `_bmad-output/implementation/bmm-workflow-status.yaml`
 - Check **Next Steps** section for pending workflows
 - Use **Phase sections** to understand what's completed
 

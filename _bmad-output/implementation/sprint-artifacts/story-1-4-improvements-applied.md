@@ -111,7 +111,7 @@
 ## Validation Report
 
 **Full validation report saved to:**
-`_bmad-output/sprint-artifacts/validation-report-1-4-2025-12-25-150000.md`
+`_bmad-output/implementation/sprint-artifacts/validation-report-1-4-2025-12-25-150000.md`
 
 The 250+ line report includes:
 - Detailed analysis of all 21 validation categories
@@ -156,9 +156,9 @@ The 250+ line report includes:
 
 ## Files Modified
 
-1. `_bmad-output/sprint-artifacts/1-4-configure-testing-infrastructure.md` (UPDATED: +57 lines)
-2. `_bmad-output/sprint-artifacts/validation-report-1-4-2025-12-25-150000.md` (CREATED: full analysis)
-3. `_bmad-output/sprint-artifacts/story-1-4-improvements-applied.md` (CREATED: this file)
+1. `_bmad-output/implementation/sprint-artifacts/1-4-configure-testing-infrastructure.md` (UPDATED: +57 lines)
+2. `_bmad-output/implementation/sprint-artifacts/validation-report-1-4-2025-12-25-150000.md` (CREATED: full analysis)
+3. `_bmad-output/implementation/sprint-artifacts/story-1-4-improvements-applied.md` (CREATED: this file)
 
 ---
 

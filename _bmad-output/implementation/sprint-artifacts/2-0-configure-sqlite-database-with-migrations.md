@@ -483,8 +483,8 @@ pnpm tauri build
 
 - [Data Architecture](/_bmad-output/architecture/core-architectural-decisions/data-architecture.md)
 - [Structure Patterns](/_bmad-output/architecture/implementation-patterns-consistency-rules/structure-patterns.md)
-- [Epic 2 Stories](/_bmad-output/epics/epic-2-project-setup-configuration-wizard.md)
-- [Epic 1 Retrospective](/_bmad-output/sprint-artifacts/epic-1-retro-2025-12-26.md)
+- [Epic 2 Stories](/_bmad-output/planning/epics/epic-2-project-setup-configuration-wizard.md)
+- [Epic 1 Retrospective](/_bmad-output/implementation/sprint-artifacts/epic-1-retro-2025-12-26.md)
 
 ## Dev Agent Record
 

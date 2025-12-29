@@ -314,7 +314,7 @@ None - implementation proceeded without issues.
 - `_bmad-output/architecture/core-architectural-decisions/frontend-architecture.md` - Added version matrix, bits-ui patterns; fixed version specs
 - `playwright.config.ts` - Updated with webServer configuration
 - `src/app.html` - Updated page title to "StoryTeller"
-- `_bmad-output/sprint-artifacts/sprint-status.yaml` - Status: ready-for-dev → in-progress → review → done
+- `_bmad-output/implementation/sprint-artifacts/sprint-status.yaml` - Status: ready-for-dev → in-progress → review → done
 - `.gitignore` - Added playwright-report/, test-results/, .claude/ (code review fix)
 
 **Created:**
@@ -324,7 +324,7 @@ None - implementation proceeded without issues.
 - `tests/e2e/launch.spec.ts` - Broken Electron-based test file
 
 **Related (not part of this story but in same commit window):**
-- `_bmad-output/sprint-artifacts/epic-1-retro-2025-12-26.md` - Epic 1 retrospective that spawned this story
+- `_bmad-output/implementation/sprint-artifacts/epic-1-retro-2025-12-26.md` - Epic 1 retrospective that spawned this story
 
 ### Change Log
 

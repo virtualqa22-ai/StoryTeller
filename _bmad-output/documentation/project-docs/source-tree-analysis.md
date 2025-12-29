@@ -337,7 +337,7 @@ import type { Project } from "$lib/api/projects";
 
 | File | Purpose | When to Read |
 |------|---------|--------------|
-| `_bmad-output/project-context.md` | **Implementation rules** | Before writing ANY code |
+| `_bmad-output/documentation/project-docs/project-context.md` | **Implementation rules** | Before writing ANY code |
 | `src/lib/api/projects.ts` | **Tauri command wrappers** | When adding new backend features |
 | `src/lib/utils/cn.ts` | **Class name utility** | When styling components |
 | `src-tauri/src/lib.rs` | **Command registration** | When adding new Tauri commands |

@@ -2,7 +2,7 @@
 # project: StoryTeller
 # project_key: storyteller
 # tracking_system: file-system
-# story_location: _bmad-output/sprint-artifacts
+# story_location: _bmad-output/implementation/sprint-artifacts
 
 # STATUS DEFINITIONS:
 # ==================
@@ -37,7 +37,7 @@ generated: 2025-12-24
 project: StoryTeller
 project_key: storyteller
 tracking_system: file-system
-story_location: _bmad-output/sprint-artifacts
+story_location: _bmad-output/implementation/sprint-artifacts
 
 development_status:
   epic-1: done

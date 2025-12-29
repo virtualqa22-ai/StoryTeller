@@ -202,7 +202,7 @@ pnpm tauri build
 | `playwright.config.ts` | E2E test configuration |
 | `tsconfig.json` | TypeScript strict mode configuration |
 | `tailwind.config.js` | Tailwind v4 PostCSS configuration |
-| `_bmad-output/project-context.md` | AI agent implementation rules |
+| `_bmad-output/documentation/project-docs/project-context.md` | AI agent implementation rules |
 
 ---
 

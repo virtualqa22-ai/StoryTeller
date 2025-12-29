@@ -27,9 +27,9 @@ All critical and high-priority issues identified in the implementation readiness
   - Testing infrastructure (Vitest + Playwright)
 
 **Files Modified:**
-- `_bmad-output/epics/epic-1-foundation-project-initialization-starter-template.md` - Complete rewrite
-- `_bmad-output/epics/epic-2-project-setup-configuration-wizard.md` - Added Story 2.0 for SQLite setup
-- `_bmad-output/epics/epic-list.md` - Updated Epic 1 description and FR coverage
+- `_bmad-output/planning/epics/epic-1-foundation-project-initialization-starter-template.md` - Complete rewrite
+- `_bmad-output/planning/epics/epic-2-project-setup-configuration-wizard.md` - Added Story 2.0 for SQLite setup
+- `_bmad-output/planning/epics/epic-list.md` - Updated Epic 1 description and FR coverage
 
 **Validation:**
 - ✅ Epic 1 now delivers user value: installable, launchable application
@@ -51,8 +51,8 @@ All critical and high-priority issues identified in the implementation readiness
 - **Updated Epic 2** to include FR223-FR225 in coverage
 
 **Files Modified:**
-- `_bmad-output/prd/functional-requirements/user-experience-interface.md` - Added FR223-FR225
-- `_bmad-output/epics/epic-list.md` - Updated Epic 2 FR coverage
+- `_bmad-output/planning/prd/functional-requirements/user-experience-interface.md` - Added FR223-FR225
+- `_bmad-output/planning/epics/epic-list.md` - Updated Epic 2 FR coverage
 
 **Validation:**
 - ✅ Mode selection now explicitly captured in PRD
@@ -84,9 +84,9 @@ All critical and high-priority issues identified in the implementation readiness
   - Epic 8: Added FR166 (Story Bible export metadata)
 
 **Files Modified:**
-- `_bmad-output/prd/functional-requirements/additional-requirements.md` - NEW FILE
-- `_bmad-output/prd/index.md` - Added link to additional requirements
-- `_bmad-output/epics/epic-list.md` - Updated Epic 3, 4, 5, 8 FR coverage
+- `_bmad-output/planning/prd/functional-requirements/additional-requirements.md` - NEW FILE
+- `_bmad-output/planning/prd/index.md` - Added link to additional requirements
+- `_bmad-output/planning/epics/epic-list.md` - Updated Epic 3, 4, 5, 8 FR coverage
 
 **Validation:**
 - ✅ All previously missing FRs now assigned to epics
@@ -107,7 +107,7 @@ All critical and high-priority issues identified in the implementation readiness
   - Progress framing instead of step counting
 
 **Files Modified:**
-- `_bmad-output/prd/functional-requirements/project-setup-configuration.md` - Updated FR1
+- `_bmad-output/planning/prd/functional-requirements/project-setup-configuration.md` - Updated FR1
 
 **Validation:**
 - ✅ PRD and UX now aligned on onboarding sophistication
@@ -127,8 +127,8 @@ All critical and high-priority issues identified in the implementation readiness
 - Just-in-time database creation principle now followed
 
 **Files Modified:**
-- `_bmad-output/epics/epic-1-foundation-project-initialization-starter-template.md` - Removed SQLite setup
-- `_bmad-output/epics/epic-2-project-setup-configuration-wizard.md` - Added Story 2.0 with proper SQLite setup
+- `_bmad-output/planning/epics/epic-1-foundation-project-initialization-starter-template.md` - Removed SQLite setup
+- `_bmad-output/planning/epics/epic-2-project-setup-configuration-wizard.md` - Added Story 2.0 with proper SQLite setup
 
 **Validation:**
 - ✅ No premature table creation
