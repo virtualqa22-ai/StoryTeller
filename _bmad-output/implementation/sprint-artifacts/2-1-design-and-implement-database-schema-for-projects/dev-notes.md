@@ -1,100 +1,6 @@
-# Story 2.1: Design and Implement Database Schema for Projects
+# Dev Notes
 
-Status: done
-
-## Story
-
-As a development team,
-I want a comprehensive SQLite schema for storing novel projects with all configuration data,
-So that we can persist project metadata, settings, and relationships to other entities.
-
-## Acceptance Criteria
-
-1. **Given** the SQLite database is configured with migrations
-   **When** the team creates migration `V2__create_projects_schema.sql`
-   **Then** the migration defines a `projects` table with fields: id (PRIMARY KEY), title (TEXT NOT NULL), author_name (TEXT), pen_name (TEXT), tagline (TEXT), genre (TEXT), subgenre (TEXT), target_audience (TEXT), tone (TEXT), point_of_view (TEXT), story_framework (TEXT), chapter_count (INTEGER), target_words_per_chapter (INTEGER), plot_premise (TEXT), language (TEXT DEFAULT 'en'), created_at (TIMESTAMP DEFAULT CURRENT_TIMESTAMP), updated_at (TIMESTAMP DEFAULT CURRENT_TIMESTAMP), file_path (TEXT NOT NULL UNIQUE), last_opened_at (TIMESTAMP)
-   **And** the schema includes indexes on frequently queried fields (last_opened_at, created_at)
-   **And** the migration includes a trigger to auto-update `updated_at` on row changes
-
-2. **Given** the projects table is created
-   **When** the team tests the schema with sample data
-   **Then** project records can be inserted with all fields
-   **And** records can be queried by id or file_path
-   **And** records can be ordered by last_opened_at for recent projects list
-   **And** the updated_at trigger fires correctly on UPDATE operations
-
-## Tasks / Subtasks
-
-- [x] Task 1: Create V2 migration file (AC: #1)
-  - [x] Create `src-tauri/migrations/V2__create_projects_schema.sql`
-  - [x] Define `projects` table with all fields per Epic 2 requirements
-  - [x] Add PRIMARY KEY constraint on id
-  - [x] Add NOT NULL constraints on title and file_path
-  - [x] Add UNIQUE constraint on file_path
-  - [x] Set DEFAULT values for language ('en'), timestamps (CURRENT_TIMESTAMP)
-  - [x] Create index on last_opened_at for recent projects query performance
-  - [x] Create index on created_at for project list sorting
-  - [x] Create trigger `update_projects_timestamp` to auto-update updated_at on changes
-
-- [x] Task 2: Create Rust types for projects (AC: #2)
-  - [x] Create `src-tauri/src/db/models/mod.rs` for model exports
-  - [x] Create `src-tauri/src/db/models/project.rs` with Project struct
-  - [x] Define Project struct matching database schema fields
-  - [x] Implement `From<&rusqlite::Row>` for Project to map query results
-  - [x] Add validation methods (e.g., validate_title, validate_file_path)
-  - [x] Add helper methods (e.g., is_recent, get_target_word_count)
-  - [x] Update `src-tauri/src/db/mod.rs` to export models module
-
-- [x] Task 3: Implement database operations (AC: #2)
-  - [x] Create `src-tauri/src/db/projects.rs` for CRUD operations
-  - [x] Implement `insert_project(conn: &Connection, project: &NewProject) -> Result<i64>`
-  - [x] Implement `get_project_by_id(conn: &Connection, id: i64) -> Result<Project>`
-  - [x] Implement `get_project_by_path(conn: &Connection, path: &str) -> Result<Project>`
-  - [x] Implement `get_recent_projects(conn: &Connection, limit: usize) -> Result<Vec<Project>>`
-  - [x] Implement `update_project(conn: &Connection, project: &Project) -> Result<()>`
-  - [x] Implement `update_last_opened(conn: &Connection, id: i64) -> Result<()>`
-  - [x] Implement `delete_project(conn: &Connection, id: i64) -> Result<()>`
-  - [x] Update `src-tauri/src/db/mod.rs` to export projects module
-
-- [x] Task 4: Add Tauri commands for project management (AC: #2)
-  - [x] Create `src-tauri/src/db/commands/project_commands.rs`
-  - [x] Implement `create_project` command (returns project ID)
-  - [x] Implement `get_project` command (by ID or path)
-  - [x] Implement `list_recent_projects` command (returns last 10 by default)
-  - [x] Implement `update_project_metadata` command
-  - [x] Implement `delete_project` command
-  - [x] Update `src-tauri/src/db/commands/mod.rs` to export project commands
-  - [x] Register all commands in `src-tauri/src/lib.rs` invoke handler
-
-- [x] Task 5: Write Rust unit tests (AC: #2)
-  - [x] Test: Insert project with all fields
-  - [x] Test: Insert project with minimal fields (only required)
-  - [x] Test: UNIQUE constraint violation on file_path
-  - [x] Test: Query project by id
-  - [x] Test: Query project by file_path
-  - [x] Test: Get recent projects ordered by last_opened_at DESC
-  - [x] Test: Update project updates updated_at timestamp automatically
-  - [x] Test: Update last_opened_at updates timestamp correctly
-  - [x] Test: Delete project removes record
-
-- [x] Task 6: Write integration tests for migration (AC: #1)
-  - [x] Test: V2 migration runs successfully after V1
-  - [x] Test: Projects table exists after migration
-  - [x] Test: Projects table has all required columns with correct types
-  - [x] Test: Indexes exist on last_opened_at and created_at
-  - [x] Test: Trigger exists and fires on UPDATE
-
-- [x] Task 7: Validate and verify
-  - [x] Run `cargo build` - compiles without errors
-  - [x] Run `cargo test` - all new tests pass
-  - [x] Run `cargo test --lib` for unit tests only
-  - [x] Run `pnpm check` - no TypeScript errors
-  - [x] Run `pnpm test` - all frontend tests pass
-  - [x] Manually test: Launch app, verify migration runs, check database file
-
-## Dev Notes
-
-### 🔥 CRITICAL ARCHITECTURE CONTEXT
+## 🔥 CRITICAL ARCHITECTURE CONTEXT
 
 **Database Foundation (Story 2.0 - COMPLETED):**
 - SQLite database: `{app_data}/StoryTeller/storyteller.db` (Windows: `%APPDATA%\StoryTeller\storyteller.db`)
@@ -118,7 +24,7 @@ So that we can persist project metadata, settings, and relationships to other en
 - Rust type system validation at application layer
 - Business logic validation in model methods
 
-### 📋 COPY-PASTE REFERENCE - Exact Patterns from Story 2.0
+## 📋 COPY-PASTE REFERENCE - Exact Patterns from Story 2.0
 
 **Module Export Pattern (db/mod.rs style):**
 ```rust
@@ -197,7 +103,7 @@ fn test_insert_project() {
 }
 ```
 
-### 🗂️ Projects Table Schema Deep Dive
+## 🗂️ Projects Table Schema Deep Dive
 
 **Required Fields (NOT NULL):**
 - `id` - INTEGER PRIMARY KEY (auto-increment)
@@ -237,7 +143,7 @@ fn test_insert_project() {
 - Index on `created_at DESC` for project list sorting
 - UNIQUE index on `file_path` prevents duplicate project files
 
-### 📁 Project Structure to Create
+## 📁 Project Structure to Create
 
 ```
 src-tauri/src/db/
@@ -258,9 +164,9 @@ src-tauri/migrations/
 └── V2__create_projects_schema.sql  # NEW (this story)
 ```
 
-### 🔧 Complete Implementation Patterns
+## 🔧 Complete Implementation Patterns
 
-#### V2__create_projects_schema.sql
+### V2__create_projects_schema.sql
 
 ```sql
 -- StoryTeller Projects Table
@@ -303,13 +209,13 @@ BEGIN
 END;
 ```
 
-#### src-tauri/src/db/models/mod.rs
+### src-tauri/src/db/models/mod.rs
 
 ```rust
 pub mod project;
 ```
 
-#### src-tauri/src/db/models/project.rs
+### src-tauri/src/db/models/project.rs
 
 ```rust
 use serde::{Deserialize, Serialize};
@@ -410,7 +316,7 @@ impl From<&rusqlite::Row<'_>> for Project {
 }
 ```
 
-#### src-tauri/src/db/projects.rs
+### src-tauri/src/db/projects.rs
 
 ```rust
 use rusqlite::Connection;
@@ -838,13 +744,13 @@ mod tests {
 }
 ```
 
-#### src-tauri/src/db/commands/mod.rs
+### src-tauri/src/db/commands/mod.rs
 
 ```rust
 pub mod project_commands;
 ```
 
-#### src-tauri/src/db/commands/project_commands.rs
+### src-tauri/src/db/commands/project_commands.rs
 
 ```rust
 use crate::db::{connection, projects, models::project::{Project, NewProject}};
@@ -890,7 +796,7 @@ pub fn delete_project(id: i64) -> Result<(), String> {
 }
 ```
 
-#### Updates to src-tauri/src/db/mod.rs
+### Updates to src-tauri/src/db/mod.rs
 
 Add these lines to the existing file:
 
@@ -903,7 +809,7 @@ pub mod models;      // ADD THIS
 pub mod projects;    // ADD THIS
 ```
 
-#### Updates to src-tauri/src/lib.rs
+### Updates to src-tauri/src/lib.rs
 
 Replace the invoke_handler line (lib.rs:32) with:
 
@@ -919,7 +825,7 @@ Replace the invoke_handler line (lib.rs:32) with:
 ])
 ```
 
-### 🧪 Testing Strategy
+## 🧪 Testing Strategy
 
 **Unit Tests (Target: 90%+ coverage):**
 - Test CRUD operations with temp database (using tempfile pattern from migrations.rs)
@@ -939,7 +845,7 @@ cargo test -- --nocapture # Show output
 - Test V2 runs after V1 (use tempfile + run_migrations pattern)
 - Test table structure (query sqlite_master for columns, indexes, triggers)
 
-### 🎯 Scope Boundaries
+## 🎯 Scope Boundaries
 
 **This Story DOES:**
 - Create V2 migration with projects table, indexes, trigger
@@ -954,50 +860,9 @@ cargo test -- --nocapture # Show output
 - Implement wizard flow (Story 2.3-2.8)
 - Add foreign key relationships to other tables (Future epics)
 
-### 📚 References
+## 📚 References
 
 - Story 2.0: Database foundation implementation details (migrations pattern, module structure, error handling)
 - Data Architecture: Schema design principles, validation layers, migration strategy
 - Testing Architecture: Rust unit test patterns, test coverage targets (90%+)
 - Epic 2 Stories: Wizard flow context, field requirements for wizard steps
-
-## Dev Agent Record
-
-### Agent Model Used
-claude-opus-4-5-20251101
-
-### Debug Log References
-- Fixed module conflict by converting commands.rs to commands/ directory structure
-- Fixed test failure in test_get_recent_projects_ordered by increasing sleep duration from 10ms to 1s for timestamp resolution
-- Fixed ORDER BY query to handle NULL values correctly using CASE expression
-- CODE REVIEW: Added get_project_by_path and update_last_opened Tauri commands (AC#2 requirement)
-- CODE REVIEW: Added validation enforcement in create_project and update_project_metadata commands
-- CODE REVIEW: Added doc comments to all Tauri commands
-- CODE REVIEW: Removed unused re-export in commands/mod.rs
-
-### Completion Notes List
-- Created V2 migration with projects table schema (19 fields, 2 indexes, 1 trigger)
-- Implemented Project and NewProject Rust structs with validation methods
-- Implemented complete CRUD operations in projects.rs (7 functions)
-- Created 7 Tauri commands for project management (added get_project_by_path, update_last_opened after review)
-- Added validation enforcement in create_project and update_project_metadata commands
-- Added doc comments to all Tauri commands for frontend developers
-- Added 9 unit tests for CRUD operations in projects.rs (all passing)
-- Added 7 integration tests for migration in migrations.rs (all passing)
-- Total: 19 Rust tests passing, 89 frontend tests passing
-- cargo build: successful with 1 warning (unused get_target_word_count method - reserved for future use)
-- pnpm check: 0 errors, 0 warnings
-- Code review fixes applied: added missing commands, validation, documentation
-
-### File List
-- src-tauri/migrations/V2__create_projects_schema.sql (created)
-- src-tauri/src/db/models/mod.rs (created)
-- src-tauri/src/db/models/project.rs (created)
-- src-tauri/src/db/projects.rs (created)
-- src-tauri/src/db/commands/mod.rs (created)
-- src-tauri/src/db/commands/database_commands.rs (created - moved from commands.rs)
-- src-tauri/src/db/commands/project_commands.rs (created, modified after review: added validation, 2 commands, doc comments)
-- src-tauri/src/db/commands.rs (deleted - converted to commands/ directory)
-- src-tauri/src/db/mod.rs (modified)
-- src-tauri/src/lib.rs (modified - registered 7 project commands)
-- src-tauri/src/db/migrations.rs (modified - added 7 migration tests)

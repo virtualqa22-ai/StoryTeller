@@ -1,0 +1,26 @@
+# Story 2.2: Build Home Screen with Recent Projects List
+
+## Table of Contents
+
+- [Story 2.2: Build Home Screen with Recent Projects List](#table-of-contents)
+  - [Story](./story.md)
+  - [Acceptance Criteria](./acceptance-criteria.md)
+  - [Tasks / Subtasks](./tasks-subtasks.md)
+  - [Dev Notes](./dev-notes.md)
+    - [🔥 CRITICAL ARCHITECTURE CONTEXT](./dev-notes.md#critical-architecture-context)
+    - [📋 COPY-PASTE REFERENCE - Implementation Patterns](./dev-notes.md#copy-paste-reference-implementation-patterns)
+      - [TypeScript API Wrapper Pattern (src/lib/api/projects.ts)](./dev-notes.md#typescript-api-wrapper-pattern-srclibapiprojectsts)
+      - [Relative Time Formatting Utility (src/lib/utils/formatDate.ts)](./dev-notes.md#relative-time-formatting-utility-srclibutilsformatdatets)
+      - [Svelte 5 Runes Pattern (src/routes/+page.svelte)](./dev-notes.md#svelte-5-runes-pattern-srcroutespagesvelte)
+      - [ProjectCard Component (src/lib/components/projects/ProjectCard.svelte)](./dev-notes.md#projectcard-component-srclibcomponentsprojectsprojectcardsvelte)
+    - [🗂️ Project Structure Notes](./dev-notes.md#project-structure-notes)
+    - [🧪 Testing Strategy](./dev-notes.md#testing-strategy)
+    - [🎯 Scope Boundaries](./dev-notes.md#scope-boundaries)
+    - [🔗 Previous Story Learnings (Story 2.1)](./dev-notes.md#previous-story-learnings-story-21)
+    - [📚 References](./dev-notes.md#references)
+    - [🚀 Library Versions & Latest Info](./dev-notes.md#library-versions-latest-info)
+  - [Dev Agent Record](./dev-agent-record.md)
+    - [Agent Model Used](./dev-agent-record.md#agent-model-used)
+    - [Debug Log References](./dev-agent-record.md#debug-log-references)
+    - [Completion Notes List](./dev-agent-record.md#completion-notes-list)
+    - [File List](./dev-agent-record.md#file-list)

@@ -2,7 +2,7 @@
 
 **Date:** 2025-12-25
 **Validator:** Bob (Scrum Master)
-**Story:** 1-4-configure-testing-infrastructure.md
+**Story:** 1-4-configure-testing-infrastructure/index.md
 **Result:** ALL 7 IMPROVEMENTS APPLIED ✅
 
 ---
@@ -156,7 +156,7 @@ The 250+ line report includes:
 
 ## Files Modified
 
-1. `_bmad-output/implementation/sprint-artifacts/1-4-configure-testing-infrastructure.md` (UPDATED: +57 lines)
+1. `_bmad-output/implementation/sprint-artifacts/1-4-configure-testing-infrastructure/index.md` (UPDATED: +57 lines)
 2. `_bmad-output/implementation/sprint-artifacts/validation-report-1-4-2025-12-25-150000.md` (CREATED: full analysis)
 3. `_bmad-output/implementation/sprint-artifacts/story-1-4-improvements-applied.md` (CREATED: this file)
 

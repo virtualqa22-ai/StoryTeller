@@ -48,18 +48,18 @@ Communication via Tauri IPC (JSON serialization over command pattern).
 - **[Project Overview](./project-overview.md)** - Executive summary, tech stack, status, and roadmap
 - **[Architecture](./architecture.md)** - System architecture, design patterns, data flow, and security
 - **[Source Tree Analysis](./source-tree-analysis.md)** - Directory structure, file organization, and navigation guide
-- **[Component Inventory](./component-inventory.md)** - Complete catalog of all UI and domain components
+- **[Component Inventory](./component-inventory/index.md)** - Complete catalog of all UI and domain components
 
 ### API & Data
-- **[API Contracts](./api-contracts.md)** - Tauri command reference, request/response types, and examples
-- **[Data Models](./data-models.md)** - Database schema, Rust structs, TypeScript interfaces, and migrations
+- **[API Contracts](./api-contracts/index.md)** - Tauri command reference, request/response types, and examples
+- **[Data Models](./data-models/index.md)** - Database schema, Rust structs, TypeScript interfaces, and migrations
 
 ### Development
-- **[Development Guide](./development-guide.md)** - Setup instructions, common tasks, code style, and testing guide
+- **[Development Guide](./development-guide/index.md)** - Setup instructions, common tasks, code style, and testing guide
 - **[Project Context (AI Agent Rules)](./project-context.md)** - Critical implementation rules for AI-assisted development
 
 ### Additional Resources
-- **[Deployment Guide](./deployment-guide.md)** - Building, packaging, and distributing for Windows, macOS, and Linux
+- **[Deployment Guide](./deployment-guide/index.md)** - Building, packaging, and distributing for Windows, macOS, and Linux
 
 ---
 
@@ -88,7 +88,7 @@ Communication via Tauri IPC (JSON serialization over command pattern).
    ```
 
 3. **Essential Reading:**
-   - [Development Guide](./development-guide.md) - Complete setup and workflow
+   - [Development Guide](./development-guide/index.md) - Complete setup and workflow
    - [Project Context](./project-context.md) - **MUST READ before writing code**
    - [Architecture](./architecture.md) - Understand system design
 
@@ -109,14 +109,14 @@ Communication via Tauri IPC (JSON serialization over command pattern).
 **Key Reference Documents:**
 1. [Project Context](./project-context.md) - Implementation rules (MANDATORY)
 2. [Architecture](./architecture.md) - System design and patterns
-3. [API Contracts](./api-contracts.md) - Tauri command reference
-4. [Data Models](./data-models.md) - Database schema and types
+3. [API Contracts](./api-contracts/index.md) - Tauri command reference
+4. [Data Models](./data-models/index.md) - Database schema and types
 5. [Source Tree Analysis](./source-tree-analysis.md) - File organization
 
 **Common Tasks:**
-- Adding UI component → See [Development Guide § Adding a New UI Component](./development-guide.md#adding-a-new-ui-component)
-- Adding Tauri command → See [Development Guide § Adding a New Tauri Command](./development-guide.md#adding-a-new-tauri-command)
-- Database migration → See [Development Guide § Adding a Database Migration](./development-guide.md#adding-a-database-migration)
+- Adding UI component → See [Development Guide § Adding a New UI Component](./development-guide/index.md#adding-a-new-ui-component)
+- Adding Tauri command → See [Development Guide § Adding a New Tauri Command](./development-guide/index.md#adding-a-new-tauri-command)
+- Database migration → See [Development Guide § Adding a Database Migration](./development-guide/index.md#adding-a-database-migration)
 
 ---
 
@@ -126,7 +126,7 @@ Communication via Tauri IPC (JSON serialization over command pattern).
 - **Languages:** TypeScript (frontend), Rust (backend), SQL (migrations)
 - **UI Components:** 22 reusable components in `src/lib/components/ui/`
 - **Domain Components:** 2 components in `src/lib/components/projects/`
-- **Tauri Commands:** 9 registered commands (see [API Contracts](./api-contracts.md))
+- **Tauri Commands:** 9 registered commands (see [API Contracts](./api-contracts/index.md))
 - **Database Tables:** 1 (`projects` table with 19 columns)
 - **Migration Version:** V2
 
@@ -212,8 +212,8 @@ Communication via Tauri IPC (JSON serialization over command pattern).
 
 ### Update Guidelines
 - **Technology Stack Changes:** Update [Project Overview](./project-overview.md) and [Project Context](./project-context.md)
-- **New API Endpoints:** Update [API Contracts](./api-contracts.md)
-- **Database Migrations:** Update [Data Models](./data-models.md)
+- **New API Endpoints:** Update [API Contracts](./api-contracts/index.md)
+- **Database Migrations:** Update [Data Models](./data-models/index.md)
 - **Architecture Changes:** Update [Architecture](./architecture.md)
 - **New Features:** Update relevant documentation + this index
 
@@ -233,26 +233,26 @@ To regenerate all documentation:
 | Understand the project | [Project Overview](./project-overview.md) |
 | Learn the architecture | [Architecture](./architecture.md) |
 | Find a file | [Source Tree Analysis](./source-tree-analysis.md) |
-| Call a Tauri command | [API Contracts](./api-contracts.md) |
-| Understand the database | [Data Models](./data-models.md) |
-| Set up dev environment | [Development Guide](./development-guide.md) |
+| Call a Tauri command | [API Contracts](./api-contracts/index.md) |
+| Understand the database | [Data Models](./data-models/index.md) |
+| Set up dev environment | [Development Guide](./development-guide/index.md) |
 | Write code (as AI agent) | [Project Context](./project-context.md) |
-| Add a UI component | [Development Guide § Adding a New UI Component](./development-guide.md#adding-a-new-ui-component) |
-| Add a database field | [Development Guide § Adding a Database Migration](./development-guide.md#adding-a-database-migration) |
-| Run tests | [Development Guide § Code Quality Checks](./development-guide.md#code-quality-checks) |
+| Add a UI component | [Development Guide § Adding a New UI Component](./development-guide/index.md#adding-a-new-ui-component) |
+| Add a database field | [Development Guide § Adding a Database Migration](./development-guide/index.md#adding-a-database-migration) |
+| Run tests | [Development Guide § Code Quality Checks](./development-guide/index.md#code-quality-checks) |
 
 ---
 
 ## Contact & Support
 
 ### For Questions
-- Check documentation first (especially [Development Guide](./development-guide.md))
+- Check documentation first (especially [Development Guide](./development-guide/index.md))
 - Review [Project Context](./project-context.md) for implementation rules
 - Search codebase for similar patterns
 
 ### For Issues
-- Database errors: Check [Data Models](./data-models.md) for schema
-- Build errors: See [Development Guide § Troubleshooting](./development-guide.md#troubleshooting)
+- Database errors: Check [Data Models](./data-models/index.md) for schema
+- Build errors: See [Development Guide § Troubleshooting](./development-guide/index.md#troubleshooting)
 - Type errors: Ensure strict mode compliance ([Project Context](./project-context.md))
 
 ---

@@ -61,7 +61,19 @@
       "Bash(grep:*)",
       "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" log --oneline -5)",
       "Bash(Get-ChildItem -Path \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" -Directory -Name)",
-      "Bash(Select-Object -First 20)"
+      "Bash(Select-Object -First 20)",
+      "Bash(Select-Object -First 30)",
+      "Bash(Get-ChildItem -Path \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad-output\" -Filter \"*.md\" -Recurse)",
+      "Bash(for file in \"deployment-guide.md\" \"development-guide.md\" \"component-inventory.md\" \"data-models.md\" \"api-contracts.md\" \"2-1-design-and-implement-database-schema-for-projects.md\" \"1-4-configure-testing-infrastructure.md\" \"2-2-build-home-screen-with-recent-projects-list.md\")",
+      "Bash(do echo \"=== Searching for $file ===\")",
+      "Bash(for dir in \"deployment-guide\" \"development-guide\" \"component-inventory\" \"data-models\" \"api-contracts\" \"implementation-readiness-report-2025-12-24\")",
+      "Bash(do test -f \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad-output\\\\documentation\\\\project-docs$dir\\\\index.md\")",
+      "Bash(for dir in \"deployment-guide\" \"development-guide\" \"component-inventory\" \"data-models\" \"api-contracts\" \"implementation-readiness-report-2025-12-24\" \"2-1-design-and-implement-database-schema-for-projects\" \"1-4-configure-testing-infrastructure\" \"2-2-build-home-screen-with-recent-projects-list\")",
+      "Bash(do if [ -f \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad-output\\\\documentation\\\\project-docs$dir\\\\index.md\" ])",
+      "Bash([ -f \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad-output\\\\implementation\\\\sprint-artifacts$dir\\\\index.md\" ])",
+      "Bash(then echo \"✅ $dir/index.md\")",
+      "Bash(else echo \"❌ $dir/index.md\")",
+      "Bash(while read dir)"
     ]
   }
 }

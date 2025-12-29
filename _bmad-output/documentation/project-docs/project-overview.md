@@ -278,9 +278,9 @@ pnpm test:e2e
 
 - [Architecture Details](./architecture.md)
 - [Source Tree Analysis](./source-tree-analysis.md)
-- [API Contracts](./api-contracts.md)
-- [Data Models](./data-models.md)
-- [Development Guide](./development-guide.md)
+- [API Contracts](./api-contracts/index.md)
+- [Data Models](./data-models/index.md)
+- [Development Guide](./development-guide/index.md)
 - [Project Context (AI Agent Rules)](./project-context.md)
 
 ---

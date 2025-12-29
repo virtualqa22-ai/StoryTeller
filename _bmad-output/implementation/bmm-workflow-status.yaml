@@ -209,13 +209,13 @@ workflow_status:
 
       - id: "implementation-readiness"
         name: "Implementation Readiness"
-        status: "_bmad-output/documentation/project-docs/implementation-readiness-report-2025-12-24.md"
+        status: "_bmad-output/documentation/project-docs/implementation-readiness-report-2025-12-24/index.md"
         agent: "architect"
         command: "/bmad:bmm:workflows:check-implementation-readiness"
         note: "Final gate check before implementation - ALL ISSUES RESOLVED"
         completed: "2025-12-24"
         files:
-          - "_bmad-output/documentation/project-docs/implementation-readiness-report-2025-12-24.md"
+          - "_bmad-output/documentation/project-docs/implementation-readiness-report-2025-12-24/index.md"
           - "_bmad-output/documentation/project-docs/IMPLEMENTATION-READINESS-FIXES-2025-12-24.md"
           - "_bmad-output/planning/prd/functional-requirements/additional-requirements.md"
         metrics:
@@ -253,11 +253,11 @@ workflow_status:
           - "_bmad-output/documentation/project-docs/project-overview.md"
           - "_bmad-output/documentation/project-docs/architecture.md"
           - "_bmad-output/documentation/project-docs/source-tree-analysis.md"
-          - "_bmad-output/documentation/project-docs/component-inventory.md"
-          - "_bmad-output/documentation/project-docs/api-contracts.md"
-          - "_bmad-output/documentation/project-docs/data-models.md"
-          - "_bmad-output/documentation/project-docs/development-guide.md"
-          - "_bmad-output/documentation/project-docs/deployment-guide.md"
+          - "_bmad-output/documentation/project-docs/component-inventory/index.md"
+          - "_bmad-output/documentation/project-docs/api-contracts/index.md"
+          - "_bmad-output/documentation/project-docs/data-models/index.md"
+          - "_bmad-output/documentation/project-docs/development-guide/index.md"
+          - "_bmad-output/documentation/project-docs/deployment-guide/index.md"
           - "_bmad-output/documentation/project-docs/project-context.md"
         metrics:
           total_files: 10

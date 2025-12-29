@@ -1,128 +1,6 @@
-# Story 2.2: Build Home Screen with Recent Projects List
+# Dev Notes
 
-Status: done
-
-<!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
-
-## Story
-
-As an author,
-I want to see a home screen showing my recent projects when I launch StoryTeller,
-so that I can quickly resume work on my current novel.
-
-## Acceptance Criteria
-
-1. **Given** the application is launched with no projects
-   **When** the home screen renders
-   **Then** a welcome message is displayed: "Welcome to StoryTeller"
-   **And** two primary action buttons are shown: "Create New Project" (primary button) and "Open Existing Project" (secondary button)
-   **And** an empty state illustration is displayed
-   **And** the layout follows Fluent Design principles with proper spacing
-
-2. **Given** the application has 1-5 recent projects
-   **When** the home screen renders
-   **Then** a "Recent Projects" section displays a card for each project
-   **And** each project card shows: project title, author/pen name, last modified date (relative time: "2 hours ago"), project thumbnail or genre icon, word count progress (e.g., "15,000 / 80,000 words")
-   **And** clicking a project card opens that project
-   **And** each card has a context menu with "Open", "Open in File Explorer", and "Remove from List" options
-   **And** the "Create New Project" button remains prominently displayed above the list
-
-3. **Given** the application has 10+ recent projects
-   **When** the home screen renders
-   **Then** only the 10 most recent projects are displayed
-   **And** a "View All Projects" link is shown at the bottom
-   **And** projects are sorted by last_opened_at descending
-
-## Tasks / Subtasks
-
-- [x] Task 1: Create TypeScript API wrapper for Tauri commands (AC: #2, #3)
-  - [x] Create `src/lib/api/projects.ts`
-  - [x] Implement `listRecentProjects(limit?: number): Promise<Project[]>` wrapper
-  - [x] Implement `getProject(id: number): Promise<Project>` wrapper
-  - [x] Implement `deleteProject(id: number): Promise<void>` wrapper
-  - [x] Define TypeScript `Project` interface matching Rust struct
-  - [x] Add JSDoc comments with usage examples
-
-- [x] Task 2: Create date formatting utility (AC: #2)
-  - [x] Create `src/lib/utils/formatDate.ts`
-  - [x] Implement `formatRelativeTime(timestamp: string): string`
-  - [x] Handle edge cases: null timestamps, future dates, invalid dates
-  - [x] Add unit tests with Vitest (14 tests passing)
-
-- [x] Task 3: Create ProjectCard component (AC: #2)
-  - [x] Create `src/lib/components/projects/ProjectCard.svelte`
-  - [x] Display project title, author/pen name, genre icon
-  - [x] Display relative time using formatRelativeTime utility
-  - [x] Display word count progress (0 / targetWords format for now)
-  - [x] Add hover state with elevation change
-  - [x] Add click handler (stub with console.log)
-  - [x] Add context menu trigger (right-click handler)
-  - [x] Style with Fluent Design tokens from app.css
-  - [x] Add aria-labels for accessibility
-  - [x] Add data-testid attributes for E2E tests
-
-- [x] Task 4: Create EmptyState component (AC: #1)
-  - [x] Create `src/lib/components/projects/EmptyState.svelte`
-  - [x] Display "Welcome to StoryTeller" heading
-  - [x] Add empty state illustration (SVG book icon)
-  - [x] Display "Create New Project" button (primary variant)
-  - [x] Display "Open Existing Project" button (secondary variant)
-  - [x] Style with Fluent Design spacing and typography
-  - [x] Add button click handlers (stubs)
-
-- [x] Task 5: Update home screen route (AC: #1, #2, #3)
-  - [x] Update `src/routes/+page.svelte`
-  - [x] Add Svelte 5 runes: $state for projects, loading, error, context menu state
-  - [x] Add $effect to load projects on mount
-  - [x] Call listRecentProjects API wrapper
-  - [x] Conditional rendering: EmptyState vs ProjectsList
-  - [x] Add loading state with Spinner component
-  - [x] Add error handling UI with error message display and retry button
-  - [x] Add "Create New Project" button above recent projects list
-  - [x] Add "View All Projects" link if 10+ projects
-
-- [x] Task 6: Implement project card interactions (AC: #2)
-  - [x] Add click handler to open project (stub with console.log)
-  - [x] Implement context menu with 3 options (Open, Open in File Explorer, Remove from List)
-  - [x] Implement context menu positioning and visibility logic
-  - [x] Add "Open in File Explorer" (stub - platform detection to be implemented later)
-  - [x] Add keyboard navigation support (Tab, Enter, Space keys)
-
-- [x] Task 7: Style with Fluent Design system (AC: #1, #2)
-  - [x] Apply Fluent Design color tokens (bg-brand-primary, text-neutral-600, etc.)
-  - [x] Apply Fluent spacing scale (p-8, gap-6, mb-8, etc.)
-  - [x] Apply Fluent border radius (rounded-fluent-md, rounded-fluent-lg)
-  - [x] Apply Fluent elevation shadows (shadow-fluent-8 on hover, shadow-fluent-4 on context menu)
-  - [x] Verify responsive behavior (grid-cols-1 md:grid-cols-2 lg:grid-cols-3)
-  - [x] Implemented for 0 projects (empty state) - tested in E2E
-
-- [x] Task 8: Write unit tests (AC: All)
-  - [x] Test formatRelativeTime utility with Vitest (14 comprehensive tests)
-  - [x] Removed obsolete HomeScreen.test.ts (from Story 1.2)
-  - [x] Run `pnpm test` - 98 tests passing (19 test files)
-
-- [x] Task 9: Write E2E tests with Playwright (AC: All)
-  - [x] Update `tests/e2e/home.spec.ts`
-  - [x] Test: Empty state displays when no projects (AC #1 - passing)
-  - [x] Test: Create/Open buttons clickable (AC #1 - passing)
-  - [x] Test: Page has correct title (passing)
-  - [x] Test: Loading state initially (passing with timeout handling)
-  - [x] Test: Recent projects list (test.skip - requires DB test data setup)
-  - [x] Test: Context menu (test.skip - requires DB test data setup)
-  - [x] Test: 10+ projects limit (test.skip - requires DB test data setup)
-
-- [x] Task 10: Validate and verify
-  - [x] Run `pnpm check` - 0 errors, 0 warnings
-  - [x] Run `pnpm build` - successful build (334KB design system page, 8KB home page)
-  - [x] Run `pnpm test` - 98 tests passing
-  - [x] E2E tests: 1 passing (page title), 9 skipped (require DB setup), 4 expected to fail without Tauri runtime
-  - [ ] Manual test: Launch app with Tauri, verify home screen
-  - [ ] Manual test: Create test project via DB, verify it appears
-  - [ ] Manual test: Test with multiple projects to verify list display
-
-## Dev Notes
-
-### 🔥 CRITICAL ARCHITECTURE CONTEXT
+## 🔥 CRITICAL ARCHITECTURE CONTEXT
 
 **Database Foundation (Story 2.1 - COMPLETED):**
 - Projects table schema with 19 fields exists in V2 migration
@@ -181,9 +59,9 @@ so that I can quickly resume work on my current novel.
 --font-size-fluent-title: 28px;
 ```
 
-### 📋 COPY-PASTE REFERENCE - Implementation Patterns
+## 📋 COPY-PASTE REFERENCE - Implementation Patterns
 
-#### TypeScript API Wrapper Pattern (src/lib/api/projects.ts)
+### TypeScript API Wrapper Pattern (src/lib/api/projects.ts)
 
 ```typescript
 import { invoke } from '@tauri-apps/api/core';
@@ -241,7 +119,7 @@ export async function deleteProject(id: number): Promise<void> {
 }
 ```
 
-#### Relative Time Formatting Utility (src/lib/utils/formatDate.ts)
+### Relative Time Formatting Utility (src/lib/utils/formatDate.ts)
 
 ```typescript
 /**
@@ -285,7 +163,7 @@ export function formatRelativeTime(timestamp: string | null): string {
 }
 ```
 
-#### Svelte 5 Runes Pattern (src/routes/+page.svelte)
+### Svelte 5 Runes Pattern (src/routes/+page.svelte)
 
 ```svelte
 <script lang="ts">
@@ -370,7 +248,7 @@ export function formatRelativeTime(timestamp: string | null): string {
 </div>
 ```
 
-#### ProjectCard Component (src/lib/components/projects/ProjectCard.svelte)
+### ProjectCard Component (src/lib/components/projects/ProjectCard.svelte)
 
 ```svelte
 <script lang="ts">
@@ -457,7 +335,7 @@ export function formatRelativeTime(timestamp: string | null): string {
 </Card>
 ```
 
-### 🗂️ Project Structure Notes
+## 🗂️ Project Structure Notes
 
 **Files to Create:**
 ```
@@ -484,7 +362,7 @@ tests/e2e/
 - Routes: +page.svelte, +layout.svelte
 - Functions: camelCase (listRecentProjects, formatRelativeTime)
 
-### 🧪 Testing Strategy
+## 🧪 Testing Strategy
 
 **Unit Tests (Vitest):**
 - Test formatRelativeTime with various timestamps (null, past, edge cases)
@@ -518,7 +396,7 @@ test.describe('Home Screen', () => {
 });
 ```
 
-### 🎯 Scope Boundaries
+## 🎯 Scope Boundaries
 
 **This Story DOES:**
 - Create home screen UI with empty state and recent projects list
@@ -546,7 +424,7 @@ test.describe('Home Screen', () => {
 - Create button: Console.log only (Story 2.3 implements wizard)
 - Context menu: Visual only, no platform-specific actions yet
 
-### 🔗 Previous Story Learnings (Story 2.1)
+## 🔗 Previous Story Learnings (Story 2.1)
 
 **Code Patterns to Follow:**
 1. **Module Export Pattern:** Use `export` in module files, `pub mod` in Rust
@@ -567,7 +445,7 @@ test.describe('Home Screen', () => {
 - All tests passing before merge
 - Same rigor expected for frontend: unit tests + E2E tests
 
-### 📚 References
+## 📚 References
 
 - **Epic 2 Story Details:** [Source: _bmad-output/planning/epics/epic-2-project-setup-configuration-wizard.md#story-2-2]
 - **Database Schema:** [Source: src-tauri/migrations/V2__create_projects_schema.sql]
@@ -577,9 +455,9 @@ test.describe('Home Screen', () => {
 - **UX Design Patterns:** [Source: _bmad-output/planning/ux-design/ux-patterns-micro-interactions.md]
 - **Fluent Design Tokens:** [Source: src/app.css]
 - **Existing UI Components:** [Source: src/lib/components/ui/]
-- **Previous Story (2.1):** [Source: _bmad-output/implementation/sprint-artifacts/2-1-design-and-implement-database-schema-for-projects.md]
+- **Previous Story (2.1):** [Source: _bmad-output/implementation/sprint-artifacts/2-1-design-and-implement-database-schema-for-projects/index.md]
 
-### 🚀 Library Versions & Latest Info
+## 🚀 Library Versions & Latest Info
 
 **Current Versions (package.json):**
 - Svelte: ^5.0.0 (use runes: $state, $derived, $effect)
@@ -602,56 +480,3 @@ test.describe('Home Screen', () => {
 - Import invoke from '@tauri-apps/api/core' (not '@tauri-apps/api')
 - Use `invoke<T>(command, args)` for type-safe commands
 - Commands registered in lib.rs with `tauri::generate_handler![]`
-
-## Dev Agent Record
-
-### Agent Model Used
-
-Claude Opus 4.5 (claude-opus-4-5-20251101) via code-review workflow
-
-### Debug Log References
-
-- Type check: `pnpm check` - 0 errors, 0 warnings
-- Unit tests: `pnpm test` - 98 tests passing (19 test files, 7.41s)
-- Build: `pnpm build` - successful (43.79s total, 334KB design system, 8KB home page)
-- E2E tests: 1 passing (page title), 9 skipped (require DB test data), 4 require Tauri runtime
-
-### Completion Notes List
-
-1. **API Wrapper Implementation**: Created TypeScript API wrapper at `src/lib/api/projects.ts` with full JSDoc comments and type-safe Tauri command invocations.
-
-2. **Date Formatting Utility**: Implemented `formatRelativeTime()` with comprehensive edge case handling (null, invalid, future dates) and 14 passing unit tests.
-
-3. **Component Architecture**: Created reusable `ProjectCard` and `EmptyState` components following Svelte 5 runes pattern ($state, $derived, $props).
-
-4. **Svelte 5 Reactivity**: Fixed initial implementation to use `$derived` for all prop-dependent values in ProjectCard to avoid reactivity warnings.
-
-5. **Home Screen Implementation**: Full implementation of conditional rendering (loading → empty state → projects list), error handling with retry, and AC #1, #2, #3 logic.
-
-6. **Context Menu**: Implemented right-click context menu with positioning, outside-click handling, and stub actions for "Open", "Open in File Explorer", and "Remove from List".
-
-7. **Keyboard Accessibility**: Added Tab/Enter/Space navigation support for project cards.
-
-8. **Fluent Design Application**: Applied all Fluent Design tokens (colors, spacing, shadows, typography, border radius) throughout components.
-
-9. **Test Coverage**: 14 unit tests for formatRelativeTime (100% coverage), removed obsolete Story 1.2 tests, E2E framework in place with 3 passing AC #1 tests.
-
-10. **Test Strategy**: E2E tests for AC #2 and #3 marked as `test.skip` with clear TODO comments - require database test data setup which is beyond this story's scope. Tests are written and ready to enable when test data infrastructure is in place.
-
-11. **Build Optimization**: Production build generates 8.41KB home page bundle (gzipped: 3.71KB) with proper code splitting.
-
-### File List
-
-**Created:**
-- `src/lib/api/projects.ts` - TypeScript API wrapper for Tauri project commands
-- `src/lib/utils/formatDate.ts` - Relative time formatting utility
-- `src/lib/utils/formatDate.test.ts` - Comprehensive unit tests (14 tests)
-- `src/lib/components/projects/ProjectCard.svelte` - Project card component with interactions
-- `src/lib/components/projects/EmptyState.svelte` - Empty state component
-
-**Modified:**
-- `src/routes/+page.svelte` - Replaced Story 1.2 placeholder with full home screen implementation
-- `tests/e2e/home.spec.ts` - Added comprehensive E2E tests for AC #1, #2, #3
-
-**Deleted:**
-- `src/lib/__tests__/HomeScreen.test.ts` - Removed obsolete Story 1.2 component test
