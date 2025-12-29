@@ -55,7 +55,11 @@
       "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" log --oneline -10)",
       "Bash(cargo build:*)",
       "Bash(cargo test:*)",
-      "Bash(pnpm -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" build)"
+      "Bash(pnpm -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" build)",
+      "Bash(tree:*)",
+      "Bash(paste:*)",
+      "Bash(grep:*)",
+      "Bash(git -C \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\" log --oneline -5)"
     ]
   }
 }

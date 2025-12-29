@@ -241,9 +241,34 @@ workflow_status:
   - phase: 3
     name: "Implementation"
     workflows:
+      - id: "document-project"
+        name: "Document Project"
+        status: "_bmad-output/"
+        agent: "analyst"
+        command: "/bmad:bmm:workflows:document-project"
+        note: "Comprehensive brownfield project documentation"
+        completed: "2025-12-29"
+        files:
+          - "_bmad-output/index.md"
+          - "_bmad-output/project-overview.md"
+          - "_bmad-output/architecture.md"
+          - "_bmad-output/source-tree-analysis.md"
+          - "_bmad-output/component-inventory.md"
+          - "_bmad-output/api-contracts.md"
+          - "_bmad-output/data-models.md"
+          - "_bmad-output/development-guide.md"
+          - "_bmad-output/deployment-guide.md"
+          - "_bmad-output/project-context.md"
+        metrics:
+          total_files: 10
+          total_size: "159KB"
+          components_documented: 27
+          api_commands_documented: 9
+
       - id: "sprint-planning"
         name: "Sprint Planning"
-        status: "required"
+        status: "_bmad-output/sprint-artifacts/sprint-status.yaml"
         agent: "sm"
         command: "/bmad:bmm:workflows:sprint-planning"
         note: "Creates sprint-status.yaml for tracking implementation"
+        completed: "2025-12-24"
