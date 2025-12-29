@@ -1,7 +1,7 @@
 use rusqlite::Connection;
 use serde::Serialize;
 
-use super::connection::get_database_path;
+use crate::db::connection::get_database_path;
 
 #[derive(Serialize)]
 pub struct DatabaseStatus {

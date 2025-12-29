@@ -2,6 +2,8 @@ pub mod commands;
 pub mod connection;
 pub mod error;
 pub mod migrations;
+pub mod models;
+pub mod projects;
 
 use error::DatabaseError;
 use log::info;

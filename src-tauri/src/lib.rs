@@ -29,7 +29,17 @@ pub fn run() {
 
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![greet, db::commands::get_database_status])
+        .invoke_handler(tauri::generate_handler![
+            greet,
+            db::commands::database_commands::get_database_status,
+            db::commands::project_commands::create_project,
+            db::commands::project_commands::get_project,
+            db::commands::project_commands::get_project_by_path,
+            db::commands::project_commands::list_recent_projects,
+            db::commands::project_commands::update_project_metadata,
+            db::commands::project_commands::update_last_opened,
+            db::commands::project_commands::delete_project,
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
