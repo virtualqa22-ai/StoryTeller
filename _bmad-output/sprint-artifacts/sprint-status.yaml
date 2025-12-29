@@ -55,7 +55,7 @@ development_status:
   epic-2: in-progress
   2-0-configure-sqlite-database-with-migrations: done
   2-1-design-and-implement-database-schema-for-projects: done
-  2-2-build-home-screen-with-recent-projects-list: backlog
+  2-2-build-home-screen-with-recent-projects-list: done
   2-3-build-wizard-step-1-basic-project-information: backlog
   2-4-build-wizard-step-2-genre-and-audience: backlog
   2-5-build-wizard-step-3-story-structure: backlog
