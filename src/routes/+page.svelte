@@ -4,6 +4,8 @@
 	import ProjectCard from '$lib/components/projects/ProjectCard.svelte';
 	import Spinner from '$lib/components/ui/spinner/spinner.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import Dialog from '$lib/components/ui/dialog/dialog.svelte';
+	import { Step1 as WizardStep1, type WizardStep1Data } from '$lib/components/wizard';
 
 	// State management with Svelte 5 runes
 	let projects = $state<Project[]>([]);
@@ -12,6 +14,10 @@
 	let showContextMenu = $state(false);
 	let contextMenuProject = $state<Project | null>(null);
 	let contextMenuPosition = $state({ x: 0, y: 0 });
+
+	// Wizard state
+	let wizardOpen = $state(false);
+	let wizardStep1Data = $state<WizardStep1Data | null>(null);
 
 	// Derived state
 	let hasProjects = $derived(projects.length > 0);
@@ -41,8 +47,20 @@
 	}
 
 	function handleCreateProject() {
-		console.log('Creating new project');
-		// TODO: Implement wizard in Story 2.3
+		wizardOpen = true;
+	}
+
+	function handleWizardNext(data: WizardStep1Data) {
+		wizardStep1Data = data;
+		// TODO: Advance to Step 2 in Story 2.4
+		// For now, show completion message
+		console.log('Step 1 data saved:', data);
+		alert('Step 1 complete! Step 2 coming in Story 2.4.');
+		wizardOpen = false;
+	}
+
+	function handleWizardCancel() {
+		wizardOpen = false;
 	}
 
 	function handleOpenProject() {
@@ -168,4 +186,18 @@
 			</button>
 		</div>
 	{/if}
+
+	<!-- Wizard Dialog -->
+	<Dialog
+		bind:open={wizardOpen}
+		title="Create New Project"
+		showClose={true}
+		onOpenChange={(open) => { wizardOpen = open; }}
+		data-testid="wizard-dialog"
+	>
+		<WizardStep1
+			onNext={handleWizardNext}
+			onCancel={handleWizardCancel}
+		/>
+	</Dialog>
 </div>
