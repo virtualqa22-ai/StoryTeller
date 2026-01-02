@@ -1,11 +1,12 @@
 /**
  * Step 1 form data matching database schema
+ * Optional fields use empty string instead of null for cleaner input binding
  */
 export interface WizardStep1Data {
 	title: string;
-	authorName: string | null;
-	penName: string | null;
-	tagline: string | null;
+	authorName: string;
+	penName: string;
+	tagline: string;
 }
 
 /**

@@ -73,7 +73,12 @@
       "Bash([ -f \"D:\\\\Documents\\\\Bonsai\\\\StoryTeller\\\\_bmad-output\\\\implementation\\\\sprint-artifacts$dir\\\\index.md\" ])",
       "Bash(then echo \"✅ $dir/index.md\")",
       "Bash(else echo \"❌ $dir/index.md\")",
-      "Bash(while read dir)"
+      "Bash(while read dir)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\\\\_bmad-output\\\\implementation-artifacts\" -Filter \"*.md\")",
+      "Bash(Select-Object Name)",
+      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" status --porcelain)",
+      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff --name-only)",
+      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff --cached --name-only)"
     ]
   }
 }

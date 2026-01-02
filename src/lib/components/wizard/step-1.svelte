@@ -14,24 +14,22 @@
 	let { onNext, onCancel }: Props = $props();
 
 	let title = $state('');
-	let authorName = $state<string | null>(null);
-	let penName = $state<string | null>(null);
-	let tagline = $state<string | null>(null);
+	let authorName = $state('');
+	let penName = $state('');
+	let tagline = $state('');
+	let showValidation = $state(false);
 
 	const maxTitleLength = 200;
 	const maxTaglineLength = 150;
 
 	const titleError = $derived(
-		title.trim().length === 0 ? 'Novel Title is required' : ''
-	);
-
-	const showTitleCounterRed = $derived(title.length >= maxTitleLength);
-	const showTaglineCounterRed = $derived(
-		tagline !== null && tagline.length >= maxTaglineLength
+		showValidation && title.trim().length === 0 ? 'Novel Title is required' : ''
 	);
 
 	function handleNext() {
 		if (title.trim().length === 0) {
+			showValidation = true;
+			// Use getElementById since Input component doesn't support bind:this
 			const titleInput = document.getElementById('title') as HTMLInputElement;
 			titleInput?.focus();
 			return;
@@ -46,7 +44,7 @@
 	}
 </script>
 
-<div class="p-6 space-y-6">
+<div class="p-6 space-y-6" data-testid="wizard-step-1">
 	<!-- Progress Indicator -->
 	<div class="flex items-center justify-between" role="progressbar" aria-label="Step 1 of 6: Basic Information">
 		<span class="text-sm font-medium">Step 1 of 6: Basic Information</span>
@@ -64,17 +62,18 @@
 			class={!!titleError ? 'border-destructive' : ''}
 		/>
 		<div class="flex justify-between mt-1">
-			{#if title.length === 0}
-				<span class="text-xs text-muted-foreground" data-testid="title-required-text">Required</span>
-			{:else if titleError}
+			{#if titleError}
 				<FormMessage class="text-destructive text-xs" data-testid="title-error-message">{titleError}</FormMessage>
+			{:else if title.length === 0}
+				<span class="text-xs text-muted-foreground" data-testid="title-required-text">Required</span>
 			{:else}
 				<span></span>
 			{/if}
 			<span
 				class="text-xs"
-				class:text-destructive={showTitleCounterRed}
-				class:text-muted-foreground={!showTitleCounterRed}
+				class:text-destructive={title.length >= maxTitleLength}
+				class:text-muted-foreground={title.length < maxTitleLength}
+				data-testid="title-counter"
 			>
 				{title.length} / {maxTitleLength}
 			</span>
@@ -116,11 +115,11 @@
 		<div class="text-right mt-1">
 			<span
 				class="text-xs"
-				class:text-destructive={showTaglineCounterRed}
-				class:text-muted-foreground={!showTaglineCounterRed}
+				class:text-destructive={tagline.length >= maxTaglineLength}
+				class:text-muted-foreground={tagline.length < maxTaglineLength}
 				data-testid="tagline-counter"
 			>
-				{tagline?.length || 0} / {maxTaglineLength}
+				{tagline.length} / {maxTaglineLength}
 			</span>
 		</div>
 	</FormItem>

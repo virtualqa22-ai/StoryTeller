@@ -22,6 +22,15 @@ test.describe('Wizard Step 1', () => {
 		await expect(page.getByTestId('next-button')).toBeVisible();
 	});
 
+	test('has accessible progress indicator', async ({ page }) => {
+		await page.getByRole('button', { name: /create new project/i }).click();
+
+		const progressBar = page.getByRole('progressbar');
+		await expect(progressBar).toBeVisible();
+		const ariaLabel = await progressBar.getAttribute('aria-label');
+		expect(ariaLabel).toBe('Step 1 of 6: Basic Information');
+	});
+
 	test('validates required title field', async ({ page }) => {
 		await page.getByRole('button', { name: /create new project/i }).click();
 		await page.getByTestId('next-button').click();
@@ -56,7 +65,7 @@ test.describe('Wizard Step 1', () => {
 
 		await taglineInput.fill('A test tagline');
 
-		await expect(page.getByText('15 / 150')).toBeVisible();
+		await expect(page.getByText('14 / 150')).toBeVisible();
 	});
 
 	test('enforces max length on title', async ({ page }) => {
@@ -79,6 +88,30 @@ test.describe('Wizard Step 1', () => {
 
 		const value = await taglineInput.inputValue();
 		expect(value).toHaveLength(150);
+	});
+
+	test('shows red counter color when title reaches max length', async ({ page }) => {
+		await page.getByRole('button', { name: /create new project/i }).click();
+		const titleInput = page.getByTestId('novel-title-input');
+
+		// Fill title to exactly 200 characters
+		await titleInput.fill('A'.repeat(200));
+
+		const titleCounter = page.getByTestId('title-counter');
+		const classes = await titleCounter.getAttribute('class');
+		expect(classes).toContain('text-destructive');
+	});
+
+	test('shows red counter color when tagline reaches max length', async ({ page }) => {
+		await page.getByRole('button', { name: /create new project/i }).click();
+		const taglineInput = page.getByTestId('tagline-input');
+
+		// Fill tagline to exactly 150 characters
+		await taglineInput.fill('A'.repeat(150));
+
+		const taglineCounter = page.getByTestId('tagline-counter');
+		const classes = await taglineCounter.getAttribute('class');
+		expect(classes).toContain('text-destructive');
 	});
 
 	test('closes modal on Cancel', async ({ page }) => {

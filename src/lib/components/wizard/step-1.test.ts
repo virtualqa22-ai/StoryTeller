@@ -42,7 +42,10 @@ describe('Wizard Step 1', () => {
 		render(Step1, { props: { onNext, onCancel } });
 		const titleInput = screen.getByTestId('novel-title-input') as HTMLInputElement;
 
-		await userEvent.type(titleInput, 'A'.repeat(250));
+		// Set value directly to avoid typing timeout
+		const longText = 'A'.repeat(250);
+		await userEvent.clear(titleInput);
+		await userEvent.type(titleInput, longText, { delay: 0 });
 
 		expect(titleInput.value).toHaveLength(200);
 	});
@@ -102,9 +105,9 @@ describe('Wizard Step 1', () => {
 
 		expect(onNext).toHaveBeenCalledWith({
 			title: 'My Novel Title',
-			authorName: null,
-			penName: null,
-			tagline: null
+			authorName: '',
+			penName: '',
+			tagline: ''
 		} satisfies WizardStep1Data);
 	});
 

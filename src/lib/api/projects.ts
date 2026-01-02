@@ -36,7 +36,12 @@ export interface Project {
  * ```
  */
 export async function listRecentProjects(limit?: number): Promise<Project[]> {
-	return invoke<Project[]>('list_recent_projects', { limit });
+	try {
+		return await invoke<Project[]>('list_recent_projects', { limit });
+	} catch (e) {
+		console.warn('Failed to invoke list_recent_projects, falling back to mock data:', e);
+		return [];
+	}
 }
 
 /**

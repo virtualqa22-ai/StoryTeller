@@ -17,7 +17,6 @@
 
 	// Wizard state
 	let wizardOpen = $state(false);
-	let wizardStep1Data = $state<WizardStep1Data | null>(null);
 
 	// Derived state
 	let hasProjects = $derived(projects.length > 0);
@@ -51,7 +50,6 @@
 	}
 
 	function handleWizardNext(data: WizardStep1Data) {
-		wizardStep1Data = data;
 		// TODO: Advance to Step 2 in Story 2.4
 		// For now, show completion message
 		console.log('Step 1 data saved:', data);
