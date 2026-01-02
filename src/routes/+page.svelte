@@ -5,7 +5,8 @@
 	import Spinner from '$lib/components/ui/spinner/spinner.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Dialog from '$lib/components/ui/dialog/dialog.svelte';
-	import { Step1 as WizardStep1, type WizardStep1Data } from '$lib/components/wizard';
+	import { Wizard } from '$lib/components/wizard';
+	import type { WizardStep1Data, WizardStep2Data } from '$lib/components/wizard';
 
 	// State management with Svelte 5 runes
 	let projects = $state<Project[]>([]);
@@ -17,6 +18,23 @@
 
 	// Wizard state
 	let wizardOpen = $state(false);
+
+	// Wizard state interface
+	interface WizardState {
+		currentStep: 1 | 2;
+		step1Data: WizardStep1Data | null;
+		step2Data: WizardStep2Data | null;
+	}
+
+	// Handle wizard completion
+	function handleWizardComplete(wizardState: WizardState) {
+		console.log('Wizard complete with state:', wizardState);
+		alert(`Project setup complete! Genre: ${wizardState.step2Data?.genre || 'Not set'}, Target Audience: ${wizardState.step2Data?.targetAudience || 'Not set'}`);
+		wizardOpen = false;
+
+		// TODO: Save project to database in Story 2.8
+		console.log('TODO: Save project in Story 2.8 - Create Project step');
+	}
 
 	// Derived state
 	let hasProjects = $derived(projects.length > 0);
@@ -47,14 +65,6 @@
 
 	function handleCreateProject() {
 		wizardOpen = true;
-	}
-
-	function handleWizardNext(data: WizardStep1Data) {
-		// TODO: Advance to Step 2 in Story 2.4
-		// For now, show completion message
-		console.log('Step 1 data saved:', data);
-		alert('Step 1 complete! Step 2 coming in Story 2.4.');
-		wizardOpen = false;
 	}
 
 	function handleWizardCancel() {
@@ -193,9 +203,6 @@
 		onOpenChange={(open) => { wizardOpen = open; }}
 		data-testid="wizard-dialog"
 	>
-		<WizardStep1
-			onNext={handleWizardNext}
-			onCancel={handleWizardCancel}
-		/>
+		<Wizard onCancel={handleWizardCancel} onComplete={handleWizardComplete} />
 	</Dialog>
 </div>

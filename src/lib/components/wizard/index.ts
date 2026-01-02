@@ -1,2 +1,4 @@
 export { default as Step1 } from './step-1.svelte';
-export type { WizardState, WizardStep1Data } from './types';
+export { default as Step2 } from './step-2.svelte';
+export { default as Wizard } from './wizard.svelte';
+export type { WizardState, WizardStep1Data, WizardStep2Data } from './types';

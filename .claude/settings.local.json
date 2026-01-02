@@ -78,7 +78,12 @@
       "Bash(Select-Object Name)",
       "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" status --porcelain)",
       "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff --name-only)",
-      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff --cached --name-only)"
+      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff --cached --name-only)",
+      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" log --oneline -5)",
+      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" show 6a09a1d --stat)",
+      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff src/lib/components/wizard/index.ts)",
+      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff src/routes/+page.svelte)",
+      "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff src/lib/components/wizard/types.ts)"
     ]
   }
 }
