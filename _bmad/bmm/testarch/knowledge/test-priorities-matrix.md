@@ -336,7 +336,7 @@ npx playwright test
 
 ## Integration with Risk Scoring
 
-Priority should align with risk score from `probability-impact/index.md`:
+Priority should align with risk score from `probability-impact.md`:
 
 | Risk Score | Typical Priority | Rationale                                  |
 | ---------- | ---------------- | ------------------------------------------ |
@@ -367,7 +367,7 @@ Before finalizing test priorities:
 ## Integration Points
 
 - **Used in workflows**: `*automate` (priority-based test generation), `*test-design` (scenario prioritization), `*trace` (coverage validation by priority)
-- **Related fragments**: `risk-governance.md` (risk scoring), `probability-impact/index.md` (impact assessment), `selective-testing.md` (tag-based execution)
+- **Related fragments**: `risk-governance.md` (risk scoring), `probability-impact.md` (impact assessment), `selective-testing.md` (tag-based execution)
 - **Tools**: Playwright/Cypress grep for tag filtering, CI scripts for priority-based execution
 
 _Source: Risk-based testing practices, test prioritization strategies, production incident analysis_

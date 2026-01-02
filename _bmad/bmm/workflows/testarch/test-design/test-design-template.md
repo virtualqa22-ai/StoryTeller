@@ -246,6 +246,15 @@
 
 ---
 
+---
+
+## Follow-on Workflows (Manual)
+
+- Run `*atdd` to generate failing P0 tests (separate workflow; not auto-run).
+- Run `*automate` for broader coverage once implementation exists.
+
+---
+
 ## Approval
 
 **Test Design Approved By:**
@@ -267,7 +276,7 @@
 ### Knowledge Base References
 
 - `risk-governance.md` - Risk classification framework
-- `probability-impact/index.md` - Risk scoring methodology
+- `probability-impact.md` - Risk scoring methodology
 - `test-levels-framework.md` - Test level selection
 - `test-priorities-matrix.md` - P0-P3 prioritization
 

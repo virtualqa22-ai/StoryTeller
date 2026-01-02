@@ -13,7 +13,7 @@ date: system-generated
 
 # Workflow components
 installed_path: "{project-root}/_bmad/bmm/workflows/testarch/test-review"
-instructions: "{installed_path}/instructions/index.md"
+instructions: "{installed_path}/instructions.md"
 validation: "{installed_path}/checklist.md"
 template: "{installed_path}/test-review-template.md"
 
