@@ -85,7 +85,8 @@
       "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff src/routes/+page.svelte)",
       "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff src/lib/components/wizard/types.ts)",
       "Bash(git -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" diff src/lib/components/wizard/step-2.test.ts)",
-      "Bash(pnpm -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" test src/lib/components/wizard/step-3.test.ts)"
+      "Bash(pnpm -C \"C:\\\\Users\\\\KaRaN\\\\trae-workspace\\\\StoryTeller\" test src/lib/components/wizard/step-3.test.ts)",
+      "Bash(pnpm:*)"
     ]
   }
 }

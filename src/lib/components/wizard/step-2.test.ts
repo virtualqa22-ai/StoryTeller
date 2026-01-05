@@ -53,7 +53,7 @@ describe('Wizard Step 2', () => {
 	// TODO: Skip Select interaction tests due to jsdom compatibility issues with bits-ui Select component
 	// These tests need to be run as E2E tests instead
 	// AC #2: Subgenres update when genre selected
-	test.skip('shows subgenres after genre is selected', async () => {
+	it.skip('shows subgenres after genre is selected', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 
 		// Select Fantasy genre - find by placeholder text since data-testid not exposed
@@ -68,7 +68,7 @@ describe('Wizard Step 2', () => {
 	});
 
 	// AC #2: Fantasy genre shows 6 subgenres
-	test.skip('updates subgenre options when genre changes to Fantasy', async () => {
+	it.skip('updates subgenre options when genre changes to Fantasy', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 
 		const genreSelect = screen.getByRole('button', { name: 'Select a genre' });
@@ -85,7 +85,7 @@ describe('Wizard Step 2', () => {
 	});
 
 	// AC #2: Subgenres change when genre changes
-	test.skip('updates subgenre options when genre changes to Thriller', async () => {
+	it.skip('updates subgenre options when genre changes to Thriller', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 
 		// Select Fantasy first
@@ -106,7 +106,7 @@ describe('Wizard Step 2', () => {
 	});
 
 	// AC #2: Subgenres clear when genre changes
-	test.skip('clears selected subgenres when genre changes', async () => {
+	it.skip('clears selected subgenres when genre changes', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 
 		// Select Fantasy and a subgenre
@@ -129,7 +129,7 @@ describe('Wizard Step 2', () => {
 	});
 
 	// AC #2: Multiple subgenres can be selected
-	test.skip('allows multiple subgenre selections', async () => {
+	it.skip('allows multiple subgenre selections', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 
 		// Select Fantasy genre
@@ -227,7 +227,7 @@ describe('Wizard Step 2', () => {
 
 	// TODO: Skip due to jsdom compatibility with Select component
 	// AC #4: Error message shown when target audience not selected
-	test.skip('shows error message when target audience not selected', async () => {
+	it.skip('shows error message when target audience not selected', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 		const nextButton = screen.getByTestId('next-button');
 
@@ -243,7 +243,7 @@ describe('Wizard Step 2', () => {
 
 	// TODO: Skip due to jsdom compatibility with Select component
 	// AC #3: onNext emits with required fields only
-	test.skip('emits onNext with required fields only', async () => {
+	it.skip('emits onNext with required fields only', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 		const nextButton = screen.getByTestId('next-button');
 
@@ -269,7 +269,7 @@ describe('Wizard Step 2', () => {
 
 	// TODO: Skip due to jsdom compatibility with Select component
 	// AC #3: onNext emits with all fields filled
-	test.skip('emits onNext with all fields filled', async () => {
+	it.skip('emits onNext with all fields filled', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 		const nextButton = screen.getByTestId('next-button');
 
@@ -303,7 +303,7 @@ describe('Wizard Step 2', () => {
 
 	// TODO: Skip due to jsdom compatibility with Select component
 	// AC #4: Error clears when genre is selected
-	test.skip('clears error when genre is selected', async () => {
+	it.skip('clears error when genre is selected', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 		const nextButton = screen.getByTestId('next-button');
 
@@ -321,7 +321,7 @@ describe('Wizard Step 2', () => {
 
 	// TODO: Skip due to jsdom compatibility with Select component
 	// AC #4: Error clears when target audience is selected
-	test.skip('clears error when target audience is selected', async () => {
+	it.skip('clears error when target audience is selected', async () => {
 		render(Step2, { props: { onNext, onBack, onCancel } });
 		const nextButton = screen.getByTestId('next-button');
 

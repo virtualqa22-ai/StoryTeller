@@ -85,7 +85,7 @@ export interface WizardState {
 	step1Data: WizardStep1Data | null;
 	step2Data: WizardStep2Data | null; // Story 2.4
 	step3Data: WizardStep3Data | null; // Story 2.5
-	// step4Data: WizardStep4Data | null; // Story 2.6
+	step4Data: WizardStep4Data | null; // Story 2.6
 	// step5Data: WizardStep5Data | null; // Story 2.7
 	// step6Data: WizardStep6Data | null; // Story 2.8
 }
@@ -127,4 +127,9 @@ export interface WizardStep3Data {
 	chapterCount: number;
 	wordsPerChapter: number;
 	totalTargetWords: number; // derived = chapterCount * wordsPerChapter
+}
+
+// Step 4: Plot Premise data structure
+export interface WizardStep4Data {
+	plotPremise: string;
 }
