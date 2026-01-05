@@ -15,6 +15,7 @@ export * as Form from './ui/form';
 export { Select } from './ui/select';
 export { Dialog, DialogTrigger } from './ui/dialog';
 export { Tooltip } from './ui/tooltip';
+export { default as Toast } from './ui/toast/toast.svelte';
 
 // Layout Components (Task 5)
 export { Header } from './ui/header';

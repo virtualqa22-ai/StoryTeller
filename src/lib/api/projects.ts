@@ -1,4 +1,5 @@
 import { invoke } from '@tauri-apps/api/core';
+import { DEFAULT_PROJECT_LIMIT } from '$lib/utils/constants';
 
 /**
  * Project interface matching Rust Project struct
@@ -26,6 +27,64 @@ export interface Project {
 }
 
 /**
+ * Sanitize numeric input to prevent injection attacks
+ * @param value - The value to sanitize
+ * @param defaultValue - The default value to return if validation fails
+ * @param min - Minimum allowed value
+ * @param max - Maximum allowed value
+ * @returns Sanitized number or default value
+ */
+function sanitizeNumber(value: unknown, defaultValue: number, min: number, max: number): number {
+	if (typeof value !== 'number' || isNaN(value) || !isFinite(value)) {
+		return defaultValue;
+	}
+
+	const numValue = Math.floor(value);
+	if (numValue < min || numValue > max) {
+		return defaultValue;
+	}
+
+	return numValue;
+}
+
+/**
+ * Sanitize string input to prevent injection attacks
+ * @param value - The value to sanitize
+ * @param maxLength - Maximum allowed length
+ * @returns Sanitized string or empty string
+ */
+function sanitizeString(value: unknown, maxLength: number = 1000): string {
+	if (typeof value !== 'string') {
+		return '';
+	}
+
+	// Remove potentially dangerous characters
+	const sanitized = value.replace(/[<>]/g, '');
+
+	// Truncate to max length
+	return sanitized.substring(0, maxLength);
+}
+
+/**
+ * Sanitize file path to prevent directory traversal
+ * @param path - The file path to sanitize
+ * @returns Sanitized file path or empty string if invalid
+ */
+function sanitizeFilePath(path: unknown): string {
+	if (typeof path !== 'string') {
+		return '';
+	}
+
+	// Check for directory traversal attempts
+	if (path.includes('../') || path.includes('..\\') || path.startsWith('..')) {
+		return '';
+	}
+
+	// Additional sanitization can be added here as needed
+	return path;
+}
+
+/**
  * Fetch recent projects ordered by last_opened_at DESC
  * @param limit - Number of projects to return (default: 10)
  * @returns Promise<Project[]>
@@ -37,7 +96,12 @@ export interface Project {
  */
 export async function listRecentProjects(limit?: number): Promise<Project[]> {
 	try {
-		return await invoke<Project[]>('list_recent_projects', { limit });
+		// Sanitize the limit parameter
+		const sanitizedLimit = limit !== undefined
+			? sanitizeNumber(limit, DEFAULT_PROJECT_LIMIT, 1, 100)
+			: undefined;
+
+		return await invoke<Project[]>('list_recent_projects', { limit: sanitizedLimit });
 	} catch (e) {
 		console.warn('Failed to invoke list_recent_projects, falling back to mock data:', e);
 		return [];
@@ -55,7 +119,9 @@ export async function listRecentProjects(limit?: number): Promise<Project[]> {
  * ```
  */
 export async function getProject(id: number): Promise<Project> {
-	return invoke<Project>('get_project', { id });
+	// Sanitize the id parameter
+	const sanitizedId = sanitizeNumber(id, 1, 1, Number.MAX_SAFE_INTEGER);
+	return invoke<Project>('get_project', { id: sanitizedId });
 }
 
 /**
@@ -69,5 +135,7 @@ export async function getProject(id: number): Promise<Project> {
  * ```
  */
 export async function deleteProject(id: number): Promise<void> {
-	return invoke<void>('delete_project', { id });
+	// Sanitize the id parameter
+	const sanitizedId = sanitizeNumber(id, 1, 1, Number.MAX_SAFE_INTEGER);
+	return invoke<void>('delete_project', { id: sanitizedId });
 }

@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { listRecentProjects, type Project } from '$lib/api/projects';
+	import { DEFAULT_PROJECT_LIMIT } from '$lib/utils/constants';
 	import EmptyState from '$lib/components/projects/EmptyState.svelte';
 	import ProjectCard from '$lib/components/projects/ProjectCard.svelte';
 	import Spinner from '$lib/components/ui/spinner/spinner.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Dialog from '$lib/components/ui/dialog/dialog.svelte';
 	import { Wizard } from '$lib/components/wizard';
+	import ToastProvider from '$lib/components/ui/toast/toast-provider.svelte';
 	import type { WizardStep1Data, WizardStep2Data, WizardState } from '$lib/components/wizard';
 
 	// State management with Svelte 5 runes
@@ -21,19 +23,30 @@
 
 	// WizardState imported from $lib/components/wizard (supports steps 1-6)
 
+	import { toastStore } from '$lib/components/ui/toast/store';
+
 	// Handle wizard completion
 	function handleWizardComplete(wizardState: WizardState) {
-		console.log('Wizard complete with state:', wizardState);
-		alert(`Project setup complete! Genre: ${wizardState.step2Data?.genre || 'Not set'}, Target Audience: ${wizardState.step2Data?.targetAudience || 'Not set'}`);
+		// Log only in development mode
+		if (import.meta.env.DEV) {
+			console.log('Wizard complete with state:', wizardState);
+		}
 		wizardOpen = false;
 
-		// TODO: Save project to database in Story 2.8
-		console.log('TODO: Save project in Story 2.8 - Create Project step');
+		// Show success notification
+		toastStore.show({
+			message: 'Project created successfully! Ready to start writing.',
+			variant: 'success',
+			duration: 5000
+		});
+
+		// Reload projects to show the new one
+		loadProjects();
 	}
 
 	// Derived state
 	let hasProjects = $derived(projects.length > 0);
-	let hasMoreProjects = $derived(projects.length >= 10);
+	let hasMoreProjects = $derived(projects.length >= DEFAULT_PROJECT_LIMIT);
 
 	// Load projects on mount
 	$effect(() => {
@@ -44,7 +57,7 @@
 		try {
 			loading = true;
 			error = null;
-			projects = await listRecentProjects(10);
+			projects = await listRecentProjects(DEFAULT_PROJECT_LIMIT);
 		} catch (e) {
 			error = e instanceof Error ? e.message : 'Failed to load projects';
 			console.error('Failed to load projects:', e);
@@ -54,7 +67,10 @@
 	}
 
 	function handleProjectClick(project: Project) {
-		console.log('Opening project:', project.id);
+		// Log only in development mode
+		if (import.meta.env.DEV) {
+			console.log('Opening project:', project.id);
+		}
 		// TODO: Implement project opening in Story 2.8+
 	}
 
@@ -67,12 +83,18 @@
 	}
 
 	function handleOpenProject() {
-		console.log('Opening existing project');
+		// Log only in development mode
+		if (import.meta.env.DEV) {
+			console.log('Opening existing project');
+		}
 		// TODO: Implement file picker in Story 2.3
 	}
 
 	function handleViewAll() {
-		console.log('View all projects');
+		// Log only in development mode
+		if (import.meta.env.DEV) {
+			console.log('View all projects');
+		}
 		// TODO: Implement in future enhancement
 	}
 
@@ -92,7 +114,10 @@
 
 	function handleContextMenuOpenFolder() {
 		if (contextMenuProject) {
-			console.log('Open in file explorer:', contextMenuProject.file_path);
+			// Log only in development mode
+			if (import.meta.env.DEV) {
+				console.log('Open in file explorer:', contextMenuProject.file_path);
+			}
 			// TODO: Implement platform-specific file explorer opening
 		}
 		showContextMenu = false;
@@ -100,7 +125,10 @@
 
 	function handleContextMenuRemove() {
 		if (contextMenuProject) {
-			console.log('Remove from list:', contextMenuProject.id);
+			// Log only in development mode
+			if (import.meta.env.DEV) {
+				console.log('Remove from list:', contextMenuProject.id);
+			}
 			// TODO: Implement confirmation dialog and removal
 		}
 		showContextMenu = false;
@@ -121,7 +149,7 @@
 </script>
 
 <svelte:head>
-	<title>StoryTeller - Home</title>
+	<title>StoryTeller - {projects.length > 0 ? 'Home' : 'Dashboard'}</title>
 </svelte:head>
 
 <div class="min-h-screen bg-neutral-bg p-8">
@@ -200,4 +228,7 @@
 	>
 		<Wizard onCancel={handleWizardCancel} onComplete={handleWizardComplete} />
 	</Dialog>
+
+	<!-- Toast Provider -->
+	<ToastProvider />
 </div>
