@@ -84,8 +84,47 @@ export interface WizardState {
 	currentStep: 1 | 2 | 3 | 4 | 5 | 6;
 	step1Data: WizardStep1Data | null;
 	step2Data: WizardStep2Data | null; // Story 2.4
-	// step3Data: WizardStep3Data | null; // Story 2.5
+	step3Data: WizardStep3Data | null; // Story 2.5
 	// step4Data: WizardStep4Data | null; // Story 2.6
 	// step5Data: WizardStep5Data | null; // Story 2.7
 	// step6Data: WizardStep6Data | null; // Story 2.8
+}
+
+// Step 3: Story Structure data structures
+export const POV_OPTIONS = [
+	'First Person',
+	'Third Person Limited',
+	'Third Person Omniscient',
+	'Multiple POV'
+] as const;
+
+export type PointOfView = typeof POV_OPTIONS[number];
+
+export const STORY_FRAMEWORKS = [
+	'Three-Act Structure',
+	'Five-Act Structure',
+	"Hero's Journey",
+	'Snowflake Method',
+	'Seven-Point Story Structure',
+	'Custom/Freeform'
+] as const;
+
+export type StoryFramework = typeof STORY_FRAMEWORKS[number];
+
+// Framework descriptions for tooltips
+export const FRAMEWORK_DESCRIPTIONS: Record<StoryFramework, string> = {
+	'Three-Act Structure': 'Classic setup, confrontation, and resolution structure. Simple and widely used.',
+	'Five-Act Structure': 'Expanded dramatic arc with exposition, rising action, climax, falling action, and denouement.',
+	"Hero's Journey": "Campbell's monomyth: hero leaves home, faces trials, transforms, and returns changed.",
+	'Snowflake Method': 'Start with a one-sentence summary and expand iteratively into detailed scenes.',
+	'Seven-Point Story Structure': 'Hook, plot turn 1, pinch 1, midpoint, pinch 2, plot turn 2, resolution.',
+	'Custom/Freeform': 'No predefined structure—follow your own narrative approach.'
+};
+
+export interface WizardStep3Data {
+	pointOfView: PointOfView;
+	storyFramework: StoryFramework;
+	chapterCount: number;
+	wordsPerChapter: number;
+	totalTargetWords: number; // derived = chapterCount * wordsPerChapter
 }

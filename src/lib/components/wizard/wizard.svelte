@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Step1, Step2 } from '$lib/components/wizard';
-	import type { WizardStep1Data, WizardStep2Data } from './types';
+	import { Step1, Step2, Step3 } from '$lib/components/wizard';
+	import type { WizardStep1Data, WizardStep2Data, WizardStep3Data } from './types';
 	import type { WizardState } from './types';
 
 	interface Props {
@@ -14,7 +14,8 @@
 	let wizardState: WizardState = $state({
 		currentStep: 1,
 		step1Data: null,
-		step2Data: null
+		step2Data: null,
+		step3Data: null
 	});
 
 	function handleStep1Next(data: WizardStep1Data) {
@@ -24,13 +25,22 @@
 
 	function handleStep2Next(data: WizardStep2Data) {
 		wizardState.step2Data = data;
-		// AC #3: Advance to Step 3 placeholder (Step 3 will be implemented in Story 2.5)
 		wizardState.currentStep = 3;
 	}
 
+	function handleStep3Next(data: WizardStep3Data) {
+		wizardState.step3Data = data;
+		// Advance to Step 4 (Plot Premise)
+		wizardState.currentStep = 4;
+	}
+
 	function handleStepBack() {
-		if (wizardState.currentStep === 2 || wizardState.currentStep === 3) {
+		if (wizardState.currentStep === 2) {
 			wizardState.currentStep = 1;
+		} else if (wizardState.currentStep === 3) {
+			wizardState.currentStep = 2;
+		} else if (wizardState.currentStep === 4) {
+			wizardState.currentStep = 3;
 		}
 	}
 
@@ -50,6 +60,8 @@
 		<Step1 onNext={handleStep1Next} onCancel={handleCancel} />
 	{:else if wizardState.currentStep === 2}
 		<Step2 onNext={handleStep2Next} onBack={handleStepBack} onCancel={handleCancel} />
+	{:else if wizardState.currentStep === 3}
+		<Step3 onNext={handleStep3Next} onBack={handleStepBack} onCancel={handleCancel} />
 	{:else}
 		<div class="text-center p-8">
 			<p class="text-muted-foreground">Wizard step {wizardState.currentStep} not yet implemented</p>

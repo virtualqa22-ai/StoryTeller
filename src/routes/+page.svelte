@@ -6,7 +6,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Dialog from '$lib/components/ui/dialog/dialog.svelte';
 	import { Wizard } from '$lib/components/wizard';
-	import type { WizardStep1Data, WizardStep2Data } from '$lib/components/wizard';
+	import type { WizardStep1Data, WizardStep2Data, WizardState } from '$lib/components/wizard';
 
 	// State management with Svelte 5 runes
 	let projects = $state<Project[]>([]);
@@ -19,12 +19,7 @@
 	// Wizard state
 	let wizardOpen = $state(false);
 
-	// Wizard state interface
-	interface WizardState {
-		currentStep: 1 | 2;
-		step1Data: WizardStep1Data | null;
-		step2Data: WizardStep2Data | null;
-	}
+	// WizardState imported from $lib/components/wizard (supports steps 1-6)
 
 	// Handle wizard completion
 	function handleWizardComplete(wizardState: WizardState) {
