@@ -36,6 +36,13 @@ thiserror = "2.0"
 log = "0.4"
 env_logger = "0.11"
 
+# HTTP requests for API testing
+reqwest = { version = "0.12", features = ["json"] }
+tokio = { version = "1", features = ["time", "rt"] }
+
+# Secure credential storage (OS keychain)
+keyring = "3.2"
+
 [dev-dependencies]
 tempfile = "3.14"
 

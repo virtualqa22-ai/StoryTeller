@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Step1, Step2, Step3, Step4 } from '$lib/components/wizard';
-	import type { WizardStep1Data, WizardStep2Data, WizardStep3Data, WizardStep4Data } from './types';
+	import { Step1, Step2, Step3, Step4, Step5 } from '$lib/components/wizard';
+	import type { WizardStep1Data, WizardStep2Data, WizardStep3Data, WizardStep4Data, WizardStep5Data } from './types';
 	import type { WizardState } from './types';
 
 	interface Props {
@@ -16,7 +16,8 @@
 		step1Data: null,
 		step2Data: null,
 		step3Data: null,
-		step4Data: null
+		step4Data: null,
+		step5Data: null
 	});
 
 	function handleStep1Next(data: WizardStep1Data) {
@@ -41,6 +42,12 @@
 		wizardState.currentStep = 5;
 	}
 
+	function handleStep5Next(data: WizardStep5Data) {
+		wizardState.step5Data = data;
+		// Advance to Step 6 (Review and Create)
+		wizardState.currentStep = 6;
+	}
+
 	function handleStepBack() {
 		if (wizardState.currentStep === 2) {
 			wizardState.currentStep = 1;
@@ -50,6 +57,8 @@
 			wizardState.currentStep = 3;
 		} else if (wizardState.currentStep === 5) {
 			wizardState.currentStep = 4;
+		} else if (wizardState.currentStep === 6) {
+			wizardState.currentStep = 5;
 		}
 	}
 
@@ -73,6 +82,8 @@
 		<Step3 onNext={handleStep3Next} onBack={handleStepBack} onCancel={handleCancel} />
 	{:else if wizardState.currentStep === 4}
 		<Step4 onNext={handleStep4Next} onBack={handleStepBack} onCancel={handleCancel} />
+	{:else if wizardState.currentStep === 5}
+		<Step5 onNext={handleStep5Next} onBack={handleStepBack} onCancel={handleCancel} />
 	{:else}
 		<div class="text-center p-8">
 			<p class="text-muted-foreground">Wizard step {wizardState.currentStep} not yet implemented</p>

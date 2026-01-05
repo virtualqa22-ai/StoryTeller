@@ -1,5 +1,11 @@
 mod db;
 
+// AI Provider and Keychain commands
+mod commands {
+    pub mod api_provider;
+    pub mod keychain;
+}
+
 use log::{info, warn};
 
 #[tauri::command]
@@ -39,6 +45,10 @@ pub fn run() {
             db::commands::project_commands::update_project_metadata,
             db::commands::project_commands::update_last_opened,
             db::commands::project_commands::delete_project,
+            commands::api_provider::test_api_connection,
+            commands::keychain::store_api_key,
+            commands::keychain::retrieve_api_key,
+            commands::keychain::delete_api_key,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

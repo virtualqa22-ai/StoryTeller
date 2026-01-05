@@ -60,7 +60,7 @@ development_status:
   2-4-build-wizard-step-2-genre-and-audience: done
   2-5-build-wizard-step-3-story-structure: done
   2-6-build-wizard-step-4-plot-premise: done
-  2-7-build-wizard-step-5-ai-provider-configuration: ready-for-dev
+  2-7-build-wizard-step-5-ai-provider-configuration: done
   2-8-build-wizard-step-6-review-and-create: backlog
   2-9-implement-language-selection: backlog
   2-10-add-welcome-screen-with-optional-demo-project: backlog
