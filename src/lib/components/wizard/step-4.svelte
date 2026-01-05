@@ -3,6 +3,7 @@
 	import Label from '$lib/components/ui/label/label.svelte';
 	import FormItem from '$lib/components/ui/form/form-item.svelte';
 	import type { WizardStep4Data } from './types';
+	import { CONTENT_LANGUAGES, LANGUAGE_CODE_BY_LABEL } from './types';
 
 	interface Props {
 		onNext: (data: WizardStep4Data) => void;
@@ -16,6 +17,7 @@
 	let plotPremiseTouched = $state(false);
 	let showValidation = $state(false);
 	let showWarning = $state(false);
+	let language = $state('en');
 
 	// Validation constants
 	const MIN_CHARS = 100;
@@ -27,7 +29,7 @@
 	const counterColor = $derived.by(() => {
 		const length = plotPremise.length;
 		if (length >= RED_THRESHOLD) return 'text-destructive';
-		if (length >= AMBER_THRESHOLD) return 'text-amber-600';
+		if (length >= AMBER_THRESHOLD) return 'text-warning';
 		return 'text-muted-foreground';
 	});
 
@@ -47,13 +49,13 @@
 		}
 
 		// Validation passed, proceed to next step with trimmed value
-		onNext({ plotPremise: trimmedPremise });
+		onNext({ plotPremise: trimmedPremise, language });
 	}
 
 	function handleContinueAnyway() {
 		showWarning = false;
 		// Trim whitespace even when continuing with short premise
-		onNext({ plotPremise: plotPremise.trim() });
+		onNext({ plotPremise: plotPremise.trim(), language });
 	}
 
 	function handleGoBack() {
@@ -63,6 +65,13 @@
 			textareaElement.focus();
 		}
 	}
+
+	const languageOptions = $derived(
+		CONTENT_LANGUAGES.map((label) => ({
+			code: LANGUAGE_CODE_BY_LABEL[label],
+			label
+		}))
+	);
 </script>
 
 <div class="p-6 space-y-6" data-testid="wizard-step-4">
@@ -104,10 +113,41 @@
 		</div>
 	</FormItem>
 
+	<FormItem>
+		<Label for="contentLanguage">Content Language</Label>
+		<select
+			id="contentLanguage"
+			bind:value={language}
+			aria-describedby="contentLanguageNote"
+			data-testid="content-language-select"
+			class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+		>
+			{#each languageOptions as option}
+				<option value={option.code}>{option.label}</option>
+			{/each}
+		</select>
+		<div class="mt-1">
+			<span id="contentLanguageNote" class="text-xs text-muted-foreground">This affects AI-generated content, not the UI language</span>
+		</div>
+	</FormItem>
+
+	{#if language === 'other'}
+		<FormItem>
+			<Label for="customLanguage">Custom Language Code</Label>
+			<input
+				id="customLanguage"
+				bind:value={language}
+				maxlength={10}
+				placeholder="e.g., pt-BR"
+				class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+			/>
+		</FormItem>
+	{/if}
+
 	<!-- Warning Alert for <100 characters -->
 	{#if showWarning}
 		<div
-			class="p-4 rounded-md border border-amber-500 bg-amber-50 dark:bg-amber-950 dark:border-amber-700"
+			class="p-4 rounded-md border border-warning bg-warning/10"
 			data-testid="plot-premise-warning"
 			role="alert"
 		>

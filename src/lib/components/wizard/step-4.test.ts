@@ -70,7 +70,7 @@ describe('Step 4: Plot Premise', () => {
 		await user.paste(longText);
 
 		const counter = screen.getByTestId('character-counter');
-		expect(counter.className).toContain('text-amber');
+		expect(counter.className).toContain('text-warning');
 	});
 
 	it('changes counter color to red at 1950 characters', async () => {
@@ -105,7 +105,7 @@ describe('Step 4: Plot Premise', () => {
 		const nextButton = screen.getByTestId('next-button');
 		await user.click(nextButton);
 
-		expect(mockOnNext).toHaveBeenCalledWith({ plotPremise: validText });
+		expect(mockOnNext).toHaveBeenCalledWith({ plotPremise: validText, language: 'en' });
 	});
 
 	it('shows inline warning when Next clicked with <100 characters', async () => {
@@ -170,7 +170,7 @@ describe('Step 4: Plot Premise', () => {
 
 		await user.click(continueButton);
 
-		expect(mockOnNext).toHaveBeenCalledWith({ plotPremise: shortText });
+		expect(mockOnNext).toHaveBeenCalledWith({ plotPremise: shortText, language: 'en' });
 	});
 
 	it('calls onBack when Back button clicked', async () => {
@@ -191,5 +191,39 @@ describe('Step 4: Plot Premise', () => {
 		await user.click(cancelButton);
 
 		expect(mockOnCancel).toHaveBeenCalled();
+	});
+
+	it('renders language dropdown with correct options and default English', () => {
+		render(Step4, { props: getDefaultProps() });
+		const select = screen.getByTestId('content-language-select') as HTMLSelectElement;
+		expect(select).toBeDefined();
+		expect(select.value).toBe('en');
+		expect(select.getAttribute('aria-describedby')).toBe('contentLanguageNote');
+		const options = Array.from(select.options).map((o) => o.textContent);
+		expect(options).toContain('English');
+		expect(options).toContain('Spanish');
+		expect(options).toContain('French');
+		expect(options).toContain('German');
+		expect(options).toContain('Italian');
+		expect(options).toContain('Portuguese');
+		expect(options).toContain('Russian');
+		expect(options).toContain('Chinese (Simplified)');
+		expect(options).toContain('Japanese');
+		expect(options).toContain('Korean');
+		expect(options).toContain('Arabic');
+		expect(options).toContain('Hindi');
+		expect(options).toContain('Other');
+	});
+
+	it('updates language selection and passes it to onNext', async () => {
+		const user = userEvent.setup();
+		render(Step4, { props: getDefaultProps() });
+		const textarea = screen.getByTestId('plot-premise-textarea') as HTMLTextAreaElement;
+		await user.type(textarea, 'a'.repeat(120));
+		const select = screen.getByTestId('content-language-select') as HTMLSelectElement;
+		await user.selectOptions(select, 'ja');
+		const nextButton = screen.getByTestId('next-button');
+		await user.click(nextButton);
+		expect(mockOnNext).toHaveBeenCalledWith({ plotPremise: 'a'.repeat(120), language: 'ja' });
 	});
 });

@@ -2,6 +2,7 @@
 	import type { WizardStep6Data } from './types';
 	import type { WizardState } from './types';
 	import { invoke } from '@tauri-apps/api/core';
+	import { LANGUAGE_CODE_BY_LABEL, CONTENT_LANGUAGES } from './types';
 
 	interface Props {
 		onNext: (data: WizardStep6Data) => void;
@@ -42,11 +43,11 @@
 				words_per_chapter: wizardState.step3Data?.wordsPerChapter || null,
 				plot_premise: wizardState.step4Data?.plotPremise || null,
 				ai_provider: wizardState.step5Data?.aiProvider || null,
-				language: 'en', // Default language
+				language: wizardState.step4Data?.language ?? 'en',
 			};
 
 			// Call the Tauri command to create the project
-			const result = await invoke('create_project', { projectData });
+			const result = await invoke('create_project', { request: projectData });
 
 			// Project created successfully
 			const step6Data: WizardStep6Data = {};
@@ -66,6 +67,17 @@
 			onEditStep(stepNumber as 1 | 2 | 3 | 4 | 5);
 		}
 	}
+
+	const contentLanguageLabel = $derived.by(() => {
+		const code = wizardState.step4Data?.language;
+		if (!code) return null;
+		for (const label of CONTENT_LANGUAGES) {
+			if (LANGUAGE_CODE_BY_LABEL[label] === code) {
+				return label;
+			}
+		}
+		return code;
+	});
 </script>
 
 <div class="max-w-4xl mx-auto">
@@ -199,6 +211,10 @@
 					{:else}
 						<p class="font-medium">{wizardState.step4Data.plotPremise}</p>
 					{/if}
+				</div>
+				<div class="mt-3">
+					<p class="text-sm text-muted-foreground">Content Language</p>
+					<p class="font-medium">{contentLanguageLabel}</p>
 				</div>
 			</div>
 		{/if}

@@ -76,19 +76,6 @@ export interface WizardStep2Data {
 	tones: string[]; // Optional, multiple selections (empty array if none)
 }
 
-/**
- * Full wizard state for all 6 steps
- * Steps 2-6 data interfaces will be added in subsequent stories
- */
-export interface WizardState {
-	currentStep: 1 | 2 | 3 | 4 | 5 | 6;
-	step1Data: WizardStep1Data | null;
-	step2Data: WizardStep2Data | null; // Story 2.4
-	step3Data: WizardStep3Data | null; // Story 2.5
-	step4Data: WizardStep4Data | null; // Story 2.6
-	step5Data: WizardStep5Data | null; // Story 2.7
-	// step6Data: WizardStep6Data | null; // Story 2.8
-}
 
 // Step 3: Story Structure data structures
 export const POV_OPTIONS = [
@@ -132,7 +119,42 @@ export interface WizardStep3Data {
 // Step 4: Plot Premise data structure
 export interface WizardStep4Data {
 	plotPremise: string;
+	language: string;
 }
+
+export const CONTENT_LANGUAGES = [
+	'English',
+	'Spanish',
+	'French',
+	'German',
+	'Italian',
+	'Portuguese',
+	'Russian',
+	'Chinese (Simplified)',
+	'Japanese',
+	'Korean',
+	'Arabic',
+	'Hindi',
+	'Other'
+] as const;
+
+export type ContentLanguageLabel = typeof CONTENT_LANGUAGES[number];
+
+export const LANGUAGE_CODE_BY_LABEL: Record<ContentLanguageLabel, string> = {
+	English: 'en',
+	Spanish: 'es',
+	French: 'fr',
+	German: 'de',
+	Italian: 'it',
+	Portuguese: 'pt',
+	Russian: 'ru',
+	'Chinese (Simplified)': 'zh-CN',
+	Japanese: 'ja',
+	Korean: 'ko',
+	Arabic: 'ar',
+	Hindi: 'hi',
+	Other: 'other'
+};
 
 // Step 5: AI Provider Configuration data structure
 export interface WizardStep5Data {
