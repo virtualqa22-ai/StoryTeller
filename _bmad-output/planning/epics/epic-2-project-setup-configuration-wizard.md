@@ -258,16 +258,16 @@ So that I can ensure everything is configured correctly.
 **Given** the user is satisfied with the settings on the review page
 **When** the user clicks "Create Project"
 **Then** a loading state is displayed with the message "Creating your project..."
-**And** the following operations occur: (1) A new project record is inserted into the database, (2) A project file is created at `~/Documents/StoryTeller/Projects/{project_title}.storyteller`, (3) The project file is initialized with the wizard data, (4) The Story Bible is initialized with empty structure, (5) The Qdrant collection is created for this project
+**And** the following operations occur: (1) A new project record is inserted into the database, (2) A project file is created at `~/Documents/StoryTeller/Projects/{project_title}.storyteller`, (3) The project file is initialized with the wizard data
 **And** if any operation fails, the user sees a specific error message with recovery options
 **And** if all operations succeed, the wizard closes and the main workspace opens with the new project
+**Note:** Story Bible and Qdrant initialization will be implemented in later epics per architectural documentation
 
 **Given** the project is created successfully
 **When** the main workspace opens
 **Then** the project title is displayed in the title bar
 **And** the user sees an empty chapter list with a "Create First Chapter" button
 **And** a welcome toast notification is displayed: "Project created successfully! Ready to start writing."
-
 ### Story 2.9: Implement Language Selection [Tier 2]
 
 As an author,
@@ -325,4 +325,3 @@ So that I can learn how StoryTeller works before creating my own novel.
 **And** the user can still create a project normally
 
 ---
-

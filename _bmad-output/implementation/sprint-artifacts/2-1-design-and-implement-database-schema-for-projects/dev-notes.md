@@ -856,7 +856,7 @@ cargo test -- --nocapture # Show output
 
 **This Story Does NOT:**
 - Implement frontend UI (Story 2.2, 2.3-2.8)
-- Create project files on disk (Story 2.8)
+- Create project files on disk (Story 2.8 - now implemented)
 - Implement wizard flow (Story 2.3-2.8)
 - Add foreign key relationships to other tables (Future epics)
 

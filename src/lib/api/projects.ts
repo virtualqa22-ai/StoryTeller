@@ -139,3 +139,58 @@ export async function deleteProject(id: number): Promise<void> {
 	const sanitizedId = sanitizeNumber(id, 1, 1, Number.MAX_SAFE_INTEGER);
 	return invoke<void>('delete_project', { id: sanitizedId });
 }
+
+/**
+ * Create project from wizard data
+ * @param projectData - The project data from the wizard
+ * @returns Promise<Project>
+ * @example
+ * ```typescript
+ * const newProject = await createProject({
+ *   title: 'My New Novel',
+ *   author_name: 'John Doe',
+ *   // ... other fields
+ * });
+ * console.log('Project created:', newProject.title);
+ * ```
+ */
+export interface CreateProjectRequest {
+	title: string;
+	author_name?: string | null;
+	pen_name?: string | null;
+	tagline?: string | null;
+	genre?: string | null;
+	subgenres?: string[] | null;
+	target_audience?: string | null;
+	tones?: string[] | null;
+	point_of_view?: string | null;
+	story_framework?: string | null;
+	chapter_count?: number | null;
+	words_per_chapter?: number | null;
+	plot_premise?: string | null;
+	ai_provider?: string | null;
+	language: string;
+}
+
+export async function createProject(projectData: CreateProjectRequest): Promise<Project> {
+	// Sanitize input data
+	const sanitizedData = {
+		title: sanitizeString(projectData.title),
+		author_name: projectData.author_name ? sanitizeString(projectData.author_name) : null,
+		pen_name: projectData.pen_name ? sanitizeString(projectData.pen_name) : null,
+		tagline: projectData.tagline ? sanitizeString(projectData.tagline) : null,
+		genre: projectData.genre ? sanitizeString(projectData.genre) : null,
+		subgenres: projectData.subgenres ? projectData.subgenres.map(s => sanitizeString(s)) : null,
+		target_audience: projectData.target_audience ? sanitizeString(projectData.target_audience) : null,
+		tones: projectData.tones ? projectData.tones.map(s => sanitizeString(s)) : null,
+		point_of_view: projectData.point_of_view ? sanitizeString(projectData.point_of_view) : null,
+		story_framework: projectData.story_framework ? sanitizeString(projectData.story_framework) : null,
+		chapter_count: projectData.chapter_count ? sanitizeNumber(projectData.chapter_count, 0, 0, 10000) : null,
+		words_per_chapter: projectData.words_per_chapter ? sanitizeNumber(projectData.words_per_chapter, 0, 0, 100000) : null,
+		plot_premise: projectData.plot_premise ? sanitizeString(projectData.plot_premise, 5000) : null,
+		ai_provider: projectData.ai_provider ? sanitizeString(projectData.ai_provider) : null,
+		language: sanitizeString(projectData.language, 10)
+	};
+
+	return invoke<Project>('create_project', { request: sanitizedData });
+}

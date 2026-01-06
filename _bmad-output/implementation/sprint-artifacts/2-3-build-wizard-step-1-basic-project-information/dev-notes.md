@@ -622,7 +622,7 @@ test.describe('Wizard Step 1', () => {
 
 ## Anti-Patterns (Do NOT Implement)
 
-- ❌ **No database writes** - Data persistence is Story 2.8
+- ❌ **No database writes** - Data persistence is Story 2.8 (now implemented)
 - ❌ **No new Rust commands** - Frontend-only story
 - ❌ **No route navigation** - Use Dialog modal, not goto('/create-project')
 - ❌ **No localStorage** - Wizard state in component only

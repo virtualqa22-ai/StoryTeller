@@ -138,10 +138,17 @@ impl Project {
             }
         }
 
-        // Validate plot premise if present
+        // Validate plot premise if present - increased limit for larger text content
         if let Some(plot_premise) = &self.plot_premise {
-            if plot_premise.len() > 2000 {
-                return Err("Plot premise must be 2000 characters or less".to_string());
+            if plot_premise.len() > 10000 {  // Increased from 2000 to 10000 for larger text content
+                return Err("Plot premise must be 10000 characters or less".to_string());
+            }
+            // Additional validation: check for excessive whitespace or control characters
+            let control_char_count: usize = plot_premise.chars()
+                .filter(|c| c.is_control() && !c.is_whitespace())
+                .count();
+            if control_char_count > 0 {
+                return Err("Plot premise contains invalid control characters".to_string());
             }
         }
 

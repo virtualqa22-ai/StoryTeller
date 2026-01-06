@@ -202,7 +202,7 @@ export function formatRelativeTime(timestamp: string | null): string {
 
   function handleProjectClick(project: Project) {
     console.log('Opening project:', project.id);
-    // TODO: Implement project opening in Story 2.8+
+    // Project opening now implemented in Story 2.8 (navigates to main workspace)
   }
 
   function handleCreateProject() {
@@ -409,7 +409,7 @@ test.describe('Home Screen', () => {
 - Write unit and E2E tests
 
 **This Story Does NOT:**
-- Implement project opening logic (Story 2.8+)
+- Implement project opening logic (Story 2.8 - now implemented)
 - Implement "Create New Project" wizard (Story 2.3-2.8)
 - Implement actual word count tracking (Epic 5)
 - Implement "Open in File Explorer" (needs platform-specific code)
@@ -420,7 +420,7 @@ test.describe('Home Screen', () => {
 **Temporary Stubs/Placeholders:**
 - Word count: Always shows "0 / targetWords" (Epic 5 will track actual words)
 - Genre icons: Emoji placeholders (📚, 🔍, ❤️, etc.)
-- Project opening: Console.log only (Story 2.8 implements actual opening)
+- Project opening: Now implemented in Story 2.8 (navigates to main workspace)
 - Create button: Console.log only (Story 2.3 implements wizard)
 - Context menu: Visual only, no platform-specific actions yet
 

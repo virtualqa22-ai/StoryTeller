@@ -52,7 +52,7 @@ development_status:
   epic-0: done
   0-1-e2e-testing-infrastructure-and-architecture-updates: done
 
-  epic-2: in-progress
+  epic-2: done
   2-0-configure-sqlite-database-with-migrations: done
   2-1-design-and-implement-database-schema-for-projects: done
   2-2-build-home-screen-with-recent-projects-list: done
@@ -63,7 +63,7 @@ development_status:
   2-7-build-wizard-step-5-ai-provider-configuration: done
   2-8-build-wizard-step-6-review-and-create: done
   2-9-implement-language-selection: done
-  2-10-add-welcome-screen-with-optional-demo-project: backlog
+  2-10-add-welcome-screen-with-optional-demo-project: done
   epic-2-retrospective: optional
 
   epic-3: backlog

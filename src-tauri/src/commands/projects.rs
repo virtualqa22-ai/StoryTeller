@@ -109,29 +109,98 @@ pub async fn create_project(
 }
 
 fn sanitize_filename(filename: &str) -> String {
-    // Remove or replace invalid characters for file names
-    filename
+    // Trim whitespace and handle empty input
+    let trimmed = filename.trim();
+    if trimmed.is_empty() {
+        return "unnamed_project".to_string();
+    }
+    
+    // Remove or replace invalid characters for file names across different operating systems
+    let sanitized: String = trimmed
         .chars()
         .map(|c| match c {
-            '/' | '\\' | '<' | '>' | ':' | '"' | '|' | '?' | '*' | '^' => '_',
+            // Windows reserved characters
+            '/' | '\\' | '<' | '>' | ':' | '"' | '|' | '?' | '*' => '_',
+            // Additional potentially problematic characters
+            '^' | '[' | ']' | '{' | '}' | '`' | '~' | '@' | '#' | '%' | '&' | '+' | '=' | ',' => '_',
+            // Control characters
             c if c.is_control() => '_',
-            _ => c,
+            // Non-breaking space and other whitespace variations
+            '\u{00A0}' | '\u{2000}'..='\u{200F}' | '\u{2028}'..='\u{2029}' => ' ',
+            // Replace other potentially problematic characters
+            c => c,
         })
-        .collect()
+        .collect();
+    
+    // Remove leading/trailing dots and spaces which are problematic on Windows
+    let mut result = sanitized.trim_matches(&['.', ' ']).to_string();
+    
+    // If result is empty after trimming, return a default value
+    if result.is_empty() {
+        result = "unnamed_project".to_string();
+    }
+    
+    // Ensure the filename is not one of the Windows reserved names
+    let lower_result = result.to_lowercase();
+    if is_windows_reserved_name(&lower_result) {
+        result = format!("project_{}", result);
+    }
+    
+    // Limit the length to avoid file system issues (most file systems have 255 char limits)
+    if result.len() > 100 {
+        result.truncate(100);
+        // Ensure we don't cut in the middle of a multibyte character
+        while result.len() < sanitized.len() && !result.is_char_boundary(result.len()) {
+            result.pop();
+        }
+    }
+    
+    result
+}
+
+// Helper function to check if a filename is a Windows reserved name
+fn is_windows_reserved_name(name: &str) -> bool {
+    matches!(name, 
+        "con" | "prn" | "aux" | "nul" | 
+        "com1" | "com2" | "com3" | "com4" | "com5" | "com6" | "com7" | "com8" | "com9" | 
+        "lpt1" | "lpt2" | "lpt3" | "lpt4" | "lpt5" | "lpt6" | "lpt7" | "lpt8" | "lpt9"
+    )
 }
 
 fn create_project_file(file_path: &str, project: &NewProject) -> Result<(), std::io::Error> {
-    // Create a basic project file structure
+    // Sanitize project content to prevent injection attacks
+    let sanitized_title = sanitize_json_string(&project.title);
+    let sanitized_author = sanitize_json_string(&project.author_name.as_deref().unwrap_or(""));
+    let sanitized_plot_premise = sanitize_json_string(&project.plot_premise.as_deref().unwrap_or(""));
+    
+    // Create a basic project file structure with sanitized content
     let project_content = format!(
-        r#"{{"title": "{}", "author": "{}", "plotPremise": "{}", "created": "{}"}}"#,
-        project.title,
-        project.author_name.as_deref().unwrap_or(""),
-        project.plot_premise.as_deref().unwrap_or(""),
-        chrono::Utc::now().to_rfc3339()
+        r#"{{"title": "{}", "author": "{}", "plotPremise": "{}", "created": "{}", "language": "{}", "genre": "{}", "target_audience": "{}", "point_of_view": "{}", "story_framework": "{}", "chapter_count": {}}}"#,
+        sanitized_title,
+        sanitized_author,
+        sanitized_plot_premise,
+        chrono::Utc::now().to_rfc3339(),
+        sanitize_json_string(&project.language),
+        sanitize_json_string(&project.genre.as_deref().unwrap_or("")),
+        sanitize_json_string(&project.target_audience.as_deref().unwrap_or("")),
+        sanitize_json_string(&project.point_of_view.as_deref().unwrap_or("")),
+        sanitize_json_string(&project.story_framework.as_deref().unwrap_or("")),
+        project.chapter_count.unwrap_or(0)
     );
     
     fs::write(file_path, project_content)?;
     Ok(())
+}
+
+// Helper function to sanitize strings for JSON output
+fn sanitize_json_string(input: &str) -> String {
+    input
+        .replace('\\', "\\\\")  // Escape backslashes first
+        .replace('"', "\\\"")   // Escape quotes
+        .replace('\n', "\\n")   // Escape newlines
+        .replace('\r', "\\r")   // Escape carriage returns
+        .replace('\t', "\\t")   // Escape tabs
+        .replace('\0', "\\u0000") // Escape null characters
 }
 
 impl From<NewProject> for Project {

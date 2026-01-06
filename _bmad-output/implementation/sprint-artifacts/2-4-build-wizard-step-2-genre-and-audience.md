@@ -291,7 +291,7 @@ CREATE TABLE projects (
 );
 ```
 
-**Note:** The database stores `subgenre` (singular) and `tone` (singular) as TEXT fields. When creating the project (Story 2.8), you'll need to convert arrays to comma-separated strings:
+**Note:** The database stores `subgenre` (singular) and `tone` (singular) as TEXT fields. When creating the project (Story 2.8 - now implemented), you'll need to convert arrays to comma-separated strings:
 - `subgenres: ['High Fantasy', 'Epic Fantasy']` → `"High Fantasy, Epic Fantasy"`
 - `tones: ['Dark', 'Serious']` → `"Dark, Serious"`
 
@@ -467,7 +467,7 @@ None (YOLO mode - story created without prior debug session).
 - File structure follows project conventions
 - Svelte 5 runes usage specified ($state, $props, $derived)
 - UI component selection strategy documented
-- Data persistence flow outlined for Story 2.8 integration
+- Data persistence flow outlined for Story 2.8 (now implemented)
 
 **Implementation Phase:**
 - ✅ Step 2 component created with all required fields (Genre, Subgenre, Target Audience, Tone)
