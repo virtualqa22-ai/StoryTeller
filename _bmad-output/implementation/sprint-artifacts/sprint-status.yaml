@@ -64,7 +64,16 @@ development_status:
   2-8-build-wizard-step-6-review-and-create: done
   2-9-implement-language-selection: done
   2-10-add-welcome-screen-with-optional-demo-project: done
-  epic-2-retrospective: optional
+  epic-2-retrospective: done
+
+  epic-13: backlog
+  13-1-implement-global-api-key-gate: backlog
+  13-2-implement-generative-character-creation-in-wizard: backlog
+  13-3-implement-generative-setting-creation-in-wizard: backlog
+  13-4-implement-generative-chapter-outline-in-wizard: backlog
+  13-5-refactor-wizard-step-order-and-state-management: backlog
+  13-6-implement-global-settings-access-for-api-key-management: backlog
+  epic-13-retrospective: optional
 
   epic-3: backlog
   3-1-design-ai-provider-database-schema: backlog

@@ -29,6 +29,16 @@ Authors can create new novel projects through a guided onboarding wizard, config
 - Optional demo project shows features
 - Can skip API setup and add later
 
+### Epic 13: Refactor Wizard for Generative Flow
+Refactor the current manual project wizard to align with Requirement.txt, implementing the AI API Key gate at the start and integrating generative steps (characters, settings, chapters) directly into the wizard workflow.
+
+**FRs covered:** FR14-FR21 (Generative Steps in Wizard), FR1-FR2 (Revised Flow)
+
+**User Value:**
+- True "AI-First" onboarding experience
+- Immediate value demonstration via generated content
+- Frictionless setup with global API key gate
+
 ### Epic 3: Multi-AI Provider Integration
 Authors can securely connect to multiple AI providers (OpenAI, Claude, Gemini, Deepseek, Yandex, custom), switch between them when needed, and have their API keys stored securely in OS credential storage. Clear offline indicators show when AI features are unavailable.
 
@@ -39,6 +49,16 @@ Authors can securely connect to multiple AI providers (OpenAI, Claude, Gemini, D
 - Automatic failover if provider unavailable
 - Secure credential storage (OS keychain)
 - Clear error messages for troubleshooting
+
+### Epic 13: Refactor Wizard for Generative Flow
+Refactor the current manual project wizard to align with Requirement.txt, implementing the AI API Key gate at the start and integrating generative steps (characters, settings, chapters) directly into the wizard workflow.
+
+**FRs covered:** FR14-FR21 (Generative Steps in Wizard), FR1-FR2 (Revised Flow)
+
+**User Value:**
+- True "AI-First" onboarding experience
+- Immediate value demonstration via generated content
+- Frictionless setup with global API key gate
 
 ### Epic 4: Story Bible - Core Storage & Management
 Authors can create and manage their Story Bible—a persistent knowledge base of characters, settings, world rules, themes, and plot threads—organizing everything in one place with categories and favorites. They can also apply Story Bible changes retroactively to previous chapters.
@@ -156,4 +176,3 @@ Product team can collect opt-in anonymous feedback, track quality metrics, valid
 - Privacy-first: opt-in, anonymous, no manuscript content
 
 ---
-
